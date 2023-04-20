@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form method="post" action="/previous-licence">
+
+        <h1 class="govuk-heading-l">What preventative measures don't you intend to try?</h1>
+      
+        <p class="govuk-body">
+          You have told us you're not going to try the following preventative measures:​
+        </p>
+  
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            Moving stock/feed
+          </li>
+          <li>
+            Habitat management (including removal of nesting/burrowing/roosting opportunities)
+          </li>
+        </ul>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="damage-details">Explain why below</label>
+          <textarea class="govuk-textarea" id="damage-details" name="damage-details" rows="5" aria-describedby="damage-details-hint"></textarea>
+        </div>
+
+    
+        {{ govukButton({
+          text: "Continue",
+          isStartButton: false,
+          preventDoubleClick: true
+        }) }}
+    
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

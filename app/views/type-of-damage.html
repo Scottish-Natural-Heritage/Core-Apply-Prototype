@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      <form method="post" action="/location-of-damage">
+
+{% set damageOptions = [  
+  { value: "damage-to-livestock", text: "Damage to livestock" },
+  { value: "damage-to-foodstuffs", text: "Damage to foodstuffs for livestock" },
+  { value: "damage-to-crops", text: "Damage to crops" },
+  { value: "damage-to-vegetables", text: "Damage to vegetables" },
+  { value: "damage-to-fruit", text: "Damage to fruit" },
+  { value: "damage-to-growing-timber", text: "Damage to growing timber" },
+  { value: "damage-to-fisheries", text: "Damage to fisheries" },
+  { value: "damage-to-inland-water", text: "Damage to inland water" },
+  { value: "damage-to-other-property", text: "Damage to any other form of property" },
+  { value: "damage-to-land", text: "Damage to land" },
+  { value: "damage-to-poultry", text: "Damage to poultry" }
+  
+  ] %}
+
+{% if data['speciesSelection'] == 'ravens' %}
+  {% set radioOptions = [damageOptions[0], damageOptions[1]] %}
+{% elif data['speciesSelection'] == 'geese' %}
+  {% set radioOptions = [damageOptions[2]] %}
+{% elif data['speciesSelection'] == 'gulls' %}
+  {% set radioOptions = [damageOptions[0], damageOptions[1]] %}
+{% elif data['speciesSelection'] == 'fish-eating birds' %}
+  {% set radioOptions = [damageOptions[6]] %}
+{% elif data['speciesSelection'] == 'other birds' %}
+  {% set radioOptions = [damageOptions[0], damageOptions[1], damageOptions[2], damageOptions[3], damageOptions[4], damageOptions[5], damageOptions[6], damageOptions[7]] %}
+{% elif data['speciesSelection'] == 'badgers' %}
+  {% set radioOptions = [damageOptions[2], damageOptions[8], damageOptions[9], damageOptions[10]] %}
+{% elif data['speciesSelection'] == 'hares' %}
+  {% set radioOptions = [damageOptions[2], damageOptions[3], damageOptions[4], damageOptions[5]] %} 
+{% elif data['speciesSelection'] == 'beavers' %}
+  {% set radioOptions = [damageOptions[2], damageOptions[3], damageOptions[4], damageOptions[5], damageOptions[8]] %}
+{% elif data['speciesSelection'] == 'other animals' %}
+  {% set radioOptions = [damageOptions[0], damageOptions[1], damageOptions[2], damageOptions[3], damageOptions[4], damageOptions[5], damageOptions[6], damageOptions[8]] %}
+  {% endif %}
+  
+
+{{ govukRadios({
+  name: "damage-type",
+  fieldset: {
+    legend: {
+      text: "What type of damage is occurring?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+ 
+  items: radioOptions
+}) }}
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="damage-details">Provide details of the damage experienced</label>
+  <textarea class="govuk-textarea" id="damage-details" name="damage-details" rows="5" aria-describedby="damage-details-hint">
+I have been experiencing attacks at my farm by ravens for the past three weeks. I have also noticed them interacting with the local gulls, which makes me suspicious that they may be planning something.
+  </textarea>
+</div>
+
+
+{{ govukButton({
+  text: "Continue",
+  preventDoubleClick: true
+}) }}
+
+</form>
+    
+    </div>
+  </div>
+
+{% endblock %}

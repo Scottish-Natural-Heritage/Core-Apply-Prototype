@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">About the licence holder</h1>
+
+      <p class="govuk-body">
+        The licence holder needs to be the person who is experiencing
+        the damage to livestock or their feed. Typically they will be the
+        owner or tenant of the farm.
+      </p>
+    
+      <h2 class="govuk-heading-m">Applying on behalf of someone else, for example: land agents or factors</h2>
+    
+      <p class="govuk-body">
+        If the licence holder is your client or tenant you can apply
+        for a licence on their behalf. If so you must ask for their
+        permission to:
+      </p>
+    
+      <ul class="govuk-list govuk-list--bullet">
+          <li>apply on their behalf; and</li>
+          <li>provide their personal details</li>
+      </ul>
+    
+      <p class="govuk-body">After you have completed the application we'll email them.</p>
+    
+      <p class="govuk-body">
+        If they confirm that they will be the licence holder, we'll
+        process the application.
+      </p>
+    
+      <form method="post" action="/licence-holder">
+    
+        {{ govukButton({
+          text: "Continue",
+          preventDoubleClick: true
+        }) }}
+    
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+   {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- <h1 class="govuk-heading-l">
+        How many {{ data['speciesSelection'].charAt(0).toUpperCase() + data['speciesSelection'].slice(1) }} are causing or likely to cause problems?
+      </h1> -->
+
+      <h1 class="govuk-heading-l">
+        How many {{ data['speciesSelection'] }} are causing or likely to cause problems?
+      </h1>
+
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+      {% set numberOptions = [  
+  {    value: "pink-footed-goose",    text: "Pink-footed goose"  },  
+  {    value: "barnacle-goose",    text: "Barnacle goose"  },  
+  {    value: "great-black-backed-gull",    text: "Great black-backed gull"  },  
+  {    value: "herring-gull",    text: "Herring gull"  },  
+  {    value: "lesser-black-backed-gull",    text: "Lesser black-backed gull"  },  
+  {    value: "common-gull",    text: "Common gull"  },  
+  {    value: "black-headed-gull",    text: "Black-headed gull"  },  
+  {    value: "cormorant",    text: "Cormorant"  },  
+  {    value: "goosander",    text: "Goosander"  },  
+  {    value: "grey-heron",    text: "Grey heron"  },  
+  {    value: "red-breasted-merganser",    text: "Red breasted merganser"  },  
+  {    value: "brown-hare",    text: "Brown hare"  },  
+  {    value: "mountain-hare",    text: "Mountain hare"  }
+  ] %}
+
+  
+
+      {{ govukInput({
+        label: {
+          text: "Number of " + data['speciesSelection']
+        },
+        id: "num-of-species",
+        name: "num-of-species",
+        value: data['num-of-species']
+      }) }}
+
+      <form method="post" action="/type-of-damage">
+    
+        {{ govukButton({
+          text: "Continue",
+          preventDoubleClick: true
+        }) }}
+    
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

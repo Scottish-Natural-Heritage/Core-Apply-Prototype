@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+      <form method="post" action="/number-of-species">
+
+{% set speciesOptions = [  
+  {    value: "pink-footed-goose",    text: "Pink-footed goose"  },  
+  {    value: "barnacle-goose",    text: "Barnacle goose"  },  
+  {    value: "great-black-backed-gull",    text: "Great black-backed gull"  },  
+  {    value: "herring-gull",    text: "Herring gull"  },  
+  {    value: "lesser-black-backed-gull",    text: "Lesser black-backed gull"  },  
+  {    value: "common-gull",    text: "Common gull"  },  
+  {    value: "black-headed-gull",    text: "Black-headed gull"  },  
+  {    value: "cormorant",    text: "Cormorant"  },  
+  {    value: "goosander",    text: "Goosander"  },  
+  {    value: "grey-heron",    text: "Grey heron"  },  
+  {    value: "red-breasted-merganser",    text: "Red breasted merganser"  },  
+  {    value: "brown-hare",    text: "Brown hare"  },  
+  {    value: "mountain-hare",    text: "Mountain hare"  }
+  ] %}
+
+{% if data['speciesSelection'] == 'geese' %}
+  {% set checkboxOptions = [speciesOptions[0], speciesOptions[1]] %}
+{% elif data['speciesSelection'] == 'gulls' %}
+  {% set checkboxOptions = [speciesOptions[2], speciesOptions[3], speciesOptions[4], speciesOptions[5], speciesOptions[6]] %}
+{% elif data['speciesSelection'] == 'fish-eating birds' %}
+  {% set checkboxOptions = [speciesOptions[7], speciesOptions[8], speciesOptions[9], speciesOptions[10]] %}
+{% elif data['speciesSelection'] == 'hares' %}
+  {% set checkboxOptions = [speciesOptions[11], speciesOptions[12]] %}
+
+  {% endif %}
+
+{{ govukCheckboxes({
+  name: "sub-species-selection",
+  fieldset: {
+    legend: {
+      text: "What species of " + data['speciesSelection'] + " do you require?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: checkboxOptions
+}) }}
+
+{{ govukButton({
+  text: "Continue",
+  preventDoubleClick: true
+}) }}
+
+</form>
+    
+    </div>
+  </div>
+
+{% endblock %}

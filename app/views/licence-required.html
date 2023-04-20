@@ -1,0 +1,153 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Online licensing system</h1>
+
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{{ govukSelect({
+  id: "licence-required",
+  name: "licence-required",
+  label: {
+    text: "Select the licenced purpose you require"
+  },
+  items: [
+    {
+      value: "select",
+      text: "Click here to select",
+      selected: true
+    },{
+      value: "prevent-serious-damage",
+      text: "Prevent serious damage"
+    },
+    {
+      value: "public-health-and-safety",
+      text: "Public health and safety"
+    },
+    {
+      value: "air-safety",
+      text: "Air safety"
+    }
+  ]
+}) }}
+
+<div id="prevent-serious-damage-info" style="display:none;">
+  <h2 class="govuk-heading-m">Do you need a prevent serious damage licence?</h2>
+  <p class="govuk-body">If you need to control wild birds to prevent serious damage to livestock, foodstuffs for livestock, crops, vegetables, fruit, growing timber, fisheries or inland waters. ​</p>
+</div>
+
+<div id="public-health-and-safety-info" style="display:none;">
+  <h2 class="govuk-heading-m">Do you need a public health and safety licence?</h2>
+  <p class="govuk-body">Where wild birds pose a threat to public health or safety and there is no satisfactory alternative, we may issue a licence to permit certain actions that might otherwise constitute an offence.  ​</p>
+</div>
+
+<div id="air-safety-info" style="display:none;">
+  <h2 class="govuk-heading-m">Do you need a air safety licence?</h2>
+  <p class="govuk-body">Where wild birds pose a threat to air safety and there is no satisfactory alternative, we may issue a licence to permit certain actions that might otherwise constitute an offence.</p>
+</div>
+
+<script>
+  var licenceSelect = document.getElementById('licence-required');
+  var preventSeriousDamageInfo = document.getElementById('prevent-serious-damage-info');
+  var publicHealthAndSafetyInfo = document.getElementById('public-health-and-safety-info');
+  var airSafetyInfo = document.getElementById('air-safety-info');
+  var form = document.querySelector('form');
+
+  licenceSelect.addEventListener('change', function() {
+    if (licenceSelect.value === 'prevent-serious-damage') {
+      preventSeriousDamageInfo.style.display = 'block';
+      publicHealthAndSafetyInfo.style.display = 'none';
+      airSafetyInfo.style.display = 'none';
+      form.action = '/prevent-serious-damage';
+
+    } else if (licenceSelect.value === 'public-health-and-safety') {
+      preventSeriousDamageInfo.style.display = 'none';
+      publicHealthAndSafetyInfo.style.display = 'block';
+      airSafetyInfo.style.display = 'none';
+      form.action = '/public-health-and-safety';
+
+    } else if (licenceSelect.value === 'air-safety') {
+      preventSeriousDamageInfo.style.display = 'none';
+      publicHealthAndSafetyInfo.style.display = 'none';
+      airSafetyInfo.style.display = 'block';
+      form.action = '/air-safety';
+
+    } else {
+      preventSeriousDamageInfo.style.display = 'none';
+      publicHealthAndSafetyInfo.style.display = 'none';
+      airSafetyInfo.style.display = 'none';
+      form.action = '#';
+    }
+
+  });
+
+  form.addEventListener('submit', function(e) {
+  if (licenceSelect.value === 'prevent-serious-damage' && preventSeriousDamageInfo.value.trim() === '') {
+    e.preventDefault();
+    alert('Please enter the required information.');
+  } else if (licenceSelect.value === 'public-health-and-safety' && publicHealthAndSafetyInfo.value.trim() === '') {
+    e.preventDefault();
+    alert('Please enter the required information.');
+  } else if (licenceSelect.value === 'air-safety' && airSafetyInfo.value.trim() === '') {
+    e.preventDefault();
+    alert('Please enter the required information.');
+  }
+
+  // Assuming licenceSelect is a select element
+var licenceSelect = document.getElementById('licenceSelect');
+
+if (licenceSelect.value === 'prevent-serious-damage') {
+  var selection = 'Prevent Serious Damage';
+  // Store the result in session storage
+  sessionStorage.setItem('selection', selection);
+} else if (licenceSelect.value === 'public-health-and-safety') {
+  var selection = "public-health-and-safety";
+  sessionStorage.setItem('selection', selection);
+} else if (licenceSelect.value === 'air-safety') {
+  var selection = "air-safety";
+  sessionStorage.setItem('selection', selection);
+}
+});
+</script>
+
+<form method="post" onsubmit="event.preventDefault(); 
+if (licenceSelect.value === 'prevent-serious-damage') {
+  window.location.href = '/prevent-serious-damage';
+} else if (licenceSelect.value === 'public-health-and-safety') {
+  window.location.href = '/public-health-and-safety';
+} else if (licenceSelect.value === 'air-safety') {
+  window.location.href = '/air-safety';
+}">
+  {{ govukButton({
+    text: "Continue",
+    isStartButton: false,
+    preventDoubleClick: true,
+    id: "start-button"
+  }) }}
+</form>
+
+    
+    
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+    </div>
+  </div>
+
+{% endblock %}

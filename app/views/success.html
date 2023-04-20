@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">Application complete</h1>
+        <div class="govuk-panel__body">
+          Your reference number<br><strong>NS-RSD-12563</strong>
+        </div>
+      </div>
+
+      <p>
+        We have sent you and the applicant a confirmation email.
+      </p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p></p>
+      <p></p>
+      <p>If your application is approved, we will issue you with a licence and send a copy to the applicant.
+        <br><br>
+      We may get in touch for further information or to arrange a site visit. We may pass your application to SGRPID who may contact you to discuss or arrange a site visit.</p>
+
+      <br><br>
+      <p class="govuk-body">
+        If you need assistance with this service, contact the NatureScot Licensing Team.
+      </p>
+    
+      <h3 class="govuk-heading-s">
+          Email
+      </h3>
+    
+      <ul class="govuk-list">
+        <li>
+          <a class="govuk-link" href="mailto:licensing@nature.scot">
+            licensing@nature.scot
+          </a>
+        </li>
+        <li>
+          We aim to respond within 2 working days.
+        </li>
+      </ul>
+    
+      <h3 class="govuk-heading-s">
+        Telephone
+      </h3>
+    
+      <ul class="govuk-list">
+        <li>
+          01463 725 364
+        </li>
+        <li>
+          Voicemail service. We aim to respond within 2 working days.
+        </li>
+      </ul>
+    
+      <p class="govuk-body">
+        <a class="govuk-link" href="https://www.gov.uk/call-charges" target="_blank">
+          Find out about call charges
+        </a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

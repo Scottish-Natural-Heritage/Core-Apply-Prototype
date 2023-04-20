@@ -1,0 +1,84 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="/preventative-measures-intend">
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "preventative_measures-tried",
+  fieldset: {
+    legend: {
+      text: "What preventative measures have you tried?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: [
+    {
+      value: "physical_prevention",
+      text: "Physical prevention",
+      checked: true
+    },
+    {
+      value: "removal_of_attractants",
+      text: "Removal of attractants",
+      checked: true
+    },
+    {
+      value: "disturbance",
+      text: "Disturbance",
+      checked: true
+    },
+    {
+      value: "scaring_devices",
+      text: "Scaring devices (static or automatic, visual or audio)"
+    },
+    {
+      value: "moving_stock_feed",
+      text: "Moving stock/feed"
+    },
+    {
+      value: "habitat_management",
+      text: "Habitat management (including removal of nesting/burrowing/roosting opportunities)"
+    },
+    {
+      value: "other",
+      text: "Other"
+    }
+  ]
+}) }}
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="damage-details">Provide details of the measures used including where they were used, their frequency and any success they have had had</label>
+  <textarea class="govuk-textarea" id="damage-details" name="damage-details" rows="5" aria-describedby="damage-details-hint"></textarea>
+</div>
+
+    
+        {{ govukButton({
+          text: "Continue",
+          isStartButton: false,
+          preventDoubleClick: true
+        }) }}
+    
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
