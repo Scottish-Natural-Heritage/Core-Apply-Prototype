@@ -73,19 +73,19 @@
       preventSeriousDamageInfo.style.display = 'block';
       publicHealthAndSafetyInfo.style.display = 'none';
       airSafetyInfo.style.display = 'none';
-      form.action = '/before-you-start';
+      form.action = '/prevent-serious-damage';
 
     } else if (licenceSelect.value === 'public-health-and-safety') {
       preventSeriousDamageInfo.style.display = 'none';
       publicHealthAndSafetyInfo.style.display = 'block';
       airSafetyInfo.style.display = 'none';
-      form.action = '/before-you-start';
+      form.action = '/public-health-and-safety';
 
     } else if (licenceSelect.value === 'air-safety') {
       preventSeriousDamageInfo.style.display = 'none';
       publicHealthAndSafetyInfo.style.display = 'none';
       airSafetyInfo.style.display = 'block';
-      form.action = '/before-you-start';
+      form.action = '/air-safety';
 
     } else {
       preventSeriousDamageInfo.style.display = 'none';
@@ -127,11 +127,11 @@ if (licenceSelect.value === 'prevent-serious-damage') {
 
 <form method="post" onsubmit="event.preventDefault(); 
 if (licenceSelect.value === 'prevent-serious-damage') {
-  window.location.href = '/before-you-start';
+  window.location.href = '/prevent-serious-damage';
 } else if (licenceSelect.value === 'public-health-and-safety') {
-  window.location.href = '/before-you-start';
+  window.location.href = '/public-health-and-safety';
 } else if (licenceSelect.value === 'air-safety') {
-  window.location.href = '/before-you-start';
+  window.location.href = '/air-safety';
 }">
   {{ govukButton({
     text: "Continue",
