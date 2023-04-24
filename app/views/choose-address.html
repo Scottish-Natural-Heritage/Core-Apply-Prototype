@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+      <form method="post" action="/species-selection">
+
+        <h1 class="govuk-heading-l">
+          Select your address
+        </h1>
+    
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {{ govukSelect({
+          id: "address",
+          name: "address",
+          label: {
+            text: ""
+          },
+            hint: {
+            text: ""
+          },
+          items: [
+            {
+              value: "address-1",
+              text: "Gateside, 1A Leachkin Road, Inverness, IV3 8NW",
+              selected: true
+            },
+            {
+              value: "address-2",
+              text: "Orcadia, 1B Leachkin Road, Inverness, IV3 8NW"
+            },
+            {
+              value: "address-3",
+              text: "2 Leachkin Road, Inverness, IV3 8NW"
+            },
+            {
+              value: "address-4",
+              text: "4 Leachkin Road, Inverness, IV3 8NW"
+            },
+            {
+              value: "address-5",
+              text: "Burnside, Leachkin Road, Inverness, IV3 8NW"
+            },
+            {
+              value: "address-6",
+              text: "Naturescot, Naturescot, Great Glen House, Leachkin Road, Inverness, IV3 8NW"
+            },
+            {
+              value: "address-7",
+              text: "Old Post Office, Leachkin Road, Inverness, IV3 8NW"
+            }
+           ]
+        
+        }) }}
+
+        {{ govukButton({
+          text: "Continue",
+          preventDoubleClick: true
+        }) }}
+    
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

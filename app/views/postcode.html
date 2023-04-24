@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+      <form method="post" action="/choose-address">
+    
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+        
+        {% call govukFieldset({
+          legend: {
+            text: "What is your postcode?",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+        
+          {{ govukInput({
+            label: {
+            },
+            id: "postcode",
+            name: "postcode",
+            value: data['postcode']
+          }) }}
+        
+        {% endcall %}
+
+        {{ govukButton({
+          text: "Continue",
+          preventDoubleClick: true
+        }) }}
+    
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
