@@ -18,6 +18,15 @@
 
       <h1 class="govuk-heading-l">Online licensing system</h1>
 
+      <form method="post" onsubmit="event.preventDefault(); 
+if (licenceSelect.value === 'prevent-serious-damage') {
+  window.location.href = '/prevent-serious-damage';
+} else if (licenceSelect.value === 'public-health-and-safety') {
+  window.location.href = '/public-health-and-safety';
+} else if (licenceSelect.value === 'air-safety') {
+  window.location.href = '/air-safety';
+}">
+
 {% from "govuk/components/select/macro.njk" import govukSelect %}
 
 {{ govukSelect({
@@ -125,14 +134,6 @@ if (licenceSelect.value === 'prevent-serious-damage') {
 });
 </script>
 
-<form method="post" onsubmit="event.preventDefault(); 
-if (licenceSelect.value === 'prevent-serious-damage') {
-  window.location.href = '/prevent-serious-damage';
-} else if (licenceSelect.value === 'public-health-and-safety') {
-  window.location.href = '/public-health-and-safety';
-} else if (licenceSelect.value === 'air-safety') {
-  window.location.href = '/air-safety';
-}">
 
   {{ govukButton({
     text: "Continue",
