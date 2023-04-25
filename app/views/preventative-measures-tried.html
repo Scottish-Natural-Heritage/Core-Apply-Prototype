@@ -64,10 +64,14 @@
   ]
 }) }}
 
-<div class="govuk-form-group">
-  <label class="govuk-label" for="damage-details">Provide details of the measures used including where they were used, their frequency and any success they have had had</label>
-  <textarea class="govuk-textarea" id="damage-details" name="damage-details" rows="5" aria-describedby="damage-details-hint"></textarea>
-</div>
+{{ govukTextarea({
+  name: "tried-details",
+  id: "tried-details",
+  value: data['tried-details'],
+  label: {
+    text: "Provide details of the measures used including where they were used, their frequency and any success they have had had"
+  }
+}) }}
 
     
         {{ govukButton({

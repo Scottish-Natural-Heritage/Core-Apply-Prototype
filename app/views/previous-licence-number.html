@@ -25,12 +25,12 @@
           },
           classes: "govuk-input--width-10",
           hint: {
-            text: "Enter your 4-6 digit reference number, excluding the NS-RSD prefix if you have one. If you don't know leave this blank."
+            text: "Enter your reference number, including the prefix if you have one - for example NS-RSD-12345. If you don't know leave this blank."
           },
-          id: "account-number",
-          name: "account-number",
-          inputmode: "numeric",
-          spellcheck: false
+          id: "previous-licence",
+          value: data['previous-licence'],
+          name: "previous-licence",
+          inputmode: "numeric"
         }) }}
         
     

@@ -31,10 +31,14 @@
           </li>
         </ul>
 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="damage-details">Explain why below</label>
-          <textarea class="govuk-textarea" id="damage-details" name="damage-details" rows="5" aria-describedby="damage-details-hint"></textarea>
-        </div>
+        {{ govukTextarea({
+          name: "not-tried-details",
+          id: "not-tried-details",
+          value: data['not-tried-details'],
+          label: {
+            text: "Explain why below"
+          }
+        }) }}
 
     
         {{ govukButton({

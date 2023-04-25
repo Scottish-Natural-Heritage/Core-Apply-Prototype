@@ -20,10 +20,14 @@
 
       <form method="post" action="/file-upload">
 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="damage-details">Enter any further information you need to tell us</label>
-          <textarea class="govuk-textarea" id="damage-details" name="damage-details" rows="5" aria-describedby="damage-details-hint"></textarea>
-        </div>
+        {{ govukTextarea({
+          name: "supporting-info",
+          id: "supporting-info",
+          value: data['supporting-info'],
+          label: {
+            text: "Enter any further information you need to tell us"
+          }
+        }) }}
     
         {{ govukButton({
           text: "Continue",
