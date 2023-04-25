@@ -114,13 +114,13 @@ var licenceSelect = document.getElementById('licenceSelect');
 if (licenceSelect.value === 'prevent-serious-damage') {
   var selection = 'Prevent Serious Damage';
   // Store the result in session storage
-  sessionStorage.setItem('selection', selection);
+  sessionStorage.setItem('licence-selection', selection);
 } else if (licenceSelect.value === 'public-health-and-safety') {
   var selection = "public-health-and-safety";
-  sessionStorage.setItem('selection', selection);
+  sessionStorage.setItem('licence-selection', selection);
 } else if (licenceSelect.value === 'air-safety') {
   var selection = "air-safety";
-  sessionStorage.setItem('selection', selection);
+  sessionStorage.setItem('licence-selection', selection);
 }
 });
 </script>
@@ -133,6 +133,7 @@ if (licenceSelect.value === 'prevent-serious-damage') {
 } else if (licenceSelect.value === 'air-safety') {
   window.location.href = '/air-safety';
 }">
+
   {{ govukButton({
     text: "Continue",
     isStartButton: false,
