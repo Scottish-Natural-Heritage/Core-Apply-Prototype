@@ -1,0 +1,275 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+
+  
+{%- from "govuk/components/checkboxes/macro.njk" import govukCheckboxes -%}
+{%- from "govuk/components/input/macro.njk" import govukInput -%}
+{%- from "govuk/components/table/macro.njk" import govukTable -%}
+{%- from "moj/components/filter/macro.njk" import mojFilter -%}
+{%- from "moj/components/button-menu/macro.njk" import mojButtonMenu -%}
+
+{% set filterOptionsHtml %}
+
+  {{ govukInput({
+    id: 'keywords',
+    name: 'keywords',
+    label: {
+      text: 'Keywords',
+      classes: 'govuk-label--m'
+    }
+  }) }}
+
+  {{ govukCheckboxes({
+    idPrefix: 'status',
+    name: 'status',
+    classes: "govuk-checkboxes--small",
+    fieldset: {
+      legend: {
+        text: 'Status',
+        classes: 'govuk-fieldset__legend--m'
+      }
+    },
+    items: [
+      {
+        value: '1',
+        text: 'Unassigned (1235)'
+      },
+      {
+        value: '2',
+        text: 'Awaiting LH approval (12)',
+        checked: true
+      },
+      {
+        value: '3',
+        text: 'In progress (752)'
+      },
+      {
+        value: '4',
+        text: 'Issued (2500)'
+      },
+      {
+        value: '5',
+        text: 'Revoked (21)'
+      },
+      {
+        value: '6',
+        text: 'Refused (7)'
+      },
+      {
+        value: '7',
+        text: 'Expired (34)'
+      }
+    ]
+  }) }}
+
+  {{ govukCheckboxes({
+    idPrefix: 'licence-type',
+    name: 'licence-type',
+    classes: "govuk-checkboxes--small",
+    fieldset: {
+      legend: {
+        text: 'Licence type',
+        classes: 'govuk-fieldset__legend--m'
+      }
+    },
+    items: [
+      {
+        value: '1',
+        text: 'PSD/H&S/Air safety (471)',
+        checked: true
+      },
+      {
+        value: '2',
+        text: 'Surveys (527)',
+        checked: true
+      },
+      {
+        value: '3',
+        text: 'Bats in houses (97)'
+      },
+      {
+        value: '4',
+        text: 'Works affecting (552)'
+      },
+      {
+        value: '5',
+        text: 'Ecologist licences (85)'
+      },
+      {
+        value: '6',
+        text: 'Organisational licences (23)'
+      },
+      {
+        value: '7',
+        text: 'Everything else (809)'
+      }
+    ]
+  }) }}
+
+{% endset %}
+
+
+<div class="moj-filter-layout">
+
+  <div class="moj-filter-layout__filter-toggle">
+    <button id="filter-toggle-button" class="govuk-button" type="button" aria-expanded="false" aria-controls="filter-options">
+      Filter
+      <span class="moj-filter-layout__filter-toggle-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  
+  <div id="filter-options" class="moj-filter-layout__filter-options" style="display: none;">
+    
+
+    {{ mojFilter({
+      heading: {
+      text: 'Filter'
+      },
+      selectedFilters: {
+
+      heading: {
+        text: 'Selected filters'
+      },
+
+      clearLink: {
+        text: 'Clear filters'
+      },
+
+      categories: [
+        {
+          heading: {
+            text: 'Status'
+          },
+          items: [{
+            href: '#',
+            text: 'Awaiting LH approval'
+          }, {
+            href: '#',
+            text: 'In progress'
+          }]
+        },
+        {
+          heading: {
+            text: 'Licence Type'
+          },
+          items: [{
+            href: '#',
+            text: 'PSD/H&S/Air safety'
+          }, {
+            href: '#',
+            text: 'Surveys'
+          }]
+        }
+      ]
+    },
+      optionsHtml: filterOptionsHtml
+    }) }}
+
+  </div>
+</div>
+
+  <div class="moj-filter-layout__content">
+
+  <div class="moj-action-bar">
+
+    {{ govukTable({
+      firstCellIsHeader: true,
+      head: [
+        {text: 'Reference'},
+        {text: 'Person'},
+        {text: 'Colour'},
+        {text: 'Status'},
+        {text: 'Date of last event'}
+      ],
+      rows: [
+        [
+          {html: '<a href="#" class="govuk-link">44455453</a>'},
+          {html: 'John Smith'},
+          {text: 'Blue'},
+          {html: 'Complete'},
+          {text: '25 Jan 2018'}
+        ],
+        [
+          {html: '<a href="#" class="govuk-link">12323212</a>'},
+          {html: 'Warren Sutton'},
+          {text: 'Yellow'},
+          {html: 'In progress'},
+          {text: '25 Jan 2018'}
+        ],
+        [
+          {html: '<a href="#" class="govuk-link">45678765</a>'},
+          {html: 'Alan Jones'},
+          {text: 'Yellow'},
+          {html: 'In progress'},
+          {text: '9 May 2018'}
+        ],
+        [
+          {html: '<a href="#" class="govuk-link">12345678</a>'},
+          {html: 'Jennifer Langley'},
+          {text: 'Yellow'},
+          {html: 'In progress'},
+          {text: '9 May 2018'}
+        ],
+        [
+          {html: '<a href="#" class="govuk-link">89009800</a>'},
+          {html: 'Susan Francis'},
+          {text: 'Red'},
+          {html: 'Incomplete'},
+          {text: '9 May 2018'}
+        ],
+        [
+          {html: '<a href="#" class="govuk-link">44455453</a>'},
+          {html: 'John Smith'},
+          {text: 'Blue'},
+          {html: 'Complete'},
+          {text: '25 Jan 2018'}
+        ],
+        [
+          {html: '<a href="#" class="govuk-link">12323212</a>'},
+          {html: 'Warren Sutton'},
+          {text: 'Yellow'},
+          {html: 'In progress'},
+          {text: '25 Jan 2018'}
+        ],
+        [
+          {html: '<a href="#" class="govuk-link">45678765</a>'},
+          {html: 'Alan Jones'},
+          {text: 'Yellow'},
+          {html: 'In progress'},
+          {text: '9 May 2018'}
+        ],
+        [
+          {html: '<a href="#" class="govuk-link">12345678</a>'},
+          {html: 'Jennifer Langley'},
+          {text: 'Yellow'},
+          {html: 'In progress'},
+          {text: '9 May 2018'}
+        ]
+      ]
+    }) }}
+</div>
+</div>
+
+
+<script>
+
+const filterToggleBtn = document.querySelector('#filter-toggle-button');
+  const filterOptionsDiv = document.querySelector('#filter-options');
+
+  filterToggleBtn.addEventListener('click', function() {
+    const expanded = filterToggleBtn.getAttribute('aria-expanded') === 'true';
+
+    filterToggleBtn.setAttribute('aria-expanded', !expanded);
+    filterOptionsDiv.style.display = expanded ? 'none' : 'block';
+  });
+
+</script>
+
+{% endblock %}
