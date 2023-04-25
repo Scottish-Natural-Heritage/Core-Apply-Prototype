@@ -18,13 +18,13 @@
       <form method="post" action="/location-of-damage">
 
 {% set damageOptions = [  
-  { value: "damage-to-livestock", text: "Damage to livestock" },
+  { value: "damage-to-livestock", text: "Damage to livestock", checked: true },
   { value: "damage-to-foodstuffs", text: "Damage to foodstuffs for livestock" },
-  { value: "damage-to-crops", text: "Damage to crops" },
+  { value: "damage-to-crops", text: "Damage to crops", checked: true },
   { value: "damage-to-vegetables", text: "Damage to vegetables" },
   { value: "damage-to-fruit", text: "Damage to fruit" },
   { value: "damage-to-growing-timber", text: "Damage to growing timber" },
-  { value: "damage-to-fisheries", text: "Damage to fisheries" },
+  { value: "damage-to-fisheries", text: "Damage to fisheries", checked: true },
   { value: "damage-to-inland-water", text: "Damage to inland water" },
   { value: "damage-to-other-property", text: "Damage to any other form of property" },
   { value: "damage-to-land", text: "Damage to land" },
@@ -66,13 +66,16 @@
   items: radioOptions
 }) }}
 
-<div class="govuk-form-group">
-  <label class="govuk-label" for="damage-details">Provide details of the damage experienced</label>
-  <textarea class="govuk-textarea" id="damage-details" name="damage-details" rows="5" aria-describedby="damage-details-hint">
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
-  </textarea>
-</div>
-
+{{ govukTextarea({
+  name: "damage-details",
+  id: "damage-details",
+  value: data['damage-details'],
+  label: {
+    text: "Provide details of the damage experienced"
+  }
+}) }}
 
 {{ govukButton({
   text: "Continue",
