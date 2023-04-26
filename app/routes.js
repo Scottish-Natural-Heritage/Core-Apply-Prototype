@@ -15,13 +15,13 @@ router.post('/licence-required-selection', function (req, res) {
     var isLicenceRequired = req.session.data['isLicenceRequired']
   
     // Check whether the variable matches a condition
-    if (isLicenceRequired == "prevent serious damage"){
+    if (isLicenceRequired == "Prevent serious damage"){
       // Send user to next page
       res.redirect('/before-you-start')
-    } else if (isLicenceRequired == "public health and safety") {
+    } else if (isLicenceRequired == "Public health and safety") {
       // Send user to the other page
       res.redirect('/before-you-start')
-    }else if (isLicenceRequired == "air safety") {
+    }else if (isLicenceRequired == "Air safety") {
       // Send user to the other page
       res.redirect('/before-you-start')
     }
