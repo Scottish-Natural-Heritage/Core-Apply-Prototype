@@ -14,7 +14,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Check your answers before sending your {{ data['licence-required'] }} application
+        Check your answers before sending your application
       </h1>
 
       {{ govukWarningText({
@@ -104,15 +104,189 @@
 }) }}
 
 <h1 class="govuk-heading-m">
-  Site details
+  Licence holder details
 </h1>
 
+{{ govukSummaryList({
+rows: [
+{
+key: {
+text: "Name"
+},
+value: {
+text: data['applicant-full-name']
+},
+actions: {
+items: [
+  {
+    href: "#",
+    text: "Change",
+    visuallyHiddenText: "name"
+  }
+]
+}
+},
+{
+key: {
+text: "Organisation"
+},
+value: {
+text: data['applicant-org']
+},
+actions: {
+items: [
+  {
+    href: "#",
+    text: "Change",
+    visuallyHiddenText: "date of birth"
+  }
+]
+}
+},
+{
+key: {
+text: "Email address"
+},
+value: {
+html: data['applicant-email']
+},
+actions: {
+items: [
+  {
+    href: "#",
+    text: "Change",
+    visuallyHiddenText: "address"
+  }
+]
+}
+},
+{
+key: {
+text: "Phone number"
+},
+value: {
+html: data['applicant-telephone']
+    },
+actions: {
+items: [
+  {
+    href: "#",
+    text: "Change",
+    visuallyHiddenText: "contact details"
+  }
+]
+}
+}
+]
+}) }}
+
+<h1 class="govuk-heading-m">
+  Site Address
+</h1>
+
+{{ govukSummaryList({
+rows: [
+{
+key: {
+text: "Same as licence holder address?"
+},
+value: {
+html:  data['same-as-licence-address'] | default("No") 
+},
+actions: {
+items: [
+  {
+    href: "#",
+    text: "Change",
+    visuallyHiddenText: "name"
+  }
+]
+}
+},
+{
+key: {
+text: "Site postcode"
+},
+value: {
+text: data['postcode']
+},
+actions: {
+items: [
+  {
+    href: "#",
+    text: "Change",
+    visuallyHiddenText: "date of birth"
+  }
+]
+}
+},
+{
+  key: {
+  text: "Site address"
+  },
+  value: {
+  html:  data['address']
+  },
+  actions: {
+  items: [
+    {
+      href: "#",
+      text: "Change",
+      visuallyHiddenText: "name"
+    }
+  ]
+  }
+  }
+]
+}) }}
 
 
+<h1 class="govuk-heading-m">
+  Licence required
+</h1>
 
-    
+{{ govukSummaryList({
+rows: [
+{
+key: {
+text: "Licence required"
+},
+value: {
+text: data['isLicenceRequired']
+},
+actions: {
+items: [
+  {
+    href: "#",
+    text: "Change",
+    visuallyHiddenText: "name"
+  }
+]
+}
+},
+{
+key: {
+text: "What do you require  a licence for?"
+},
+value: {
+text: data['speciesSelection']
+},
+actions: {
+items: [
+  {
+    href: "#",
+    text: "Change",
+    visuallyHiddenText: "date of birth"
+  }
+]
+}
+}
+]
+}) }}
+
+
         {{ govukButton({
-          text: "Continue",
+          text: "Accept and send",
           isStartButton: false,
           preventDoubleClick: true
         }) }}

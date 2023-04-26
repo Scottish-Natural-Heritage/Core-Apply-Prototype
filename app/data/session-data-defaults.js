@@ -7,8 +7,13 @@ module.exports = {
   'holder-email': 'scott@nature.scot',
   'holder-telephone': '01463 725 000',
 
+  'applicant-full-name': 'Jimmy Nature',
+  'applicant-org': 'NatureScot',
+  'applicant-email': 'jimmy@nature.scot',
+  'applicant-telephone': '01463 725 002',
+
   'postcode': 'IV3 8NW',
-  'address' : 'NatureScot Headquarters Great Glen House Leachkin Road Inverness',
+  'address' : 'NatureScot Headquarters,  Great Glen House,  Leachkin Road,  Inverness',
 
   'num-of-species' : '30',
 
