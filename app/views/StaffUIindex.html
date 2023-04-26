@@ -268,9 +268,20 @@
 </div>
 
 
+<style>
+  #filter-options {
+    position: fixed;
+    top: 50px; /* adjust the top value to be underneath the header */
+    left: 0;
+    width: calc(100% / 4); /* adjust the width as needed */
+    height: 100%; /* adjust the height to account for the header and footer */
+    background-color: #fff; /* change the background color as needed */
+    z-index: 9999;
+    overflow-y: auto; /* allow scrolling if the content overflows */
+  }
+</style>
 <script>
-
-const filterToggleBtn = document.querySelector('#filter-toggle-button');
+  const filterToggleBtn = document.querySelector('#filter-toggle-button');
   const filterOptionsDiv = document.querySelector('#filter-options');
 
   filterToggleBtn.addEventListener('click', function() {
@@ -279,7 +290,6 @@ const filterToggleBtn = document.querySelector('#filter-toggle-button');
     filterToggleBtn.setAttribute('aria-expanded', !expanded);
     filterOptionsDiv.style.display = expanded ? 'none' : 'block';
   });
-
 </script>
 
 {% endblock %}
