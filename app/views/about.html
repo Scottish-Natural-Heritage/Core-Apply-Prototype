@@ -18,11 +18,24 @@
 
       <h1 class="govuk-heading-l">About the licence holder</h1>
 
+      {% if data['isLicenceRequired'] == 'Prevent serious damage' %}
       <p class="govuk-body">
         The licence holder needs to be the person who is experiencing
         the damage to livestock or their feed. Typically they will be the
         owner or tenant of the farm.
       </p>
+
+    {% elseif data['isLicenceRequired'] == 'Public health and safety' %}
+    <p class="govuk-body">
+      The licence holder needs to be the person who has the authority to make changes to the fabric of the building, such as installing spikes or nets. Typically they will be the owner, tenant or property manager for the site.
+    </p>
+
+    {% elseif data['isLicenceRequired'] == 'Air safety' %}
+    <p class="govuk-body">
+      The licence holder needs to be the person who is experiencing
+      the air safety problem.
+    </p>
+    {% endif %}
     
       <h2 class="govuk-heading-m">Applying on behalf of someone else, for example: land agents or factors</h2>
     

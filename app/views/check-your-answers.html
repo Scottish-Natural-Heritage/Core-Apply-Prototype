@@ -27,7 +27,51 @@
         {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
         <h1 class="govuk-heading-m">
-          Your details
+          Licence required
+        </h1>
+        
+        {{ govukSummaryList({
+        rows: [
+        {
+        key: {
+        text: "Licence required"
+        },
+        value: {
+        text: data['isLicenceRequired']
+        },
+        actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
+        }
+        },
+        {
+        key: {
+        text: "What do you require  a licence for?"
+        },
+        value: {
+        text: data['speciesSelection']
+        },
+        actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+        }
+        }
+        ]
+        }) }}
+
+
+        <h1 class="govuk-heading-m">
+          Licence holder details
         </h1>
 
 {{ govukSummaryList({
@@ -99,12 +143,29 @@
           }
         ]
       }
-    }
+    },
+    {
+      key: {
+      text: "Address"
+      },
+      value: {
+      html: data['holder-address']
+          },
+      actions: {
+      items: [
+        {
+          href: "#",
+          text: "Change",
+          visuallyHiddenText: "contact details"
+        }
+      ]
+      }
+      }
   ]
 }) }}
 
 <h1 class="govuk-heading-m">
-  Licence holder details
+  Applicant details
 </h1>
 
 {{ govukSummaryList({
@@ -237,50 +298,6 @@ items: [
   ]
   }
   }
-]
-}) }}
-
-
-<h1 class="govuk-heading-m">
-  Licence required
-</h1>
-
-{{ govukSummaryList({
-rows: [
-{
-key: {
-text: "Licence required"
-},
-value: {
-text: data['isLicenceRequired']
-},
-actions: {
-items: [
-  {
-    href: "#",
-    text: "Change",
-    visuallyHiddenText: "name"
-  }
-]
-}
-},
-{
-key: {
-text: "What do you require  a licence for?"
-},
-value: {
-text: data['speciesSelection']
-},
-actions: {
-items: [
-  {
-    href: "#",
-    text: "Change",
-    visuallyHiddenText: "date of birth"
-  }
-]
-}
-}
 ]
 }) }}
 
