@@ -9,6 +9,26 @@ const router = govukPrototypeKit.requests.setupRouter()
 // Add your routes here
 
 // Run this code when a form is submitted to 'licence-holder'
+router.post('/licence-required-selection', function (req, res) {
+
+    // Make a variable and give it the value from 'isLicenceRequired'
+    var isLicenceRequired = req.session.data['isLicenceRequired']
+  
+    // Check whether the variable matches a condition
+    if (isLicenceRequired == "prevent serious damage"){
+      // Send user to next page
+      res.redirect('/before-you-start')
+    } else if (isLicenceRequired == "public health and safety") {
+      // Send user to the other page
+      res.redirect('/before-you-start')
+    }else if (isLicenceRequired == "air safety") {
+      // Send user to the other page
+      res.redirect('/before-you-start')
+    }
+  
+  })
+
+// Run this code when a form is submitted to 'licence-holder'
 router.post('/licence-holder-answer', function (req, res) {
 
     // Make a variable and give it the value from 'isLicenceHolder'

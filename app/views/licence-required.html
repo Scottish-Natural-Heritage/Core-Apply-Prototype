@@ -16,13 +16,15 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <form method="post" action="/licence-required-selection">
+
       <h1 class="govuk-heading-l">Online licensing system</h1>
 
 {% from "govuk/components/select/macro.njk" import govukSelect %}
 
 {{ govukSelect({
-  id: "licence-required",
-  name: "licence-required",
+  id: "isLicenceRequired",
+  name: "isLicenceRequired",
   label: {
     text: "Select the licenced purpose you require"
   },
@@ -32,15 +34,15 @@
       text: "Click here to select",
       selected: true
     },{
-      value: "prevent-serious-damage",
+      value: "prevent serious damage",
       text: "Prevent serious damage"
     },
     {
-      value: "public-health-and-safety",
+      value: "public health and safety",
       text: "Public health and safety"
     },
     {
-      value: "air-safety",
+      value: "air safety",
       text: "Air safety"
     }
   ]
@@ -62,30 +64,27 @@
 </div>
 
 <script>
-  var licenceSelect = document.getElementById('licence-required');
+  var licenceSelect = document.getElementById('isLicenceRequired');
   var preventSeriousDamageInfo = document.getElementById('prevent-serious-damage-info');
   var publicHealthAndSafetyInfo = document.getElementById('public-health-and-safety-info');
   var airSafetyInfo = document.getElementById('air-safety-info');
   var form = document.querySelector('form');
 
   licenceSelect.addEventListener('change', function() {
-    if (licenceSelect.value === 'prevent-serious-damage') {
+    if (licenceSelect.value === 'prevent serious damage') {
       preventSeriousDamageInfo.style.display = 'block';
       publicHealthAndSafetyInfo.style.display = 'none';
       airSafetyInfo.style.display = 'none';
-      form.action = '/prevent-serious-damage';
 
-    } else if (licenceSelect.value === 'public-health-and-safety') {
+    } else if (licenceSelect.value === 'public health and safety') {
       preventSeriousDamageInfo.style.display = 'none';
       publicHealthAndSafetyInfo.style.display = 'block';
       airSafetyInfo.style.display = 'none';
-      form.action = '/public-health-and-safety';
 
-    } else if (licenceSelect.value === 'air-safety') {
+    } else if (licenceSelect.value === 'air safety') {
       preventSeriousDamageInfo.style.display = 'none';
       publicHealthAndSafetyInfo.style.display = 'none';
       airSafetyInfo.style.display = 'block';
-      form.action = '/air-safety';
 
     } else {
       preventSeriousDamageInfo.style.display = 'none';
@@ -96,43 +95,10 @@
 
   });
 
-  form.addEventListener('submit', function(e) {
-  if (licenceSelect.value === 'prevent-serious-damage' && preventSeriousDamageInfo.value.trim() === '') {
-    e.preventDefault();
-    alert('Please enter the required information.');
-  } else if (licenceSelect.value === 'public-health-and-safety' && publicHealthAndSafetyInfo.value.trim() === '') {
-    e.preventDefault();
-    alert('Please enter the required information.');
-  } else if (licenceSelect.value === 'air-safety' && airSafetyInfo.value.trim() === '') {
-    e.preventDefault();
-    alert('Please enter the required information.');
-  }
 
-  // Assuming licenceSelect is a select element
-var licenceSelect = document.getElementById('licenceSelect');
 
-if (licenceSelect.value === 'prevent-serious-damage') {
-  var selection = 'Prevent Serious Damage';
-  // Store the result in session storage
-  sessionStorage.setItem('licence-selection', selection);
-} else if (licenceSelect.value === 'public-health-and-safety') {
-  var selection = "public-health-and-safety";
-  sessionStorage.setItem('licence-selection', selection);
-} else if (licenceSelect.value === 'air-safety') {
-  var selection = "air-safety";
-  sessionStorage.setItem('licence-selection', selection);
-}
-});
 </script>
 
-<form onsubmit="event.preventDefault(); 
-if (licenceSelect.value === 'prevent-serious-damage') {
-  window.location.href = '/prevent-serious-damage';
-} else if (licenceSelect.value === 'public-health-and-safety') {
-  window.location.href = '/public-health-and-safety';
-} else if (licenceSelect.value === 'air-safety') {
-  window.location.href = '/air-safety';
-}">
 
   {{ govukButton({
     text: "Continue",
