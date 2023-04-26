@@ -6,6 +6,8 @@ module.exports = {
   'holder-org': 'NatureScot',
   'holder-email': 'scott@nature.scot',
   'holder-telephone': '01463 725 000',
+  'holder-address' : 'NatureScot Headquarters,  Great Glen House,  Leachkin Road,  Inverness',
+
 
   'applicant-full-name': 'Jimmy Nature',
   'applicant-org': 'NatureScot',
