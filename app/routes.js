@@ -8,7 +8,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
 
-// Run this code when a form is submitted to 'licence-holder'
+// Run this code when a form is submitted to 'licence-required'
 router.post('/licence-required-selection', function (req, res) {
 
     // Make a variable and give it the value from 'isLicenceRequired'
@@ -27,6 +27,44 @@ router.post('/licence-required-selection', function (req, res) {
     }
   
   })
+
+  // Run this code when a form is submitted to 'choose-address'
+router.post('/species-selection-route', function (req, res) {
+
+  // Make a variable and give it the value from 'speciesSelectedRoute'
+  var speciesSelectedRoute = req.session.data['speciesSelection']
+
+  // Check whether the variable matches a condition
+  if (speciesSelectedRoute == "ravens"){
+    // Send user to next page
+    res.redirect('/number-of-species')
+  } else if (speciesSelectedRoute == "geese") {
+    // Send user to the other page
+    res.redirect('/sub-species-selection')
+  }else if (speciesSelectedRoute == "gulls") {
+    // Send user to the other page
+    res.redirect('/sub-species-selection')
+  }else if (speciesSelectedRoute == "fish-eating birds") {
+    // Send user to the other page
+    res.redirect('/sub-species-selection')
+  }else if (speciesSelectedRoute == "other birds") {
+    // Send user to the other page
+    res.redirect('/sub-species-selection-multi')
+  }else if (speciesSelectedRoute == "badgers") {
+    // Send user to the other page
+    res.redirect('/number-of-species')
+  }else if (speciesSelectedRoute == "hares") {
+    // Send user to the other page
+    res.redirect('/sub-species-selection')
+  }else if (speciesSelectedRoute == "beavers") {
+    // Send user to the other page
+    res.redirect('/number-of-species')
+  }else if (speciesSelectedRoute == "other animals") {
+    // Send user to the other page
+    res.redirect('/sub-species-selection-multi')
+  }
+
+})
 
 // Run this code when a form is submitted to 'licence-holder'
 router.post('/licence-holder-answer', function (req, res) {
