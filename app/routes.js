@@ -17,13 +17,13 @@ router.post('/licence-required-selection', function (req, res) {
     // Check whether the variable matches a condition
     if (isLicenceRequired == "Prevent serious damage"){
       // Send user to next page
-      res.redirect('/species-selection')
+      res.redirect('/before-you-start')
     } else if (isLicenceRequired == "Public health and safety") {
       // Send user to the other page
-      res.redirect('/species-selection')
+      res.redirect('/before-you-start')
     }else if (isLicenceRequired == "Air safety") {
       // Send user to the other page
-      res.redirect('/sub-species-selection-multi')
+      res.redirect('/before-you-start')
     }
   
   })
@@ -92,31 +92,31 @@ router.post('/species-selection-answer', function (req, res) {
   // Check whether the variable matches a condition
   if (speciesSelection == "ravens"){
     // Send user to next page
-    res.redirect('/before-you-start')
+    res.redirect('/number-of-species')
   } else if (speciesSelection == "geese") {
     // Send user to the other page
-    res.redirect('/before-you-start')
+    res.redirect('/sub-species-selection')
   }else if (speciesSelection == "gulls") {
     // Send user to the other page
-    res.redirect('/before-you-start')
+    res.redirect('/sub-species-selection')
   }else if (speciesSelection == "fish-eating birds") {
     // Send user to the other page
-    res.redirect('/before-you-start')
+    res.redirect('/sub-species-selection')
   }else if (speciesSelection == "other birds") {
     // Send user to the other page
-    res.redirect('/before-you-start')
+    res.redirect('/sub-species-selection-multi')
   }else if (speciesSelection == "badgers") {
     // Send user to the other page
-    res.redirect('/before-you-start')
+    res.redirect('/number-of-species')
   }else if (speciesSelection == "hares") {
     // Send user to the other page
-    res.redirect('/before-you-start')
+    res.redirect('/sub-species-selection')
   }else if (speciesSelection == "beavers") {
     // Send user to the other page
-    res.redirect('/before-you-start')
+    res.redirect('/number-of-species')
   }else if (speciesSelection == "other animals") {
     // Send user to the other page
-    res.redirect('/before-you-start')
+    res.redirect('/sub-species-selection-multi')
   }
 
 })
