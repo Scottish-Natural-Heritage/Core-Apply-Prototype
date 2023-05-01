@@ -69,6 +69,8 @@
         ]
         }) }}
 
+        {% if data['isLicenceHolder'] == 'no' %}
+
         <h1 class="govuk-heading-m">
           Applicant details
         </h1>
@@ -146,10 +148,17 @@
         ]
         }) }}
 
+        {% endif %}
 
+        {% if data['isLicenceHolder'] == 'yes' %}
+        <h1 class="govuk-heading-m">
+          Your details
+        </h1>
+        {% elseif data['isLicenceHolder'] == 'no' %}
         <h1 class="govuk-heading-m">
           Licence holder details
         </h1>
+        {% endif %}
 
 {{ govukSummaryList({
   rows: [
