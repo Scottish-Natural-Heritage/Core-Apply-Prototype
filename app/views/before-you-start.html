@@ -1,127 +1,133 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  {{ serviceName }} – GOV.UK Prototype Kit
+{{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">{{ data['isLicenceRequired'] | default("You haven't selected a") }} {{ 'licence' }}</h1>
+    <h1 class="govuk-heading-l">{{ data['isLicenceRequired'] | default("You haven't selected a") }} {{ 'licence' }}</h1>
 
-      <h2 class="govuk-heading-m">Before you start</h2>
-    
-      <p class="govuk-body">
-        To complete this application we will ask you about:​
-      </p>
+    <h2 class="govuk-heading-m">Before you start</h2>
 
-      {% if data['isLicenceRequired'] == 'Prevent serious damage' %}
-      <ul class="govuk-list govuk-list--bullet">
-        <li>
-          the species causing the serious damage
-        </li>
-        <li>
-          the serious damage being caused
-        </li>
-        <li>
-          what preventative measures you have tried or intend to try
-        </li>
-        <li>
-          the location where the damage is occurring
-        </li>
-      </ul>
-      <p class="govuk-body">
-        For some applications you will be required to upload supporting documents. If you are unsure what will be required refer to the relevant guidance:
-        </a>
-      </p>
+    <p class="govuk-body">
+      To complete this application we will ask you about:​
+    </p>
 
-      <p class="govuk-body">
-          <a class="govuk-link" href="https://www.nature.scot/professional-advice/protected-areas-and-species/licensing/species-licensing-z-guide/birds/birds-licences-prevent-serious-damage" target="_blank">
-          Birds: licences to prevent serious damage
-        </a>
-      </p>
+    {% if data['isLicenceRequired'] == 'Prevent serious damage' %}
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        the species causing the serious damage
+      </li>
+      <li>
+        the serious damage being caused
+      </li>
+      <li>
+        what preventative measures you have tried or intend to try
+      </li>
+      <li>
+        the location where the damage is occurring
+      </li>
+    </ul>
+    <p class="govuk-body">
+      For some applications you will be required to upload supporting documents. If you are unsure what will be required
+      refer to the relevant guidance:
+      </a>
+    </p>
 
-      <p class="govuk-body">
-        <a class="govuk-link" href="https://www.nature.scot/professional-advice/protected-areas-and-species/licensing/species-licensing-z-guide/badgers/badgers-licences-prevent-serious-damage" target="_blank">
-          Badgers: licences to prevent serious damage
+    <p class="govuk-body">
+      <a class="govuk-link"
+        href="https://www.nature.scot/professional-advice/protected-areas-and-species/licensing/species-licensing-z-guide/birds/birds-licences-prevent-serious-damage"
+        target="_blank">
+        Birds: licences to prevent serious damage
+      </a>
+    </p>
+
+    <p class="govuk-body">
+      <a class="govuk-link"
+        href="https://www.nature.scot/professional-advice/protected-areas-and-species/licensing/species-licensing-z-guide/badgers/badgers-licences-prevent-serious-damage"
+        target="_blank">
+        Badgers: licences to prevent serious damage
       </a>
     </p>
 
     {% elseif data['isLicenceRequired'] == 'Public health and safety' %}
-      <ul class="govuk-list govuk-list--bullet">
-        <li>
-          the specific health or safety issue
-        </li>
-        <li>
-          what preventative measures you have tried and intend to try
-        </li>
-        <li>
-          the licensed activities you are planning
-        </li>
-      </ul>
-        <p class="govuk-body">
-          Depending on which licensed activities you select, we will ask you about:
-        </p>
-        <ul class="govuk-list govuk-list--bullet">
-        <li>
-          nest or egg destruction - an estimated number of nests
-        </li>
-        <li>
-          relocating chicks or lethal control - exact numbers
-        </li>
-      </ul>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        the specific health or safety issue
+      </li>
+      <li>
+        what preventative measures you have tried and intend to try
+      </li>
+      <li>
+        the licensed activities you are planning
+      </li>
+    </ul>
+    <p class="govuk-body">
+      Depending on which licensed activities you select, we will ask you about:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        nest or egg destruction - an estimated number of nests
+      </li>
+      <li>
+        relocating chicks or lethal control - exact numbers
+      </li>
+    </ul>
 
     {% elseif data['isLicenceRequired'] == 'Air safety' %}
-      <ul class="govuk-list govuk-list--bullet">
-        <li>
-          all the good things
-        </li>
-        <li>
-          we require to
-        </li>
-        <li>
-          consider issuing a
-        </li>
-        <li>
-          air safety licence
-        </li>
-      </ul>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        all the good things
+      </li>
+      <li>
+        we require to
+      </li>
+      <li>
+        consider issuing a
+      </li>
+      <li>
+        air safety licence
+      </li>
+    </ul>
 
-      <p class="govuk-body">
-        .... not to mention anything else we need.
-      </p>
+    <p class="govuk-body">
+      .... not to mention anything else we need.
+    </p>
     {% endif %}
-    
 
-      {{ govukWarningText({
-        text: "Make sure you have the necessary information to hand before you start your application — you will not be able to save and return to it at a later date.",
-        iconFallbackText: "Fallback text"
+
+    {{ govukWarningText({
+    text: "Make sure you have the necessary information to hand before you start your application — you will not be able
+    to save and return to it at a later date.",
+    iconFallbackText: "Fallback text"
+    }) }}
+
+
+    <form method="post" action="/about">
+
+      {{ govukButton({
+      text: "Start now",
+      isStartButton: true,
+      preventDoubleClick: true
       }) }}
 
-    
-      <form method="post" action="/about">
-    
-        {{ govukButton({
-          text: "Start now",
-          isStartButton: true,
-          preventDoubleClick: true
-        }) }}
-    
 
-    </div>
-
-    <div class="govuk-grid-column-one-third">
-
-    </div>
   </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+</div>
 
 {% endblock %}

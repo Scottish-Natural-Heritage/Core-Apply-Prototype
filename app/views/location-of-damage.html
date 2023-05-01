@@ -1,75 +1,78 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  {{ serviceName }} – GOV.UK Prototype Kit
+{{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-      <form method="post" action="/damage-occurring">
+    <form method="post" action="/damage-occurring">
 
-{% set locationOptions = [  
-  { value: "lambing-or-calving-parks-fields", text: "Lambing or calving parks/fields", checked: true },
-  { value: "other-areas", text: "Other areas" },
-  { value: "lambing-calving-pigging-parks-fields", text: "Lambing/calving/pigging parks/fields", checked: true },
-  { value: "feeding-areas", text: "Feeding areas (for example at creep feeders)" },
-  { value: "river-system", text: "River system" },
-  { value: "stocked-fishery", text: "Stocked fishery" },
-  { value: "prime-agricultural-land", text: "Prime Agricultural Land (PAL)", checked: true },
-  { value: "non-pal-land", text: "Non-PAL land" }
-  
-  ] %}
+      {% set locationOptions = [
+      { value: "lambing-or-calving-parks-fields", text: "Lambing or calving parks/fields", checked: true },
+      { value: "other-areas", text: "Other areas" },
+      { value: "lambing-calving-pigging-parks-fields", text: "Lambing/calving/pigging parks/fields", checked: true },
+      { value: "feeding-areas", text: "Feeding areas (for example at creep feeders)" },
+      { value: "river-system", text: "River system" },
+      { value: "stocked-fishery", text: "Stocked fishery" },
+      { value: "prime-agricultural-land", text: "Prime Agricultural Land (PAL)", checked: true },
+      { value: "non-pal-land", text: "Non-PAL land" }
 
-  {% if data['speciesSelection'] == 'ravens' and data['damage-type'] == 'damage-to-livestock' %}
-  {% set radioOptions = [locationOptions[0], locationOptions[1]] %}
-{% elif data['speciesSelection'] == 'geese' %}
-  {% set radioOptions = [locationOptions[2]] %}
-{% elif data['speciesSelection'] == 'gulls' %}
-  {% set radioOptions = [locationOptions[0], locationOptions[1]] %}
-{% elif data['speciesSelection'] == 'fish-eating birds' %}
-  {% set radioOptions = [locationOptions[6]] %}
-{% elif data['speciesSelection'] == 'other birds' %}
-  {% set radioOptions = [locationOptions[0], locationOptions[1], locationOptions[2], locationOptions[3], locationOptions[4], locationOptions[5], locationOptions[6], locationOptions[7]] %}
-{% elif data['speciesSelection'] == 'badgers' %}
-  {% set radioOptions = [locationOptions[2], locationOptions[8], locationOptions[9], locationOptions[10]] %}
-{% elif data['speciesSelection'] == 'hares' %}
-  {% set radioOptions = [locationOptions[2], locationOptions[3], locationOptions[4], locationOptions[5]] %} 
-{% elif data['speciesSelection'] == 'beavers' %}
-  {% set radioOptions = [locationOptions[2], locationOptions[3], locationOptions[4], locationOptions[5], locationOptions[8]] %}
-{% elif data['speciesSelection'] == 'other animals' %}
-  {% set radioOptions = [locationOptions[0], locationOptions[1], locationOptions[2], locationOptions[3], locationOptions[4], locationOptions[5], locationOptions[6], locationOptions[8]] %}
-  {% endif %}
+      ] %}
 
-{{ govukRadios({
-  name: "location-of-damage",
-  fieldset: {
-    legend: {
+      {% if data['speciesSelection'] == 'ravens' and data['damage-type'] == 'damage-to-livestock' %}
+      {% set radioOptions = [locationOptions[0], locationOptions[1]] %}
+      {% elif data['speciesSelection'] == 'geese' %}
+      {% set radioOptions = [locationOptions[2]] %}
+      {% elif data['speciesSelection'] == 'gulls' %}
+      {% set radioOptions = [locationOptions[0], locationOptions[1]] %}
+      {% elif data['speciesSelection'] == 'fish-eating birds' %}
+      {% set radioOptions = [locationOptions[6]] %}
+      {% elif data['speciesSelection'] == 'other birds' %}
+      {% set radioOptions = [locationOptions[0], locationOptions[1], locationOptions[2], locationOptions[3],
+      locationOptions[4], locationOptions[5], locationOptions[6], locationOptions[7]] %}
+      {% elif data['speciesSelection'] == 'badgers' %}
+      {% set radioOptions = [locationOptions[2], locationOptions[8], locationOptions[9], locationOptions[10]] %}
+      {% elif data['speciesSelection'] == 'hares' %}
+      {% set radioOptions = [locationOptions[2], locationOptions[3], locationOptions[4], locationOptions[5]] %}
+      {% elif data['speciesSelection'] == 'beavers' %}
+      {% set radioOptions = [locationOptions[2], locationOptions[3], locationOptions[4], locationOptions[5],
+      locationOptions[8]] %}
+      {% elif data['speciesSelection'] == 'other animals' %}
+      {% set radioOptions = [locationOptions[0], locationOptions[1], locationOptions[2], locationOptions[3],
+      locationOptions[4], locationOptions[5], locationOptions[6], locationOptions[8]] %}
+      {% endif %}
+
+      {{ govukRadios({
+      name: "location-of-damage",
+      fieldset: {
+      legend: {
       text: "Where is the damage occurring?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
-    }
-  },
- 
-  items: radioOptions
-}) }}
+      }
+      },
 
-{{ govukButton({
-  text: "Continue",
-  preventDoubleClick: true
-}) }}
+      items: radioOptions
+      }) }}
 
-</form>
-    
-    </div>
+      {{ govukButton({
+      text: "Continue",
+      preventDoubleClick: true
+      }) }}
+
+    </form>
+
   </div>
+</div>
 
 {% endblock %}

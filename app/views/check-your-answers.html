@@ -5,323 +5,324 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Check your answers before sending your application
+    <h1 class="govuk-heading-l">
+      Check your answers before sending your application
+    </h1>
+
+    {{ govukWarningText({
+    text: "Check your answers carefully before submitting an ensure all contact details are correct. If any details are
+    incorrect it will delay the processing of the application.",
+    iconFallbackText: "Fallback text"
+    }) }}
+
+    <form method="post" action="/success">
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      <h1 class="govuk-heading-m">
+        Licence required
       </h1>
 
-      {{ govukWarningText({
-        text: "Check your answers carefully before submitting an ensure all contact details are correct.  If any details are incorrect it will delay the processing of the application.",
-        iconFallbackText: "Fallback text"
+      {{ govukSummaryList({
+      rows: [
+      {
+      key: {
+      text: "Licence required"
+      },
+      value: {
+      text: data['isLicenceRequired']
+      },
+      actions: {
+      items: [
+      {
+      href: "#",
+      text: "Change",
+      visuallyHiddenText: "name"
+      }
+      ]
+      }
+      },
+      {
+      key: {
+      text: "What do you require a licence for?"
+      },
+      value: {
+      text: data['speciesSelection'].charAt(0).toUpperCase() + data['speciesSelection'].slice(1)
+      },
+      actions: {
+      items: [
+      {
+      href: "#",
+      text: "Change",
+      visuallyHiddenText: "date of birth"
+      }
+      ]
+      }
+      }
+      ]
       }) }}
 
-      <form method="post" action="/success">
+      {% if data['isLicenceHolder'] == 'no' %}
 
-        {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+      <h1 class="govuk-heading-m">
+        Applicant details
+      </h1>
 
-        <h1 class="govuk-heading-m">
-          Licence required
-        </h1>
-        
-        {{ govukSummaryList({
-        rows: [
-        {
-        key: {
-        text: "Licence required"
-        },
-        value: {
-        text: data['isLicenceRequired']
-        },
-        actions: {
-        items: [
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "name"
-          }
-        ]
-        }
-        },
-        {
-        key: {
-        text: "What do you require  a licence for?"
-        },
-        value: {
-        text: data['speciesSelection'].charAt(0).toUpperCase() + data['speciesSelection'].slice(1)
-        },
-        actions: {
-        items: [
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "date of birth"
-          }
-        ]
-        }
-        }
-        ]
-        }) }}
-
-        {% if data['isLicenceHolder'] == 'no' %}
-
-        <h1 class="govuk-heading-m">
-          Applicant details
-        </h1>
-        
-        {{ govukSummaryList({
-        rows: [
-        {
-        key: {
-        text: "Name"
-        },
-        value: {
-        text: data['applicant-full-name']
-        },
-        actions: {
-        items: [
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "name"
-          }
-        ]
-        }
-        },
-        {
-        key: {
-        text: "Organisation"
-        },
-        value: {
-        text: data['applicant-org']
-        },
-        actions: {
-        items: [
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "date of birth"
-          }
-        ]
-        }
-        },
-        {
-        key: {
-        text: "Email address"
-        },
-        value: {
-        html: data['applicant-email']
-        },
-        actions: {
-        items: [
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "address"
-          }
-        ]
-        }
-        },
-        {
-        key: {
-        text: "Phone number"
-        },
-        value: {
-        html: data['applicant-telephone']
-            },
-        actions: {
-        items: [
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "contact details"
-          }
-        ]
-        }
-        }
-        ]
-        }) }}
-
-        {% endif %}
-
-        {% if data['isLicenceHolder'] == 'yes' %}
-        <h1 class="govuk-heading-m">
-          Your details
-        </h1>
-        {% elseif data['isLicenceHolder'] == 'no' %}
-        <h1 class="govuk-heading-m">
-          Licence holder details
-        </h1>
-        {% endif %}
-
-{{ govukSummaryList({
-  rows: [
-    {
+      {{ govukSummaryList({
+      rows: [
+      {
       key: {
-        text: "Name"
+      text: "Name"
       },
       value: {
-        text: data['holder-full-name']
+      text: data['applicant-full-name']
       },
       actions: {
-        items: [
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "name"
-          }
-        ]
+      items: [
+      {
+      href: "#",
+      text: "Change",
+      visuallyHiddenText: "name"
       }
-    },
-    {
+      ]
+      }
+      },
+      {
       key: {
-        text: "Organisation"
+      text: "Organisation"
       },
       value: {
-        text: data['holder-org']
+      text: data['applicant-org']
       },
       actions: {
-        items: [
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "date of birth"
-          }
-        ]
+      items: [
+      {
+      href: "#",
+      text: "Change",
+      visuallyHiddenText: "date of birth"
       }
-    },
-    {
+      ]
+      }
+      },
+      {
       key: {
-        text: "Email address"
+      text: "Email address"
       },
       value: {
-        html: data['holder-email']
+      html: data['applicant-email']
       },
       actions: {
-        items: [
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "address"
-          }
-        ]
+      items: [
+      {
+      href: "#",
+      text: "Change",
+      visuallyHiddenText: "address"
       }
-    },
-    {
+      ]
+      }
+      },
+      {
       key: {
-        text: "Phone number"
+      text: "Phone number"
       },
       value: {
-        html: data['holder-telephone']
-            },
+      html: data['applicant-telephone']
+      },
       actions: {
-        items: [
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "contact details"
-          }
-        ]
+      items: [
+      {
+      href: "#",
+      text: "Change",
+      visuallyHiddenText: "contact details"
       }
-    },
-    {
+      ]
+      }
+      }
+      ]
+      }) }}
+
+      {% endif %}
+
+      {% if data['isLicenceHolder'] == 'yes' %}
+      <h1 class="govuk-heading-m">
+        Your details
+      </h1>
+      {% elseif data['isLicenceHolder'] == 'no' %}
+      <h1 class="govuk-heading-m">
+        Licence holder details
+      </h1>
+      {% endif %}
+
+      {{ govukSummaryList({
+      rows: [
+      {
+      key: {
+      text: "Name"
+      },
+      value: {
+      text: data['holder-full-name']
+      },
+      actions: {
+      items: [
+      {
+      href: "#",
+      text: "Change",
+      visuallyHiddenText: "name"
+      }
+      ]
+      }
+      },
+      {
+      key: {
+      text: "Organisation"
+      },
+      value: {
+      text: data['holder-org']
+      },
+      actions: {
+      items: [
+      {
+      href: "#",
+      text: "Change",
+      visuallyHiddenText: "date of birth"
+      }
+      ]
+      }
+      },
+      {
+      key: {
+      text: "Email address"
+      },
+      value: {
+      html: data['holder-email']
+      },
+      actions: {
+      items: [
+      {
+      href: "#",
+      text: "Change",
+      visuallyHiddenText: "address"
+      }
+      ]
+      }
+      },
+      {
+      key: {
+      text: "Phone number"
+      },
+      value: {
+      html: data['holder-telephone']
+      },
+      actions: {
+      items: [
+      {
+      href: "#",
+      text: "Change",
+      visuallyHiddenText: "contact details"
+      }
+      ]
+      }
+      },
+      {
       key: {
       text: "Address"
       },
       value: {
       html: data['holder-address']
-          },
+      },
       actions: {
       items: [
-        {
-          href: "#",
-          text: "Change",
-          visuallyHiddenText: "contact details"
-        }
+      {
+      href: "#",
+      text: "Change",
+      visuallyHiddenText: "contact details"
+      }
       ]
       }
       }
-  ]
-}) }}
+      ]
+      }) }}
 
 
 
-<h1 class="govuk-heading-m">
-  Site Address
-</h1>
+      <h1 class="govuk-heading-m">
+        Site Address
+      </h1>
 
-{{ govukSummaryList({
-rows: [
-{
-key: {
-text: "Same as licence holder address?"
-},
-value: {
-html:  data['same-as-licence-address'] | default("No") 
-},
-actions: {
-items: [
-  {
-    href: "#",
-    text: "Change",
-    visuallyHiddenText: "name"
-  }
-]
-}
-},
-{
-key: {
-text: "Site postcode"
-},
-value: {
-text: data['postcode']
-},
-actions: {
-items: [
-  {
-    href: "#",
-    text: "Change",
-    visuallyHiddenText: "date of birth"
-  }
-]
-}
-},
-{
-  key: {
-    text: "Address"
-    },
-    value: {
-    html: data['site-address']
-        },
-    actions: {
-    items: [
+      {{ govukSummaryList({
+      rows: [
       {
-        href: "#",
-        text: "Change",
-        visuallyHiddenText: "contact details"
+      key: {
+      text: "Same as licence holder address?"
+      },
+      value: {
+      html: data['same-as-licence-address'] | default("No")
+      },
+      actions: {
+      items: [
+      {
+      href: "#",
+      text: "Change",
+      visuallyHiddenText: "name"
       }
-    ]
-    }
-    }
-]
-}) }}
+      ]
+      }
+      },
+      {
+      key: {
+      text: "Site postcode"
+      },
+      value: {
+      text: data['postcode']
+      },
+      actions: {
+      items: [
+      {
+      href: "#",
+      text: "Change",
+      visuallyHiddenText: "date of birth"
+      }
+      ]
+      }
+      },
+      {
+      key: {
+      text: "Address"
+      },
+      value: {
+      html: data['site-address']
+      },
+      actions: {
+      items: [
+      {
+      href: "#",
+      text: "Change",
+      visuallyHiddenText: "contact details"
+      }
+      ]
+      }
+      }
+      ]
+      }) }}
 
 
-        {{ govukButton({
-          text: "Accept and send",
-          isStartButton: false,
-          preventDoubleClick: true
-        }) }}
-    
-      </form>
+      {{ govukButton({
+      text: "Accept and send",
+      isStartButton: false,
+      preventDoubleClick: true
+      }) }}
 
-    </div>
+    </form>
+
   </div>
+</div>
 
 {% endblock %}

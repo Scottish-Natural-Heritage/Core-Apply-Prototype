@@ -1,91 +1,91 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  {{ serviceName }} – GOV.UK Prototype Kit
+{{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-    
-      <form method="post" action="/site-address">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-l">
-          Select your address
-        </h1>
-    
-        {% from "govuk/components/select/macro.njk" import govukSelect %}
+    <form method="post" action="/site-address">
 
-        {{ govukSelect({
-          id: "holder-address",
-          name: "holder-address",
-          label: {
-            text: ""
-          },
-            hint: {
-            text: "Address"
-          },
-          items: [
-            {
-              value: "Gateside, 1A Leachkin Road, Inverness, IV3 8NW",
-              text: "Gateside, 1A Leachkin Road, Inverness, IV3 8NW",
-              selected: true
-            },
-            {
-              value: "Orcadia, 1B Leachkin Road, Inverness, IV3 8NW",
-              text: "Orcadia, 1B Leachkin Road, Inverness, IV3 8NW"
-            },
-            {
-              value: "2 Leachkin Road, Inverness, IV3 8NW",
-              text: "2 Leachkin Road, Inverness, IV3 8NW"
-            },
-            {
-              value: "4 Leachkin Road, Inverness, IV3 8NW",
-              text: "4 Leachkin Road, Inverness, IV3 8NW"
-            },
-            {
-              value: "Burnside, Leachkin Road, Inverness, IV3 8NW",
-              text: "Burnside, Leachkin Road, Inverness, IV3 8NW"
-            },
-            {
-              value: "Naturescot, Naturescot, Great Glen House, Leachkin Road, Inverness, IV3 8NW",
-              text: "Naturescot, Naturescot, Great Glen House, Leachkin Road, Inverness, IV3 8NW"
-            },
-            {
-              value: "Old Post Office, Leachkin Road, Inverness, IV3 8NW",
-              text: "Old Post Office, Leachkin Road, Inverness, IV3 8NW"
-            }
-           ]
-        
-        }) }}
+      <h1 class="govuk-heading-l">
+        Select your address
+      </h1>
 
-        {{ govukButton({
-          text: "Continue",
-          preventDoubleClick: true
-        }) }}
-    
-      </form>
+      {% from "govuk/components/select/macro.njk" import govukSelect %}
 
-      <form method="post" action="/manual-address">
-    
-        {{ govukButton({
-          text: "Address not found",
-          isStartButton: false,
-          preventDoubleClick: true,
-          classes: "govuk-button--secondary"
-        }) }}
-    
-      </form>
+      {{ govukSelect({
+      id: "holder-address",
+      name: "holder-address",
+      label: {
+      text: ""
+      },
+      hint: {
+      text: "Address"
+      },
+      items: [
+      {
+      value: "Gateside, 1A Leachkin Road, Inverness, IV3 8NW",
+      text: "Gateside, 1A Leachkin Road, Inverness, IV3 8NW",
+      selected: true
+      },
+      {
+      value: "Orcadia, 1B Leachkin Road, Inverness, IV3 8NW",
+      text: "Orcadia, 1B Leachkin Road, Inverness, IV3 8NW"
+      },
+      {
+      value: "2 Leachkin Road, Inverness, IV3 8NW",
+      text: "2 Leachkin Road, Inverness, IV3 8NW"
+      },
+      {
+      value: "4 Leachkin Road, Inverness, IV3 8NW",
+      text: "4 Leachkin Road, Inverness, IV3 8NW"
+      },
+      {
+      value: "Burnside, Leachkin Road, Inverness, IV3 8NW",
+      text: "Burnside, Leachkin Road, Inverness, IV3 8NW"
+      },
+      {
+      value: "Naturescot, Naturescot, Great Glen House, Leachkin Road, Inverness, IV3 8NW",
+      text: "Naturescot, Naturescot, Great Glen House, Leachkin Road, Inverness, IV3 8NW"
+      },
+      {
+      value: "Old Post Office, Leachkin Road, Inverness, IV3 8NW",
+      text: "Old Post Office, Leachkin Road, Inverness, IV3 8NW"
+      }
+      ]
 
-    </div>
+      }) }}
+
+      {{ govukButton({
+      text: "Continue",
+      preventDoubleClick: true
+      }) }}
+
+    </form>
+
+    <form method="post" action="/manual-address">
+
+      {{ govukButton({
+      text: "Address not found",
+      isStartButton: false,
+      preventDoubleClick: true,
+      classes: "govuk-button--secondary"
+      }) }}
+
+    </form>
+
   </div>
+</div>
 
 {% endblock %}

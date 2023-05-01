@@ -1,80 +1,80 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  {{ serviceName }} – GOV.UK Prototype Kit
+{{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-    
-      <form method="post" action="/postcode">
-    
-        {% from "govuk/components/input/macro.njk" import govukInput %}
-        {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
-        
-        {% call govukFieldset({
-          legend: {
-            text: "What are your details?",
-            classes: "govuk-fieldset__legend--l",
-            isPageHeading: true
-          }
-        }) %}
-        
-          {{ govukInput({
-            label: {
-              text: 'Full name (MUST be a named individual)'
-            },
-            id: "holder-full-name",
-            name: "holder-full-name",
-            value: data['holder-full-name']
-          }) }}
-        
-          {{ govukInput({
-            label: {
-              text: 'Organisation (optional)'
-            },
-            id: "holder-org",
-            name: "holder-org",
-            value: data['holder-org']
-          }) }}
-        
-          {{ govukInput({
-            label: {
-              text: "Email address"
-            },
-            id: "holder-email",
-            name: "holder-email",
-            value: data['holder-email']
-          }) }}
-        
-          {{ govukInput({
-            label: {
-              text: "Telephone number (optional)"
-            },
-            id: "holder-telephone",
-            name: "holder-telephone",
-            value: data['holder-telephone']
-          }) }}
-        
-        {% endcall %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-        {{ govukButton({
-          text: "Continue",
-          preventDoubleClick: true
-        }) }}
-    
-      </form>
+    <form method="post" action="/postcode">
 
-    </div>
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+      {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+      {% call govukFieldset({
+      legend: {
+      text: "What are your details?",
+      classes: "govuk-fieldset__legend--l",
+      isPageHeading: true
+      }
+      }) %}
+
+      {{ govukInput({
+      label: {
+      text: 'Full name (MUST be a named individual)'
+      },
+      id: "holder-full-name",
+      name: "holder-full-name",
+      value: data['holder-full-name']
+      }) }}
+
+      {{ govukInput({
+      label: {
+      text: 'Organisation (optional)'
+      },
+      id: "holder-org",
+      name: "holder-org",
+      value: data['holder-org']
+      }) }}
+
+      {{ govukInput({
+      label: {
+      text: "Email address"
+      },
+      id: "holder-email",
+      name: "holder-email",
+      value: data['holder-email']
+      }) }}
+
+      {{ govukInput({
+      label: {
+      text: "Telephone number (optional)"
+      },
+      id: "holder-telephone",
+      name: "holder-telephone",
+      value: data['holder-telephone']
+      }) }}
+
+      {% endcall %}
+
+      {{ govukButton({
+      text: "Continue",
+      preventDoubleClick: true
+      }) }}
+
+    </form>
+
   </div>
+</div>
 
 {% endblock %}

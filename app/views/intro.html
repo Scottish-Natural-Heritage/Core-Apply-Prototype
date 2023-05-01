@@ -7,88 +7,89 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Licensing</h1>
+    <h1 class="govuk-heading-l">Licensing</h1>
 
-      <h2 class="govuk-heading-m">Applying for a licence</h2>
-    
-      <p class="govuk-body">
-        Before applying to us for a licence for the first time, read our general information about the licensing process.
-      </p>
+    <h2 class="govuk-heading-m">Applying for a licence</h2>
 
-      <p class="govuk-body">
-        Explore our A–Z guide to find out about licensing for a specific protected species, including how to apply for each type of licence.
-      </p>
+    <p class="govuk-body">
+      Before applying to us for a licence for the first time, read our general information about the licensing process.
+    </p>
 
-      <p class="govuk-body">
-        We advise that you read the relevant standing advice relating to planning and development if applicable.
-      </p>
-    
-      <h2 class="govuk-heading-m">Renewing a licence</h2>
-    
-      <p class="govuk-body">
-        If you want to renew a licence from 2022 or earlier, you need to apply for a new licence.
-      </p>
-    
-      <p class="govuk-body">
-        You must have submitted a licence return for your expired licence before we can process your renewal.
-      </p>
-    
-      <form method="post" action="/licence-required">
-    
-        {{ govukButton({
-          text: "Online Licensing System",
-          isStartButton: false,
-          preventDoubleClick: true
-        }) }}
-    
-      </form>
-    
-      <p class="govuk-body">
-        If you need assistance with this service, contact the NatureScot Licensing Team.
-      </p>
-    
-      <h3 class="govuk-heading-s">
-          Email
-      </h3>
-    
-      <ul class="govuk-list">
-        <li>
-          <a class="govuk-link" href="mailto:licensing@nature.scot">
-            licensing@nature.scot
-          </a>
-        </li>
-        <li>
-          We aim to respond within 2 working days.
-        </li>
-      </ul>
-    
-      <h3 class="govuk-heading-s">
-        Telephone
-      </h3>
-    
-      <ul class="govuk-list">
-        <li>
-          01463 725 364
-        </li>
-        <li>
-          Voicemail service. We aim to respond within 2 working days.
-        </li>
-      </ul>
-    
-      <p class="govuk-body">
-        <a class="govuk-link" href="https://www.gov.uk/call-charges" target="_blank">
-          Find out about call charges
+    <p class="govuk-body">
+      Explore our A–Z guide to find out about licensing for a specific protected species, including how to apply for
+      each type of licence.
+    </p>
+
+    <p class="govuk-body">
+      We advise that you read the relevant standing advice relating to planning and development if applicable.
+    </p>
+
+    <h2 class="govuk-heading-m">Renewing a licence</h2>
+
+    <p class="govuk-body">
+      If you want to renew a licence from 2022 or earlier, you need to apply for a new licence.
+    </p>
+
+    <p class="govuk-body">
+      You must have submitted a licence return for your expired licence before we can process your renewal.
+    </p>
+
+    <form method="post" action="/licence-required">
+
+      {{ govukButton({
+      text: "Online Licensing System",
+      isStartButton: false,
+      preventDoubleClick: true
+      }) }}
+
+    </form>
+
+    <p class="govuk-body">
+      If you need assistance with this service, contact the NatureScot Licensing Team.
+    </p>
+
+    <h3 class="govuk-heading-s">
+      Email
+    </h3>
+
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link" href="mailto:licensing@nature.scot">
+          licensing@nature.scot
         </a>
-      </p>
+      </li>
+      <li>
+        We aim to respond within 2 working days.
+      </li>
+    </ul>
 
-    </div>
+    <h3 class="govuk-heading-s">
+      Telephone
+    </h3>
 
-    <div class="govuk-grid-column-one-third">
+    <ul class="govuk-list">
+      <li>
+        01463 725 364
+      </li>
+      <li>
+        Voicemail service. We aim to respond within 2 working days.
+      </li>
+    </ul>
 
-    </div>
+    <p class="govuk-body">
+      <a class="govuk-link" href="https://www.gov.uk/call-charges" target="_blank">
+        Find out about call charges
+      </a>
+    </p>
+
   </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+</div>
 
 {% endblock %}

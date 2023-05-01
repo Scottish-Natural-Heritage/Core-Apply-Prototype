@@ -5,65 +5,65 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
 {% endblock %}
 
 {% block content %}
 
 
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="/licence-holder-answer">
+    <form method="post" action="/licence-holder-answer">
 
-        {{ govukRadios({
-          classes: "govuk-radios--inline",
-          idPrefix: "is-licence-holder",
-          name: "isLicenceHolder",
-          fieldset: {
-            legend: {
-              text: "Will you be the licence holder?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          errorMessage: {
-            text: "Select whether or not you are to be the licence holder"
-          } if error.missingIsLicenceHolderValue,
-          items: [
-            {
-              value: "yes",
-              text: "Yes",
-              checked: isLicenceHolder === true
-            },
-            {
-              value: "no",
-              text: "No - I am applying on behalf of the licence holder",
-              checked: isLicenceHolder === false
-            }
-          ]
-        }) }}
-    
-        {{ govukWarningText({
-          text: "If you are the licence holder, you could be liable to criminal " +
-                "proceedings if the conditions of the licence are not met. " +
-                "This could include imprisonment or a fine.",
-          iconFallbackText: "Warning"
-        }) }}
-    
-    
-        {{ govukButton({
-          text: "Continue",
-          preventDoubleClick: true
-        }) }}
-    
-      </form>
+      {{ govukRadios({
+      classes: "govuk-radios--inline",
+      idPrefix: "is-licence-holder",
+      name: "isLicenceHolder",
+      fieldset: {
+      legend: {
+      text: "Will you be the licence holder?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+      }
+      },
+      errorMessage: {
+      text: "Select whether or not you are to be the licence holder"
+      } if error.missingIsLicenceHolderValue,
+      items: [
+      {
+      value: "yes",
+      text: "Yes",
+      checked: isLicenceHolder === true
+      },
+      {
+      value: "no",
+      text: "No - I am applying on behalf of the licence holder",
+      checked: isLicenceHolder === false
+      }
+      ]
+      }) }}
 
-    </div>
+      {{ govukWarningText({
+      text: "If you are the licence holder, you could be liable to criminal " +
+      "proceedings if the conditions of the licence are not met. " +
+      "This could include imprisonment or a fine.",
+      iconFallbackText: "Warning"
+      }) }}
+
+
+      {{ govukButton({
+      text: "Continue",
+      preventDoubleClick: true
+      }) }}
+
+    </form>
+
   </div>
+</div>
 
 {% endblock %}

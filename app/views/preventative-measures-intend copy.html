@@ -5,57 +5,57 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="/preventative-measures-not-tried">
+    <form method="post" action="/preventative-measures-not-tried">
 
-        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+      {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
-        {{ govukCheckboxes({
-          name: "preventative_measures-intend",
-          fieldset: {
-            legend: {
-              text: "What preventative measures do you intend to try?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          hint: {
-            text: "Select all that apply."
-          },
-          items: [
-            {
-              value: "scaring_devices",
-              text: "Scaring devices (static or automatic, visual or audio)",
-              checked: true
-            },
-            {
-              value: "moving_stock_feed",
-              text: "Moving stock/feed"
-            },
-            {
-              value: "habitat_management",
-              text: "Habitat management (including removal of nesting/burrowing/roosting opportunities)"
-            }
-          ]
-        }) }}
-        
-    
-        {{ govukButton({
-          text: "Continue",
-          isStartButton: false,
-          preventDoubleClick: true
-        }) }}
-    
-      </form>
+      {{ govukCheckboxes({
+      name: "preventative_measures-intend",
+      fieldset: {
+      legend: {
+      text: "What preventative measures do you intend to try?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+      }
+      },
+      hint: {
+      text: "Select all that apply."
+      },
+      items: [
+      {
+      value: "scaring_devices",
+      text: "Scaring devices (static or automatic, visual or audio)",
+      checked: true
+      },
+      {
+      value: "moving_stock_feed",
+      text: "Moving stock/feed"
+      },
+      {
+      value: "habitat_management",
+      text: "Habitat management (including removal of nesting/burrowing/roosting opportunities)"
+      }
+      ]
+      }) }}
 
-    </div>
+
+      {{ govukButton({
+      text: "Continue",
+      isStartButton: false,
+      preventDoubleClick: true
+      }) }}
+
+    </form>
+
   </div>
+</div>
 
 {% endblock %}
