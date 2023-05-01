@@ -49,23 +49,6 @@
       }
       ]
       }
-      },
-      {
-      key: {
-      text: "What do you require a licence for?"
-      },
-      value: {
-      text: data['speciesSelection'].charAt(0).toUpperCase() + data['speciesSelection'].slice(1)
-      },
-      actions: {
-      items: [
-      {
-      href: "#",
-      text: "Change",
-      visuallyHiddenText: "date of birth"
-      }
-      ]
-      }
       }
       ]
       }) }}
@@ -296,7 +279,7 @@
       actions: {
       items: [
       {
-      href: "#",
+      href: "/site-address",
       text: "Change",
       visuallyHiddenText: "name"
       }
@@ -339,10 +322,54 @@
       }
       ]
       }) }}
-
-
       {% endif %}
 
+
+      <h1 class="govuk-heading-m">
+        Licence details
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+        {
+          key: {
+            text: "What do you require a licence for?"
+            },
+            value: {
+            text: data['speciesSelection'].charAt(0).toUpperCase() + data['speciesSelection'].slice(1)
+            },
+            actions: {
+            items: [
+            {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+            }
+            ]
+            }
+            },
+            {
+            key: {
+            text: "How many " + data['speciesSelection'] + " are causing or likely to cause problems?"
+            },
+            value: {
+            html: data['numberSpecies']
+            },
+            actions: {
+            items: [
+            {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "contact details"
+            }
+            ]
+            }
+            }
+        ]
+        }) }}
+
+
+        
 
       {{ govukButton({
       text: "Accept and send",
