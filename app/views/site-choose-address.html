@@ -16,17 +16,17 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
     
-      <form method="post" action="/site-address">
+      <form method="post" action="/species-selection">
 
         <h1 class="govuk-heading-l">
-          Select your address
+          Select the site's address
         </h1>
     
         {% from "govuk/components/select/macro.njk" import govukSelect %}
 
         {{ govukSelect({
-          id: "holder-address",
-          name: "holder-address",
+          id: "site-address",
+          name: "site-address",
           label: {
             text: ""
           },

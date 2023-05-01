@@ -23,7 +23,7 @@
         
         {% call govukFieldset({
           legend: {
-            text: "What is your postcode?",
+            text: "What is the site's postcode?",
             classes: "govuk-fieldset__legend--l",
             isPageHeading: true
           }
@@ -32,9 +32,9 @@
           {{ govukInput({
             label: {
             },
-            id: "postcode",
-            name: "postcode",
-            value: data['postcode']
+            id: "site-postcode",
+            name: "site-postcode",
+            value: data['site-postcode']
           }) }}
         
         {% endcall %}
