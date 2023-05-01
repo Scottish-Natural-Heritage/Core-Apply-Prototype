@@ -45,6 +45,23 @@ router.post('/licence-holder-answer', function (req, res) {
   
   })
 
+  // Run this code when a form is submitted to 'site-address'
+router.post('/site-address-answer', function (req, res) {
+
+  // Make a variable and give it the value from 'isSiteAddress'
+  var isSiteAddress = req.session.data['isSiteAddress']
+
+  // Check whether the variable matches a condition
+  if (isSiteAddress == "yes"){
+    // Send user to next page
+    res.redirect('/species-selection')
+  } else if (isSiteAddress == "no") {
+    // Send user to the other page
+    res.redirect('/site-postcode')
+  }
+
+})
+
   // Run this code when a form is submitted to 'species-selection'
 router.post('/species-selection-answer', function (req, res) {
 
