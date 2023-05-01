@@ -257,14 +257,41 @@
         Site Address
       </h1>
 
-      {{ govukSummaryList({
+      {% if data['isSiteAddress'] == 'yes' %}
+
+ {{ govukSummaryList({
       rows: [
       {
       key: {
       text: "Same as licence holder address?"
       },
       value: {
-      html: data['same-as-licence-address'] | default("No")
+      html: data['isSiteAddress'].charAt(0).toUpperCase() + data['isSiteAddress'].slice(1)
+      },
+      actions: {
+      items: [
+      {
+      href: "/site-address",
+      text: "Change",
+      visuallyHiddenText: "name"
+      }
+      ]
+      }
+      }
+      ]
+      }) }}
+
+
+      {% elseif data['isSiteAddress'] == 'no' %}
+
+ {{ govukSummaryList({
+      rows: [
+      {
+      key: {
+      text: "Same as licence holder address?"
+      },
+      value: {
+      html: data['isSiteAddress'].charAt(0).toUpperCase() + data['isSiteAddress'].slice(1)
       },
       actions: {
       items: [
@@ -312,6 +339,9 @@
       }
       ]
       }) }}
+
+
+      {% endif %}
 
 
       {{ govukButton({
