@@ -18,7 +18,8 @@ module.exports = {
   'site-postcode': 'IV3 8NW',
   'site-address' : 'NatureScot Headquarters,  Great Glen House,  Leachkin Road,  Inverness',
 
-  'num-of-species' : '30',
+  'num-of-ravens' : '30',
+  'num-of-badgers' : '30',
 
   'damage-details' : 'A thorough and precise explanation providing details of the damage experienced',
 
