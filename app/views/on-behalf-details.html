@@ -16,14 +16,63 @@ href: "javascript:window.history.back()"
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">What are your details?</h1>
+    <form method="post" action="/licence-holder-details">
 
-    <p class="govuk-body">
-      These pages have not been created yet in the Prototype. Please continue to the next section.
-    </p>
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+      {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+      {% call govukFieldset({
+      legend: {
+      text: "What are your details?",
+      classes: "govuk-fieldset__legend--l",
+      isPageHeading: true
+      }
+      }) %}
+
+      <p>By providing your details, you will receive email notifications regarding this licence application, including
+        the determination of the licence.</p>
+
+      <p>We will pass on your details to the proposed licence holder so they know who has submitted an application on
+        their behalf.</p>
 
 
-    <form method="post" action="/species-selection">
+      {{ govukInput({
+      label: {
+      text: 'Full name (MUST be a named individual)'
+      },
+      id: "holder-full-name",
+      name: "holder-full-name",
+      value: data['applicant-full-name']
+      }) }}
+
+      {{ govukInput({
+      label: {
+      text: 'Organisation (optional)'
+      },
+      id: "holder-org",
+      name: "holder-org",
+      value: data['applicant-org']
+      }) }}
+
+      {{ govukInput({
+      label: {
+      text: "Email address"
+      },
+      id: "holder-email",
+      name: "holder-email",
+      value: data['applicant-email']
+      }) }}
+
+      {{ govukInput({
+      label: {
+      text: "Telephone number (optional)"
+      },
+      id: "holder-telephone",
+      name: "holder-telephone",
+      value: data['applicant-telephone']
+      }) }}
+
+      {% endcall %}
 
       {{ govukButton({
       text: "Continue",

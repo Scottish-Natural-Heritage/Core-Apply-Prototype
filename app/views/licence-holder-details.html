@@ -21,9 +21,23 @@ href: "javascript:window.history.back()"
       {% from "govuk/components/input/macro.njk" import govukInput %}
       {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
 
+      {% if data['isLicenceHolder'] == 'yes' %}
+
+      <h1 class="govuk-heading-l">
+        What are your details?
+      </h1>
+
+      {% elseif data['isLicenceHolder'] == 'no' %}
+
+      <h1 class="govuk-heading-l">
+        What are the licence holder's details?
+      </h1>
+
+      {% endif %}
+
       {% call govukFieldset({
       legend: {
-      text: "What are your details?",
+      text: "",
       classes: "govuk-fieldset__legend--l",
       isPageHeading: true
       }

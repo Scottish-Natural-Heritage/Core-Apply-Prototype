@@ -20,13 +20,27 @@
 
       <form method="post" action="/site-address-answer">
 
+        {% if data['isLicenceHolder'] == 'yes' %}
+
+        <h1 class="govuk-heading-l">
+          Is the site address the same as your address?
+        </h1>
+  
+        {% elseif data['isLicenceHolder'] == 'no' %}
+  
+        <h1 class="govuk-heading-l">
+          Is the site address the same as the licence holder's address?
+        </h1>
+  
+        {% endif %}
+
         {{ govukRadios({
           classes: "govuk-radios--inline",
           idPrefix: "is-site-address",
           name: "isSiteAddress",
           fieldset: {
             legend: {
-              text: "Is the site address the same as your address?",
+              text: "",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }

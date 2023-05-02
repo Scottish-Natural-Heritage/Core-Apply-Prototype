@@ -18,9 +18,19 @@ href: "javascript:window.history.back()"
 
     <form method="post" action="/site-address">
 
+      {% if data['isLicenceHolder'] == 'yes' %}
+
       <h1 class="govuk-heading-l">
         Select your address
       </h1>
+
+      {% elseif data['isLicenceHolder'] == 'no' %}
+
+      <h1 class="govuk-heading-l">
+        Select the licence holder's address
+      </h1>
+
+      {% endif %}
 
       {% from "govuk/components/select/macro.njk" import govukSelect %}
 
