@@ -20,6 +20,8 @@ module.exports = {
 
   'num-of-ravens' : '30',
   'num-of-badgers' : '30',
+  'num-of-pink-footed-goose' : '15',
+  'num-of-barnacle-goose' : '15',
 
   'damage-details' : 'A thorough and precise explanation providing details of the damage experienced',
 

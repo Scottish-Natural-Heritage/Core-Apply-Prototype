@@ -20,7 +20,7 @@
     <form method="post" action="/type-of-damage">
 
       <h1 class="govuk-heading-l">
-        How many {{ data['speciesSelection'] }} are causing or likely to cause problems?
+        How many {{ data['speciesSelection'] }} are causing or likely to cause problems? {{ data['sub-species-selection'] }}
       </h1>
 
       {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -38,6 +38,49 @@
 
       {% elseif data['speciesSelection'] == 'geese' %}
 
+      {% if ('pink-footed-goose' in data['sub-species-selection']) and ('barnacle-goose' in data['sub-species-selection']) %}
+      {{ govukInput({
+        label: {
+          text: "Number of pink-footed geese"
+        },
+        id: "num-of-pink-footed-goose",
+        name: "num-of-pink-footed-goose",
+        value: data['num-of-pink-footed-goose']
+      }) }}
+  
+      {{ govukInput({
+        label: {
+          text: "Number of barnacle geese"
+        },
+        id: "num-of-barnacle-goose",
+        name: "num-of-barnacle-goose",
+        value: data['num-of-barnacle-goose']
+      }) }}
+    {% endif %}
+    
+      {% if data['sub-species-selection'] == 'pink-footed-goose' %}
+      {{ govukInput({
+        label: {
+          text: "Number of pink-footed geese"
+        },
+        id: "num-of-pink-footed-goose",
+        name: "num-of-pink-footed-goose",
+        value: data['num-of-pink-footed-goose']
+      }) }}
+    {% endif %}
+    
+    {% if data['sub-species-selection'] == 'barnacle-goose' %}
+      {{ govukInput({
+        label: {
+          text: "Number of barnacle geese"
+        },
+        id: "num-of-barnacle-goose",
+        name: "num-of-barnacle-goose",
+        value: data['num-of-barnacle-goose']
+      }) }}
+    {% endif %}
+
+
       {% elseif data['speciesSelection'] == 'gulls' %}
 
       {% elseif data['speciesSelection'] == 'fish-eating birds' %}
@@ -53,7 +96,7 @@
       name: "num-of-badgers",
       value: data['num-of-badgers']
       }) }}
-      
+
 
       {% elseif data['speciesSelection'] == 'hares' %}
 
