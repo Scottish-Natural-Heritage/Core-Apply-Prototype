@@ -43,7 +43,7 @@
       actions: {
       items: [
       {
-      href: "#",
+      href: "/licence-required",
       text: "Change",
       visuallyHiddenText: "name"
       }
@@ -156,7 +156,7 @@
       actions: {
       items: [
       {
-      href: "#",
+      href: "/licence-holder-details",
       text: "Change",
       visuallyHiddenText: "name"
       }
@@ -173,7 +173,7 @@
       actions: {
       items: [
       {
-      href: "#",
+      href: "/licence-holder-details",
       text: "Change",
       visuallyHiddenText: "date of birth"
       }
@@ -190,7 +190,7 @@
       actions: {
       items: [
       {
-      href: "#",
+      href: "/licence-holder-details",
       text: "Change",
       visuallyHiddenText: "address"
       }
@@ -207,7 +207,24 @@
       actions: {
       items: [
       {
-      href: "#",
+      href: "/licence-holder-details",
+      text: "Change",
+      visuallyHiddenText: "contact details"
+      }
+      ]
+      }
+      },
+      {
+      key: {
+      text: "Postcode"
+      },
+      value: {
+      html: data['postcode']
+      },
+      actions: {
+      items: [
+      {
+      href: "/postcode",
       text: "Change",
       visuallyHiddenText: "contact details"
       }
@@ -224,7 +241,7 @@
       actions: {
       items: [
       {
-      href: "#",
+      href: "/choose-address",
       text: "Change",
       visuallyHiddenText: "contact details"
       }
@@ -341,7 +358,7 @@
             actions: {
             items: [
             {
-            href: "#",
+            href: "/species-selection",
             text: "Change",
             visuallyHiddenText: "date of birth"
             }
@@ -353,12 +370,12 @@
             text: "How many " + data['speciesSelection'] + " are causing or likely to cause problems?"
             },
             value: {
-            html: data['numberSpecies']
+            html: data['num-of-species']
             },
             actions: {
             items: [
             {
-            href: "#",
+            href: "/number-of-species",
             text: "Change",
             visuallyHiddenText: "contact details"
             }
@@ -367,6 +384,106 @@
             }
         ]
         }) }}
+
+
+        <h1 class="govuk-heading-m">
+          Previous licence
+        </h1>
+
+        {% if data['previousLicence'] == 'yes' %}
+  
+        {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: "Did this property previously have a licence?"
+              },
+              value: {
+              text: data['previousLicence'].charAt(0).toUpperCase() + data['previousLicence'].slice(1)
+              },
+              actions: {
+              items: [
+              {
+              href: "/previous-licence",
+              text: "Change",
+              visuallyHiddenText: "date of birth"
+              }
+              ]
+              }
+              },
+              {
+              key: {
+              text: "What was the most recent licence number?"
+              },
+              value: {
+              html: data['previous-licence']
+              },
+              actions: {
+              items: [
+              {
+              href: "/previous-licence-number",
+              text: "Change",
+              visuallyHiddenText: "contact details"
+              }
+              ]
+              }
+              }
+          ]
+          }) }}
+  
+  
+        {% elseif data['previousLicence'] == 'no' %}
+
+        {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: "Did this property previously have a licence?"
+              },
+              value: {
+              text: data['previousLicence'].charAt(0).toUpperCase() + data['previousLicence'].slice(1)
+              },
+              actions: {
+              items: [
+              {
+              href: "/previous-licence",
+              text: "Change",
+              visuallyHiddenText: "date of birth"
+              }
+              ]
+              }
+              }
+          ]
+          }) }}
+  
+        {% endif %}
+
+
+        <h1 class="govuk-heading-m">
+          Supporting information
+        </h1>
+  
+        {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: "Enter any further information you need to tell us"
+              },
+              value: {
+              text: data['supporting-info']
+              },
+              actions: {
+              items: [
+              {
+              href: "/supporting-info",
+              text: "Change",
+              visuallyHiddenText: "date of birth"
+              }
+              ]
+              }
+              }
+          ]
+          }) }}
 
 
         

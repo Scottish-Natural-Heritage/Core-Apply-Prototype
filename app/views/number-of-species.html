@@ -25,42 +25,14 @@
 
       {% from "govuk/components/input/macro.njk" import govukInput %}
 
-      {% set numberOptions = [
-      { value: "ravens", text: "ravens" },
-      { value: "pink-footed-goose", text: "Pink-footed goose" }, { value: "pink-footed-goose", text: "Pink-footed goose"
-      },
-      { value: "barnacle-goose", text: "Barnacle goose" },
-      { value: "great-black-backed-gull", text: "Great black-backed gull" },
-      { value: "herring-gull", text: "Herring gull" },
-      { value: "lesser-black-backed-gull", text: "Lesser black-backed gull" },
-      { value: "common-gull", text: "Common gull" },
-      { value: "black-headed-gull", text: "Black-headed gull" },
-      { value: "cormorant", text: "Cormorant" },
-      { value: "goosander", text: "Goosander" },
-      { value: "grey-heron", text: "Grey heron" },
-      { value: "red-breasted-merganser", text: "Red breasted merganser" },
-      { value: "brown-hare", text: "Brown hare" },
-      { value: "mountain-hare", text: "Mountain hare" }
-      ] %}
-
-      {% if data['speciesSelection'] == 'ravens' %}
-
-      {% if data['speciesSelection'] == 'ravens' %}
-      {% set inputOptions = [speciesOptions[0]] %}
-      {% endif %}
-
-      {% from "govuk/components/input/macro.njk" import govukInput %}
-
       {{ govukInput({
       label: {
       text: "Number of " + data['speciesSelection']
       },
-      id: "numberSpecies",
-      name: "numberSpecies"
+      id: "num-of-species",
+      name: "num-of-species",
+      value: data['num-of-species']
       }) }}
-
-      {% endif %}
-
 
 
       {{ govukButton({
