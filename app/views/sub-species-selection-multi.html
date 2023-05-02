@@ -17,12 +17,145 @@
         What species do you require?
       </h1>
 
-      
-
       <form method="post" action="/type-of-damage">
-    
+
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{{ govukSelect({
+  id: "birds",
+  name: "birds",
+  label: {
+    text: "Select the species required"
+  },
+  items: [
+    {
+      value: "select",
+      text: "Click here to select"
+    },
+    {
+      value: "common-redpoll",
+      text: "Common Redpoll"
+    },
+    {
+      value: "arctic-redpoll",
+      text: "Arctic Redpoll"
+    },
+    {
+      value: "new-britain-sparrowhawk",
+      text: "New Britain Sparrowhawk"
+    },
+    {
+      value: "levant-sparrowhawk",
+      text: "Levant Sparrowhawk"
+    },
+    {
+      value: "goshawk",
+      text: "Goshawk"
+    },
+    {
+      value: "gundlachs-hawk",
+      text: "Gundlach's Hawk"
+    },
+    {
+      value: "imitator-goshawk",
+      text: "Imitator Goshawk"
+    },
+    {
+      value: "dwarf-sparrowhawk",
+      text: "Dwarf Sparrowhawk"
+    },
+    {
+      value: "sparrowhawk",
+      text: "Sparrowhawk"
+    },
+    {
+      value: "vinous-breasted-starling",
+      text: "Vinous-breasted Starling"
+    },
+    {
+      value: "crested-myna",
+      text: "Crested Myna"
+    },
+    {
+      value: "bank-myna",
+      text: "Bank Myna"
+    },
+    {
+      value: "common-myna",
+      text: "Common Myna"
+    },
+    {
+      value: "paddyfield-warbler",
+      text: "Paddyfield Warbler"
+    },
+    {
+      value: "great-reed-warbler",
+      text: "Great Reed Warbler"
+    },
+    {
+      value: "blyths-reed-warbler",
+      text: "Blyth's Reed Warbler"
+    },
+    {
+      value: "moustached-warbler",
+      text: "Moustached Warbler"
+    },
+    {
+      value: "marsh-warbler",
+      text: "Marsh Warbler"
+    },
+    {
+      value: "sedge-warbler",
+      text: "Sedge Warbler"
+    },
+    {
+      value: "reed-warbler",
+      text: "Reed Warbler"
+    },
+    {
+      value: "blue-winged-minla",
+      text: "Blue-winged Minla"
+    },
+    {
+      value: "bar-throated-minla",
+      text: "Bar-throated Minla"
+    },
+    {
+      value: "common-sandpiper",
+      text: "Common Sandpiper"
+    },
+    {
+      value: "spotted-sandpiper",
+      text: "Spotted Sandpiper"
+    },
+    {
+      value: "long-tailed-tit",
+      text: "Long-Tailed Tit"
+    },
+    {
+      value: "black-throated-bushtit",
+      text: "Black-throated Bushtit"
+    },
+    {
+      value: "tengmalm's-owl",
+      text: "Tengmalm's Owl"
+    },
+    {
+      value: "black-vulture",
+      text: "Black Vulture"
+    }
+    ]
+  }) }}
+   
+  {{ govukButton({
+    text: "Add another",
+    isStartButton: false,
+    preventDoubleClick: true,
+    classes: "govuk-button--secondary"
+  }) }}
+    <br>
         {{ govukButton({
-          text: "Skip for now",
+          text: "Continue",
           isStartButton: false,
           preventDoubleClick: true
         }) }}
