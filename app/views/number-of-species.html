@@ -20,91 +20,77 @@
     <form method="post" action="/type-of-damage">
 
       <h1 class="govuk-heading-l">
-        How many {{ data['speciesSelection'] }} are causing or likely to cause problems? {{ data['sub-species-selection'] }}
+        How many {{ data['speciesSelection'] }} are causing or likely to cause problems?
       </h1>
 
       {% from "govuk/components/input/macro.njk" import govukInput %}
 
       {% if data['speciesSelection'] == 'ravens' %}
-      {{ govukInput({
-      label: {
-      text: "Number of " + data['speciesSelection']
-      },
-      id: "num-of-ravens",
-      name: "num-of-ravens",
-      value: data['num-of-ravens']
-      }) }}
-
-
+        {{ govukInput({
+          label: {
+            text: "Number of " + data['speciesSelection']
+          },
+          id: "num-of-ravens",
+          name: "num-of-ravens",
+          value: data['num-of-ravens']
+        }) }}
+      
       {% elseif data['speciesSelection'] == 'geese' %}
+        {% for subSpecies in ['pink-footed-goose', 'barnacle-goose'] %}
+          {% if subSpecies in data['sub-species-selection'] %}
+            {{ govukInput({
+              label: {
+                text: "Number of " + subSpecies|replace('pink-footed-goose', 'pink-footed geese')|replace('barnacle-goose', 'barnacle geese')
+              },
+              id: "num-of-" + subSpecies,
+              name: "num-of-" + subSpecies,
+              value: data['num-of-' + subSpecies]
+            }) }}
+          {% endif %}
+        {% endfor %}
 
-      {% if ('pink-footed-goose' in data['sub-species-selection']) and ('barnacle-goose' in data['sub-species-selection']) %}
+        {% elseif data['speciesSelection'] == 'gulls' %}
+  {% for subSpecies in ['great-black-backed-gull', 'herring-gull', 'lesser-black-backed-gull', 'common-gull', 'black-headed-gull'] %}
+    {% if subSpecies in data['sub-species-selection'] %}
       {{ govukInput({
         label: {
-          text: "Number of pink-footed geese"
+          text: "Number of " + subSpecies|replace('-', ' ')
         },
-        id: "num-of-pink-footed-goose",
-        name: "num-of-pink-footed-goose",
-        value: data['num-of-pink-footed-goose']
-      }) }}
-  
-      {{ govukInput({
-        label: {
-          text: "Number of barnacle geese"
-        },
-        id: "num-of-barnacle-goose",
-        name: "num-of-barnacle-goose",
-        value: data['num-of-barnacle-goose']
-      }) }}
-    {% endif %}
-    
-      {% if data['sub-species-selection'] == 'pink-footed-goose' %}
-      {{ govukInput({
-        label: {
-          text: "Number of pink-footed geese"
-        },
-        id: "num-of-pink-footed-goose",
-        name: "num-of-pink-footed-goose",
-        value: data['num-of-pink-footed-goose']
+        id: "num-of-" + subSpecies,
+        name: "num-of-" + subSpecies,
+        value: data['num-of-' + subSpecies]
       }) }}
     {% endif %}
-    
-    {% if data['sub-species-selection'] == 'barnacle-goose' %}
+  {% endfor %}
+
+  {% elseif data['speciesSelection'] == 'fish-eating birds' %}
+  {% for subSpecies in ['cormorant', 'goosander', 'grey-heron', 'red-breasted-merganser'] %}
+    {% if subSpecies in data['sub-species-selection'] %}
       {{ govukInput({
         label: {
-          text: "Number of barnacle geese"
+          text: "Number of " + subSpecies|replace('-', ' ')
         },
-        id: "num-of-barnacle-goose",
-        name: "num-of-barnacle-goose",
-        value: data['num-of-barnacle-goose']
+        id: "num-of-" + subSpecies,
+        name: "num-of-" + subSpecies,
+        value: data['num-of-' + subSpecies]
       }) }}
     {% endif %}
+  {% endfor %}
 
 
-      {% elseif data['speciesSelection'] == 'gulls' %}
-
-      {% elseif data['speciesSelection'] == 'fish-eating birds' %}
-
-      {% elseif data['speciesSelection'] == 'other birds' %}
-
+      
       {% elseif data['speciesSelection'] == 'badgers' %}
-      {{ govukInput({
-      label: {
-      text: "Number of " + data['speciesSelection']
-      },
-      id: "num-of-badgers",
-      name: "num-of-badgers",
-      value: data['num-of-badgers']
-      }) }}
-
-
-      {% elseif data['speciesSelection'] == 'hares' %}
-
-      {% elseif data['speciesSelection'] == 'beavers' %}
-
-      {% elseif data['speciesSelection'] == 'beavers' %}
-
+        {{ govukInput({
+          label: {
+            text: "Number of " + data['speciesSelection']
+          },
+          id: "num-of-badgers",
+          name: "num-of-badgers",
+          value: data['num-of-badgers']
+        }) }}
+      
       {% endif %}
+      
 
 
       {{ govukButton({
