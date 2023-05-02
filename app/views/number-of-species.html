@@ -77,8 +77,20 @@
     {% endif %}
   {% endfor %}
 
+  {% elseif data['speciesSelection'] == 'hares' %}
+  {% for subSpecies in ['brown-hare', 'mountain-hare'] %}
+    {% if subSpecies in data['sub-species-selection'] %}
+      {{ govukInput({
+        label: {
+          text: "Number of " + subSpecies|replace('-', ' ')
+        },
+        id: "num-of-" + subSpecies,
+        name: "num-of-" + subSpecies,
+        value: data['num-of-' + subSpecies]
+      }) }}
+    {% endif %}
+  {% endfor %}
 
-      
       {% elseif data['speciesSelection'] == 'badgers' %}
         {{ govukInput({
           label: {
@@ -88,8 +100,20 @@
           name: "num-of-badgers",
           value: data['num-of-badgers']
         }) }}
+
+        {% elseif data['speciesSelection'] == 'beavers' %}
+        {{ govukInput({
+          label: {
+            text: "Number of " + data['speciesSelection']
+          },
+          id: "num-of-beavers",
+          name: "num-of-beavers",
+          value: data['num-of-beavers']
+        }) }}
       
       {% endif %}
+
+      
       
 
 
