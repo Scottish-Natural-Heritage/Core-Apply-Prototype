@@ -24,7 +24,7 @@ router.post('/licence-required-selection', function (req, res) {
     }else if (isLicenceRequired == "Air safety") {
       // Send user to the other page
       res.redirect('/before-you-start')
-    }else if (isLicenceRequired == "Gulls Public health and safety") {
+    }else if (isLicenceRequired == "Gulls public health and safety") {
       // Send user to the other page
       res.redirect('https://uat-licensing.nature.scot/gulls-health-and-safety/intro')
     }else if (isLicenceRequired == "Standard Forestry Operations") {
