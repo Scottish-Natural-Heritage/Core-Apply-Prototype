@@ -125,6 +125,16 @@
           name: "num-of-beavers",
           value: data['num-of-beavers']
         }) }}
+
+        {% elseif data['speciesSelection'] == 'pine martens' %}
+        {{ govukInput({
+          label: {
+            text: "Number of " + data['speciesSelection']
+          },
+          id: "num-of-pine-martens]",
+          name: "num-of-pine-martens",
+          value: data['num-of-pine-martens']
+        }) }}
       
       {% endif %}
 

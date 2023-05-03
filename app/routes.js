@@ -102,9 +102,9 @@ router.post('/species-selection-answer', function (req, res) {
   }else if (speciesSelection == "beavers") {
     // Send user to the other page
     res.redirect('/number-of-species')
-  }else if (speciesSelection == "other animals") {
+  }else if (speciesSelection == "pine martens") {
     // Send user to the other page
-    res.redirect('/sub-species-selection')
+    res.redirect('/number-of-species')
   }
 
 })
