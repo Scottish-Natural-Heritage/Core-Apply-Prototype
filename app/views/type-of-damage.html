@@ -15,7 +15,7 @@
 
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-      <form method="post" action="/location-of-damage">
+      <form method="post" action="/type-of-damage-answer">
 
 {% set damageOptions = [  
   { value: "damage-to-livestock", text: "Damage to livestock", checked: true },
@@ -33,8 +33,6 @@
 
 {% if data['speciesSelection'] == 'ravens' %}
   {% set radioOptions = [damageOptions[0], damageOptions[1]] %}
-{% elif data['speciesSelection'] == 'geese' %}
-  {% set radioOptions = [damageOptions[2]] %}
 {% elif data['speciesSelection'] == 'gulls' %}
   {% set radioOptions = [damageOptions[0], damageOptions[1]] %}
 {% elif data['speciesSelection'] == 'fish-eating birds' %}

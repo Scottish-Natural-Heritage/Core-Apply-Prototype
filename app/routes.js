@@ -109,6 +109,44 @@ router.post('/species-selection-answer', function (req, res) {
 
 })
 
+  // Run this code when a form is submitted to 'type-of-damage'
+  router.post('/type-of-damage-answer', function (req, res) {
+
+    // Make a variable and give it the value from 'previousLicence'
+    var typeOfDamage = req.session.data['speciesSelection']
+  
+    // Check whether the variable matches a condition
+    if (typeOfDamage == "ravens"){
+      // Send user to next page
+      res.redirect('/location-of-damage')
+    } else if (typeOfDamage == "geese") {
+      // Send user to the other page
+      res.redirect('/damage-occurring')
+    }else if (typeOfDamage == "gulls") {
+      // Send user to the other page
+      res.redirect('/location-of-damage')
+    }else if (typeOfDamage == "fish-eating birds") {
+      // Send user to the other page
+      res.redirect('/location-of-damage')
+    }else if (typeOfDamage == "other birds") {
+      // Send user to the other page
+      res.redirect('/location-of-damage')
+    }else if (typeOfDamage == "badgers") {
+      // Send user to the other page
+      res.redirect('/location-of-damage')
+    }else if (typeOfDamage == "hares") {
+      // Send user to the other page
+      res.redirect('/location-of-damage')
+    }else if (typeOfDamage == "beavers") {
+      // Send user to the other page
+      res.redirect('/location-of-damage')
+    }else if (typeOfDamage == "pine martens") {
+      // Send user to the other page
+      res.redirect('/location-of-damage')
+    }
+
+  })
+
 // Run this code when a form is submitted to 'previous-licence'
 router.post('/previous-licence-answer', function (req, res) {
 
