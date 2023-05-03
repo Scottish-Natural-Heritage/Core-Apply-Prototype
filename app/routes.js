@@ -110,6 +110,44 @@ router.post('/species-selection-answer', function (req, res) {
 })
 
   // Run this code when a form is submitted to 'type-of-damage'
+  router.post('/sub-species-selection-answer', function (req, res) {
+
+    // Make a variable and give it the value from 'previousLicence'
+    var subSpeciesSelect = req.session.data['speciesSelection']
+  
+    // Check whether the variable matches a condition
+    if (subSpeciesSelect == "ravens"){
+      // Send user to next page
+      res.redirect('/number-of-species')
+    } else if (subSpeciesSelect == "geese") {
+      // Send user to the other page
+      res.redirect('/number-of-species')
+    }else if (subSpeciesSelect == "gulls") {
+      // Send user to the other page
+      res.redirect('/number-of-species')
+    }else if (subSpeciesSelect == "fish-eating birds") {
+      // Send user to the other page
+      res.redirect('/number-of-species')
+    }else if (subSpeciesSelect == "other birds") {
+      // Send user to the other page
+      res.redirect('activities')
+    }else if (subSpeciesSelect == "badgers") {
+      // Send user to the other page
+      res.redirect('/number-of-species')
+    }else if (subSpeciesSelect == "hares") {
+      // Send user to the other page
+      res.redirect('/number-of-species')
+    }else if (subSpeciesSelect == "beavers") {
+      // Send user to the other page
+      res.redirect('/number-of-species')
+    }else if (subSpeciesSelect == "pine martens") {
+      // Send user to the other page
+      res.redirect('/number-of-species')
+    }
+
+  })
+
+  // Run this code when a form is submitted to 'type-of-damage'
   router.post('/type-of-damage-answer', function (req, res) {
 
     // Make a variable and give it the value from 'previousLicence'

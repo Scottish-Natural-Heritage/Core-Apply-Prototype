@@ -34,9 +34,9 @@
       {% elif data['speciesSelection'] == 'geese' %}
       {% set radioOptions = [locationOptions[2]] %}
       {% elif data['speciesSelection'] == 'gulls' %}
-      {% set radioOptions = [locationOptions[0], locationOptions[1]] %}
+      {% set radioOptions = [locationOptions[0], locationOptions[3], locationOptions[1]] %}
       {% elif data['speciesSelection'] == 'fish-eating birds' %}
-      {% set radioOptions = [locationOptions[6]] %}
+      {% set radioOptions = [locationOptions[4], locationOptions[5]] %}
       {% elif data['speciesSelection'] == 'other birds' %}
       {% set radioOptions = [locationOptions[0], locationOptions[1], locationOptions[2], locationOptions[3],
       locationOptions[4], locationOptions[5], locationOptions[6], locationOptions[7]] %}
