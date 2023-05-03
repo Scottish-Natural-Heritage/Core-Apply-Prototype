@@ -83,7 +83,7 @@ router.post('/species-selection-answer', function (req, res) {
     res.redirect('/sub-species-selection')
   }else if (speciesSelection == "other birds") {
     // Send user to the other page
-    res.redirect('/sub-species-selection-multi')
+    res.redirect('/sub-species-selection')
   }else if (speciesSelection == "badgers") {
     // Send user to the other page
     res.redirect('/number-of-species')
@@ -95,7 +95,7 @@ router.post('/species-selection-answer', function (req, res) {
     res.redirect('/number-of-species')
   }else if (speciesSelection == "other animals") {
     // Send user to the other page
-    res.redirect('/sub-species-selection-multi')
+    res.redirect('/sub-species-selection')
   }
 
 })

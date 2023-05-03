@@ -17,21 +17,33 @@
 
       <form method="post" action="/number-of-species">
 
-{% set speciesOptions = [  
-  {    value: "pink-footed-goose",    text: "Pink-footed goose"  },  
-  {    value: "barnacle-goose",    text: "Barnacle goose"  },  
-  {    value: "great-black-backed-gull",    text: "Great black-backed gull"  },  
-  {    value: "herring-gull",    text: "Herring gull"  },  
-  {    value: "lesser-black-backed-gull",    text: "Lesser black-backed gull"  },  
-  {    value: "common-gull",    text: "Common gull"  },  
-  {    value: "black-headed-gull",    text: "Black-headed gull"  },  
-  {    value: "cormorant",    text: "Cormorant"  },  
-  {    value: "goosander",    text: "Goosander"  },  
-  {    value: "grey-heron",    text: "Grey heron"  },  
-  {    value: "red-breasted-merganser",    text: "Red breasted merganser"  },  
-  {    value: "brown-hare",    text: "Brown hare"  },  
-  {    value: "mountain-hare",    text: "Mountain hare"  }
-  ] %}
+{% set speciesOptions = [
+{ value: "pink-footed-goose", text: "Pink-footed goose" },
+{ value: "barnacle-goose", text: "Barnacle goose" },
+{ value: "great-black-backed-gull", text: "Great black-backed gull" },
+{ value: "herring-gull", text: "Herring gull" },
+{ value: "lesser-black-backed-gull", text: "Lesser black-backed gull" },
+{ value: "common-gull", text: "Common gull" },
+{ value: "black-headed-gull", text: "Black-headed gull" },
+{ value: "cormorant", text: "Cormorant" },
+{ value: "goosander", text: "Goosander" },
+{ value: "grey-heron", text: "Grey heron" },
+{ value: "red-breasted-merganser", text: "Red breasted merganser" },
+{ value: "brown-hare", text: "Brown hare" },
+{ value: "mountain-hare", text: "Mountain hare" },
+{ value: "canada-goose", text: "Canada goose" },
+{ value: "carrion-crow", text: "Carrion crow" },
+{ value: "feral-pigeon-rock-dove", text: "Feral pigeon/rock dove" },
+{ value: "greylag-goose", text: "Greylag goose" },
+{ value: "hooded-crow", text: "Hooded crow" },
+{ value: "jackdaw", text: "Jackdaw" },
+{ value: "magpie", text: "Magpie" },
+{ value: "pheasant", text: "Pheasant" },
+{ value: "rook", text: "Rook" },
+{ value: "starling", text: "Starling" },
+{ value: "wigeon", text: "Wigeon" },
+{ value: "woodpigeon", text: "Woodpigeon" }
+] %}
 
 {% if data['speciesSelection'] == 'geese' %}
   {% set checkboxOptions = [speciesOptions[0], speciesOptions[1]] %}
@@ -41,6 +53,8 @@
   {% set checkboxOptions = [speciesOptions[7], speciesOptions[8], speciesOptions[9], speciesOptions[10]] %}
 {% elif data['speciesSelection'] == 'hares' %}
   {% set checkboxOptions = [speciesOptions[11], speciesOptions[12]] %}
+{% elif data['speciesSelection'] == 'other birds' %}
+  {% set checkboxOptions = [speciesOptions[13], speciesOptions[14], speciesOptions[15], speciesOptions[16], speciesOptions[17], speciesOptions[18], speciesOptions[19], speciesOptions[20], speciesOptions[21], speciesOptions[22], speciesOptions[23], speciesOptions[24]] %}
 
   {% endif %}
 
