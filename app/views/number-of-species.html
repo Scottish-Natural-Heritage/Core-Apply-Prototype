@@ -77,6 +77,31 @@
     {% endif %}
   {% endfor %}
 
+  {% elseif data['speciesSelection'] == 'other birds' %}
+  {% for subSpecies in ['canada-goose', 'carrion-crow', 'feral-pigeon-rock-dove', 'greylag-goose', 'hooded-crow', 'jackdaw', 'magpie', 'pheasant', 'rook', 'starling', 'wigeon', 'woodpigeon'] %}    
+  {% if subSpecies in data['sub-species-selection'] %}
+      {{ govukInput({
+        label: {
+          text: "Number of " + subSpecies|replace('canada-goose', 'canada geese')|replace('greylag-goose', 'greylag geese')|replace('feral-pigeon-rock-dove', 'feral pigeon/rock dove')|replace('-', ' ')
+        },
+        id: "num-of-" + subSpecies,
+        name: "num-of-" + subSpecies,
+        value: data['num-of-' + subSpecies]
+      }) }}
+    {% endif %}
+  {% endfor %}
+
+
+  {% elseif data['speciesSelection'] == 'badgers' %}
+  {{ govukInput({
+    label: {
+      text: "Number of " + data['speciesSelection']
+    },
+    id: "num-of-badgers",
+    name: "num-of-badgers",
+    value: data['num-of-badgers']
+  }) }}
+
   {% elseif data['speciesSelection'] == 'hares' %}
   {% for subSpecies in ['brown-hare', 'mountain-hare'] %}
     {% if subSpecies in data['sub-species-selection'] %}
@@ -90,16 +115,6 @@
       }) }}
     {% endif %}
   {% endfor %}
-
-      {% elseif data['speciesSelection'] == 'badgers' %}
-        {{ govukInput({
-          label: {
-            text: "Number of " + data['speciesSelection']
-          },
-          id: "num-of-badgers",
-          name: "num-of-badgers",
-          value: data['num-of-badgers']
-        }) }}
 
         {% elseif data['speciesSelection'] == 'beavers' %}
         {{ govukInput({
