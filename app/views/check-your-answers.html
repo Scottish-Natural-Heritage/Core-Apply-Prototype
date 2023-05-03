@@ -241,7 +241,7 @@
       actions: {
       items: [
       {
-      href: "/choose-address",
+      href: "/postcode",
       text: "Change",
       visuallyHiddenText: "contact details"
       }
@@ -308,12 +308,12 @@
       text: "Site postcode"
       },
       value: {
-      text: data['postcode']
+      text: data['site-postcode']
       },
       actions: {
       items: [
       {
-      href: "#",
+      href: "/site-postcode",
       text: "Change",
       visuallyHiddenText: "date of birth"
       }
@@ -330,7 +330,7 @@
       actions: {
       items: [
       {
-      href: "#",
+      href: "/site-postcode",
       text: "Change",
       visuallyHiddenText: "contact details"
       }
@@ -370,7 +370,7 @@
             text: "How many " + data['speciesSelection'] + " are causing or likely to cause problems?"
             },
             value: {
-            html: data['num-of-species']
+            html: data['num-of-ravens']
             },
             actions: {
             items: [

@@ -15,8 +15,8 @@ module.exports = {
   'postcode': 'IV3 8NW',
   'address' : 'NatureScot Headquarters,  Great Glen House,  Leachkin Road,  Inverness',
 
-  'site-postcode': 'IV3 8NW',
-  'site-address' : 'NatureScot Headquarters,  Great Glen House,  Leachkin Road,  Inverness',
+  'site-postcode': 'EH12 7AT',
+  'site-address' : 'NatureScot (Edinburgh), Silvan House 3rd Floor East 231 Corstorphine Road',
 
   'num-of-ravens': '36',
   'num-of-badgers': '21',
