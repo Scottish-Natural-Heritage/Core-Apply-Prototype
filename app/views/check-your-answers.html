@@ -27,32 +27,6 @@
 
       {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
-      <h1 class="govuk-heading-m">
-        Licence purpose
-      </h1>
-
-      {{ govukSummaryList({
-      rows: [
-      {
-      key: {
-      text: "Licence required"
-      },
-      value: {
-      text: data['isLicenceRequired']
-      },
-      actions: {
-      items: [
-      {
-      href: "/licence-required",
-      text: "Change",
-      visuallyHiddenText: "name"
-      }
-      ]
-      }
-      }
-      ]
-      }) }}
-
       {% if data['isLicenceHolder'] == 'no' %}
 
       <h1 class="govuk-heading-m">
