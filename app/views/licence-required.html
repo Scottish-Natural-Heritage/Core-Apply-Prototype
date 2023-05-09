@@ -23,43 +23,43 @@ href: "javascript:window.history.back()"
       {% from "govuk/components/select/macro.njk" import govukSelect %}
 
       {{ govukSelect({
-      id: "isLicenceRequired",
-      name: "isLicenceRequired",
-      label: {
-      text: "Select the licenced purpose you require"
-      },
-      items: [
-      {
-      value: "select",
-      text: "Click here to select",
-      selected: true
-      },
-      {
-      value: "Prevent serious damage",
-      text: "Prevent serious damage"
-      },
-      {
-      value: "Public health and safety",
-      text: "Public health and safety"
-      },
-      {
+        id: "isLicenceRequired",
+        name: "isLicenceRequired",
+        label: {
+        text: "Select the licensed purpose you require"
+        },
+        items: [
+        {
+        value: "select",
+        text: "Click here to select",
+        selected: true
+        },
+        {
+        value: "Air safety",
+        text: "Air safety"
+        },
+        {
         value: "Gulls public health and safety",
         text: "Gulls public health and safety"
-      },
-      {
-      value: "Air safety",
-      text: "Air safety"
-      },
-      {
+        },
+        {
+        value: "Prevent serious damage",
+        text: "Prevent serious damage"
+        },
+        {
+        value: "Public health and safety",
+        text: "Public health and safety"
+        },
+        {
         value: "Standard Forestry Operations",
         text: "Standard Forestry Operations"
-      },
-      {
+        },
+        {
         value: "Trap registrations",
         text: "Trap registrations"
-      }
-    ]
-  }) }}
+        }
+        ]
+        }) }}
       
 
       <div id="prevent-serious-damage-info" style="display:none;">
