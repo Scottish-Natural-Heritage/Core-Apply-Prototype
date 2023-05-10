@@ -46,13 +46,25 @@
 {% elif data['speciesSelection'] == 'pine martens' %}
   {% set radioOptions = [damageOptions[0], damageOptions[1], damageOptions[2], damageOptions[3], damageOptions[4], damageOptions[5], damageOptions[6], damageOptions[8]] %}
   {% endif %}
-  
+
+  {% if data['speciesSelection'] == 'geese' %}
+
+  <h1 class="govuk-heading-l">
+    Provide details of the damage
+  </h1>
+
+  {% else %}
+
+  <h1 class="govuk-heading-l">
+    What type of damage is occurring?
+  </h1>
+
+  {% endif %}
 
 {{ govukRadios({
   name: "damage-type",
   fieldset: {
     legend: {
-      text: "What type of damage is occurring?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
