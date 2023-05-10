@@ -16,26 +16,40 @@
 
     <form method="post" action="/type-of-damage">
 
+      {% set takeNestEggExpand %}
+      {{ govukInput({
+        label: {
+          text: ""
+        },
+        hint: {
+          text: "How many do you want to take"
+        },
+        classes: "govuk-input--width-3",
+        id: "width-3",
+        name: "width-3"
+      }) }}
+      {% endset %}
+
 
       {% set activityOptions = [
-        { value: "take-and-destroy-nests-and-eggs", text: "Take and destroy nests and eggs" },
-        { value: "take-chicks", text: "Take chicks" },
-        { value: "take-adults", text: "Take adults" },
-        { value: "kill-chicks", text: "Kill chicks" },
-        { value: "kill-adults", text: "Kill adults" },
-        { value: "disturb", text: "Disturb" },
-        { value: "obstruct-access-to-sett", text: "Obstruct access to sett" },
-        { value: "damage-sett", text: "Damage sett" },
-        { value: "destroy-sett", text: "Destroy sett" },
-        { value: "dam-removal", text: "Dam removal" },
-        { value: "dam-notching", text: "Dam notching" },
-        { value: "damage-to-lodge-or-natal-burrow", text: "Damage to lodge or natal burrow" },
-        { value: "destroy-lodge-or-natal-burrow", text: "Destroy lodge or natal burrow" },
-        { value: "trapping", text: "Trapping" },
-        { value: "lethal-control", text: "Lethal control" },
-        { value: "obstruct-access-to-place-of-shelter-or-protection", text: "Obstruct access to place of shelter or protection, breeding site or resting place" },
-        { value: "damage-place-of-shelter-or-protection", text: "Damage place of shelter or protection, breeding site or resting place" },
-        { value: "destroy-place-of-shelter-or-protection", text: "Destroy place of shelter or protection, breeding site or resting place" }
+        { value: "take-and-destroy-nests-and-eggs", text: "Take and destroy nests and eggs", conditional: {html: takeNestEggExpand} },
+        { value: "take-chicks", text: "Take chicks", conditional: {html: takeNestEggExpand} },
+        { value: "take-adults", text: "Take adults", conditional: {html: takeNestEggExpand} },
+        { value: "kill-chicks", text: "Kill chicks", conditional: {html: takeNestEggExpand} },
+        { value: "kill-adults", text: "Kill adults", conditional: {html: takeNestEggExpand} },
+        { value: "disturb", text: "Disturb", conditional: {html: takeNestEggExpand} },
+        { value: "obstruct-access-to-sett", text: "Obstruct access to sett", conditional: {html: takeNestEggExpand} },
+        { value: "damage-sett", text: "Damage sett", conditional: {html: takeNestEggExpand} },
+        { value: "destroy-sett", text: "Destroy sett", conditional: {html: takeNestEggExpand} },
+        { value: "dam-removal", text: "Dam removal", conditional: {html: takeNestEggExpand} },
+        { value: "dam-notching", text: "Dam notching", conditional: {html: takeNestEggExpand} },
+        { value: "damage-to-lodge-or-natal-burrow", text: "Damage to lodge or natal burrow", conditional: {html: takeNestEggExpand} },
+        { value: "destroy-lodge-or-natal-burrow", text: "Destroy lodge or natal burrow", conditional: {html: takeNestEggExpand} },
+        { value: "trapping", text: "Trapping", conditional: {html: takeNestEggExpand} },
+        { value: "lethal-control", text: "Lethal control", conditional: {html: takeNestEggExpand} },
+        { value: "obstruct-access-to-place-of-shelter-or-protection", text: "Obstruct access to place of shelter or protection, breeding site or resting place", conditional: {html: takeNestEggExpand} },
+        { value: "damage-place-of-shelter-or-protection", text: "Damage place of shelter or protection, breeding site or resting place", conditional: {html: takeNestEggExpand} },
+        { value: "destroy-place-of-shelter-or-protection", text: "Destroy place of shelter or protection, breeding site or resting place", conditional: {html: takeNestEggExpand} }
         ] %}
 
       {% if data['speciesSelection'] == 'other birds' %}
@@ -49,6 +63,7 @@
       {% elif data['speciesSelection'] == 'other animals' %}
         {% set radioOptions = [activityOptions[0], activityOptions[1], activityOptions[2], activityOptions[3], activityOptions[4], activityOptions[5], activityOptions[6], activityOptions[8]] %}
         {% endif %}
+        
 
         {{ govukCheckboxes({
           name: "activities-required",
@@ -64,6 +79,8 @@
           },
           items: radioOptions
         }) }}
+
+        
         
 
       {{ govukButton({
@@ -72,6 +89,20 @@
       }) }}
 
     </form>
+
+    <script>
+    $(document).ready(function() {
+      $('input[type="checkbox"]').change(function() {
+        if(this.checked) {
+          const $conditional = $(this).closest('.govuk-checkboxes__item').find('.govuk-checkboxes__conditional');
+          $conditional.show();
+        } else {
+          const $conditional = $(this).closest('.govuk-checkboxes__item').find('.govuk-checkboxes__conditional');
+          $conditional.hide();
+        }
+      });
+    });
+  </script>
 
   </div>
 </div>
