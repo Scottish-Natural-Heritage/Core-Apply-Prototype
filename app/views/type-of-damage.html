@@ -17,61 +17,45 @@
 
       <form method="post" action="/type-of-damage-answer">
 
-{% set damageOptions = [  
-  { value: "damage-to-livestock", text: "Damage to livestock", checked: true },
-  { value: "damage-to-foodstuffs", text: "Damage to foodstuffs for livestock" },
-  { value: "damage-to-crops", text: "Damage to crops", checked: true },
-  { value: "damage-to-vegetables", text: "Dam age to vegetables" },
-  { value: "damage-to-fruit", text: "Damage to fruit" },
-  { value: "damage-to-growing-timber", text: "Damage to growing timber" },
-  { value: "damage-to-fisheries", text: "Damage to fisheries", checked: true },
-  { value: "damage-to-inland-water", text: "Damage to inland water" },
-  { value: "damage-to-other-property", text: "Damage to any other form of property" },
-  { value: "damage-to-land", text: "Damage to land" },
-  { value: "damage-to-poultry", text: "Damage to poultry" }
-  ] %}
+        {% set checkOptions = [    { value: "damage-to-livestock", text: "Damage to livestock", checked: true },  { value: "damage-to-foodstuffs", text: "Damage to foodstuffs for livestock" },  { value: "damage-to-crops", text: "Damage to crops", checked: true },  { value: "damage-to-vegetables", text: "Damage to vegetables" },  { value: "damage-to-fruit", text: "Damage to fruit" },  { value: "damage-to-growing-timber", text: "Damage to growing timber" },  { value: "damage-to-fisheries", text: "Damage to fisheries", checked: true },  { value: "damage-to-inland-water", text: "Damage to inland water" },  { value: "damage-to-other-property", text: "Damage to any other form of property" },  { value: "damage-to-land", text: "Damage to land" },  { value: "damage-to-poultry", text: "Damage to poultry" }] %}
 
-{% if data['speciesSelection'] == 'ravens' %}
-  {% set radioOptions = [damageOptions[0], damageOptions[1]] %}
-{% elif data['speciesSelection'] == 'gulls' %}
-  {% set radioOptions = [damageOptions[0], damageOptions[1]] %}
-{% elif data['speciesSelection'] == 'other birds' %}
-  {% set radioOptions = [damageOptions[0], damageOptions[1], damageOptions[2], damageOptions[3], damageOptions[4], damageOptions[5], damageOptions[6], damageOptions[7]] %}
-{% elif data['speciesSelection'] == 'badgers' %}
-  {% set radioOptions = [damageOptions[2], damageOptions[8], damageOptions[9], damageOptions[10]] %}
-{% elif data['speciesSelection'] == 'hares' %}
-  {% set radioOptions = [damageOptions[2], damageOptions[3], damageOptions[4], damageOptions[5]] %} 
-{% elif data['speciesSelection'] == 'beavers' %}
-  {% set radioOptions = [damageOptions[2], damageOptions[3], damageOptions[4], damageOptions[5], damageOptions[8]] %}
-{% elif data['speciesSelection'] == 'pine martens' %}
-  {% set radioOptions = [damageOptions[0], damageOptions[1], damageOptions[2], damageOptions[3], damageOptions[4], damageOptions[5], damageOptions[6], damageOptions[8]] %}
-  {% endif %}
-
-  {% if data['speciesSelection'] == 'geese' %}
-
-  <h1 class="govuk-heading-l">
-    Provide details of the damage
-  </h1>
-
-  {% else %}
-
-  <h1 class="govuk-heading-l">
-    What type of damage is occurring?
-  </h1>
-
-  {% endif %}
-
-{{ govukRadios({
-  name: "damage-type",
-  fieldset: {
-    legend: {
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
- 
-  items: radioOptions
-}) }}
+        {% if data['speciesSelection'] == 'ravens' %}
+          {% set checkOptions = [checkOptions[0], checkOptions[1]] %}
+        {% elif data['speciesSelection'] == 'gulls' %}
+          {% set checkOptions = [checkOptions[0], checkOptions[1]] %}
+        {% elif data['speciesSelection'] == 'other birds' %}
+          {% set checkOptions = [checkOptions[0], checkOptions[1], checkOptions[2], checkOptions[3], checkOptions[4], checkOptions[5], checkOptions[6], checkOptions[7]] %}
+        {% elif data['speciesSelection'] == 'badgers' %}
+          {% set checkOptions = [checkOptions[2], checkOptions[8], checkOptions[9], checkOptions[10]] %}
+        {% elif data['speciesSelection'] == 'hares' %}
+          {% set checkOptions = [checkOptions[2], checkOptions[3], checkOptions[4], checkOptions[5]] %} 
+        {% elif data['speciesSelection'] == 'beavers' %}
+          {% set checkOptions = [checkOptions[2], checkOptions[3], checkOptions[4], checkOptions[5], checkOptions[8]] %}
+        {% elif data['speciesSelection'] == 'pine martens' %}
+          {% set checkOptions = [checkOptions[0], checkOptions[1], checkOptions[2], checkOptions[3], checkOptions[4], checkOptions[5], checkOptions[6], checkOptions[8]] %}
+        {% endif %}
+        
+        {% if data['speciesSelection'] == 'geese' %}
+          <h1 class="govuk-heading-l">
+            Provide details of the damage
+          </h1>
+        {% else %}
+          <h1 class="govuk-heading-l">
+            What type of damage is occurring?
+          </h1>
+        {% endif %}
+        
+        {{ govukCheckboxes({
+          name: "damage-type",
+          fieldset: {
+            legend: {
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: checkOptions
+        }) }}
+        
 
 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
