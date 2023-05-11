@@ -22,7 +22,7 @@ module.exports = {
   'num-of-badgers': '21',
   'num-of-pink-footed-goose': '22',
   'num-of-barnacle-goose': '47',
-  'num-of-pine-martens': '13',
+  'num-of-shelters': '13',
   'num-of-great-black-backed-gull': '42',
   'num-of-herring-gull': '35',
   'num-of-lesser-black-backed-gull': '16',
