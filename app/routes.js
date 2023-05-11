@@ -8,7 +8,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
 
-// Run this code when a form is submitted to 'licence-holder'
+// Run this code when a form is submitted to 'licence-required'
 router.post('/licence-required-selection', function (req, res) {
 
     // Make a variable and give it the value from 'isLicenceRequired'
@@ -109,10 +109,10 @@ router.post('/species-selection-answer', function (req, res) {
 
 })
 
-  // Run this code when a form is submitted to 'type-of-damage'
+  // Run this code when a form is submitted to 'sub-species-selection'
   router.post('/sub-species-selection-answer', function (req, res) {
 
-    // Make a variable and give it the value from 'previousLicence'
+    // Make a variable and give it the value from 'subSpeciesSelect'
     var subSpeciesSelect = req.session.data['speciesSelection']
   
     // Check whether the variable matches a condition
@@ -150,7 +150,7 @@ router.post('/species-selection-answer', function (req, res) {
   // Run this code when a form is submitted to 'type-of-damage'
   router.post('/type-of-damage-answer', function (req, res) {
 
-    // Make a variable and give it the value from 'previousLicence'
+    // Make a variable and give it the value from 'typeOfDamage'
     var typeOfDamage = req.session.data['speciesSelection']
   
     // Check whether the variable matches a condition
