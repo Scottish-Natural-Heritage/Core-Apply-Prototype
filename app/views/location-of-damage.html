@@ -29,7 +29,7 @@
 
       ] %}
 
-      {% if data['speciesSelection'] == 'ravens' and data['damage-type'] == 'damage-to-livestock' %}
+      {% if data['speciesSelection'] == 'ravens' %}
       {% set radioOptions = [locationOptions[0], locationOptions[1]] %}
       {% elif data['speciesSelection'] == 'geese' %}
       {% set radioOptions = [locationOptions[2]] %}

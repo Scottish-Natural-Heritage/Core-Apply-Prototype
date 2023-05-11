@@ -152,11 +152,15 @@ router.post('/species-selection-answer', function (req, res) {
 
     // Make a variable and give it the value from 'typeOfDamage'
     var typeOfDamage = req.session.data['speciesSelection']
+    var locationOfDamage = req.session.data['damage-type']
   
     // Check whether the variable matches a condition
-    if (typeOfDamage == "ravens"){
+    if (typeOfDamage == "ravens" && locationOfDamage == "damage-to-livestock") {
       // Send user to next page
       res.redirect('/location-of-damage')
+    } else if (typeOfDamage == "ravens" && locationOfDamage == "damage-to-foodstuffs") {
+      // Send user to the other page
+      res.redirect('/damage-occurring')
     } else if (typeOfDamage == "geese") {
       // Send user to the other page
       res.redirect('/damage-occurring')
