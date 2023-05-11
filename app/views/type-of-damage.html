@@ -45,10 +45,8 @@
           {% set checkOptions = [checkOptions[2], checkOptions[3], checkOptions[4], checkOptions[5], checkOptions[8]] %}
         {% elif data['speciesSelection'] == 'pine martens' %}
           {% set checkOptions = [checkOptions[0], checkOptions[1], checkOptions[2], checkOptions[3], checkOptions[4], checkOptions[5], checkOptions[6], checkOptions[8]] %}
-        {% elif data['speciesSelection'] == 'pine martens' %}
-          {% set checkOptions = [checkOptions[0], checkOptions[1], checkOptions[2], checkOptions[3], checkOptions[4], checkOptions[5], checkOptions[6], checkOptions[8]] %}
         {% else %}
-          {% set checkOptions =  none %}
+          {% set checkOptions = none %}
           {% endif %}
         
         {% if data['speciesSelection'] == 'geese' or data['speciesSelection'] == 'fish-eating birds' %}
