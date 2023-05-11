@@ -101,7 +101,7 @@ router.post('/species-selection-answer', function (req, res) {
     res.redirect('/sub-species-selection')
   }else if (speciesSelection == "beavers") {
     // Send user to the other page
-    res.redirect('/number-of-species')
+    res.redirect('/activities')
   }else if (speciesSelection == "pine martens") {
     // Send user to the other page
     res.redirect('/number-of-species')
@@ -130,7 +130,7 @@ router.post('/species-selection-answer', function (req, res) {
       res.redirect('/number-of-species')
     }else if (subSpeciesSelect == "other birds") {
       // Send user to the other page
-      res.redirect('activities')
+      res.redirect('/activities')
     }else if (subSpeciesSelect == "badgers") {
       // Send user to the other page
       res.redirect('/number-of-species')
@@ -139,7 +139,7 @@ router.post('/species-selection-answer', function (req, res) {
       res.redirect('/number-of-species')
     }else if (subSpeciesSelect == "beavers") {
       // Send user to the other page
-      res.redirect('/number-of-species')
+      res.redirect('/activities')
     }else if (subSpeciesSelect == "pine martens") {
       // Send user to the other page
       res.redirect('/number-of-species')
