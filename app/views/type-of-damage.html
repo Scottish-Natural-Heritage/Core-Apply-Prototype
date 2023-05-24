@@ -40,11 +40,11 @@
         {% elif data['speciesSelection'] == 'badgers' %}
           {% set checkOptions = [checkOptions[2], checkOptions[8], checkOptions[9], checkOptions[10]] %}
         {% elif data['speciesSelection'] == 'hares' %}
-          {% set checkOptions = [checkOptions[2], checkOptions[3], checkOptions[4], checkOptions[5]] %} 
+          {% set checkOptions = [checkOptions[2], checkOptions[5]] %} 
         {% elif data['speciesSelection'] == 'beavers' %}
-          {% set checkOptions = [checkOptions[2], checkOptions[3], checkOptions[4], checkOptions[5], checkOptions[8]] %}
+          {% set checkOptions = [checkOptions[2], checkOptions[5], checkOptions[8]] %}
         {% elif data['speciesSelection'] == 'pine martens' %}
-          {% set checkOptions = [checkOptions[0], checkOptions[1], checkOptions[2], checkOptions[3], checkOptions[4], checkOptions[5], checkOptions[6], checkOptions[8]] %}
+          {% set checkOptions = [checkOptions[0], checkOptions[1], checkOptions[2], checkOptions[5], checkOptions[6], checkOptions[8]] %}
         {% else %}
           {% set checkOptions = none %}
           {% endif %}
@@ -59,7 +59,7 @@
           </h1>
         {% endif %}
         
-        {{ govukCheckboxes({
+        {{ govukRadios({
           name: "damage-type",
           fieldset: {
             legend: {
