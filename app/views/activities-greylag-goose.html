@@ -14,7 +14,7 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-    <form method="post" action="/type-of-damage">
+    <form method="post" action="/activities-magpie">
 
       
       {# Set conditional reveal for Take and destroy nests and eggs #}
@@ -55,9 +55,9 @@
         ] %}
 
       {% if data['speciesSelection'] == 'other birds' %}
-        {% set radioOptions = [activityOptions[0], activityOptions[1], activityOptions[2], activityOptions[3], activityOptions[4], activityOptions[5], activityOptions[6], activityOptions[7]] %}
+        {% set radioOptions = [activityOptions[0], activityOptions[1], activityOptions[2], activityOptions[3], activityOptions[4]] %}
       {% elif data['speciesSelection'] == 'badgers' %}
-        {% set radioOptions = [activityOptions[5], activityOptions[6], activityOptions[7], activityOptions[8]] %}
+        {% set radioOptions = [activityOptions[2], activityOptions[9], activityOptions[10], activityOptions[8]] %}
       {% elif data['speciesSelection'] == 'hares' %}
         {% set radioOptions = [activityOptions[2], activityOptions[3], activityOptions[4], activityOptions[5]] %} 
       {% elif data['speciesSelection'] == 'beavers' %}
@@ -71,7 +71,7 @@
           name: "activities-required",
           fieldset: {
             legend: {
-              text: "What activities do you require?",
+              text: "Greylag goose: What activities do you require?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }

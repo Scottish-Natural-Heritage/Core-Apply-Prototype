@@ -95,7 +95,7 @@ router.post('/species-selection-answer', function (req, res) {
     res.redirect('/sub-species-selection')
   }else if (speciesSelection == "badgers") {
     // Send user to the other page
-    res.redirect('/number-of-species')
+    res.redirect('/activities')
   }else if (speciesSelection == "hares") {
     // Send user to the other page
     res.redirect('/sub-species-selection')
@@ -130,10 +130,10 @@ router.post('/species-selection-answer', function (req, res) {
       res.redirect('/number-of-species')
     }else if (subSpeciesSelect == "other birds") {
       // Send user to the other page
-      res.redirect('/activities')
+      res.redirect('/activities-greylag-goose')
     }else if (subSpeciesSelect == "badgers") {
       // Send user to the other page
-      res.redirect('/number-of-species')
+      res.redirect('/activities')
     }else if (subSpeciesSelect == "hares") {
       // Send user to the other page
       res.redirect('/number-of-species')
