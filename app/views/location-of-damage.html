@@ -63,7 +63,7 @@
 
       {% set locationOptions = [
       { value: "lambing-or-calving-parks-fields", text: "Lambing or calving parks/fields" },
-      { value: "other-areas", text: "Other areas", conditional: {html: otherAreasExpand} },
+      { value: "other-areas", text: "Other areas" },
       { value: "lambing-calving-pigging-parks-fields", text: "Lambing/calving/pigging parks/fields" },
       { value: "feeding-areas", text: "Feeding areas (for example at creep feeders)" },
       { value: "river-system", text: "River system" },
@@ -74,15 +74,13 @@
       ] %}
 
       {% if data['speciesSelection'] == 'ravens' %}
-      {% set radioOptions = [locationOptions[0], locationOptions[3], locationOptions[1]] %}
+      {% set radioOptions = [locationOptions[0], locationOptions[1]] %}
       {% elif data['speciesSelection'] == 'geese' %}
       {% set radioOptions = [locationOptions[2]] %}
       {% elif data['speciesSelection'] == 'gulls' %}
       {% set radioOptions = [locationOptions[0], locationOptions[3], locationOptions[1]] %}
       {% elif data['speciesSelection'] == 'fish-eating birds' %}
       {% set radioOptions = [locationOptions[4], locationOptions[5]] %}
-      {% elif data['speciesSelection'] == 'other birds' %}
-      {% set radioOptions = [locationOptions[1]] %}
       {% elif data['speciesSelection'] == 'badgers' %}
       {% set radioOptions = [locationOptions[2], locationOptions[8], locationOptions[9], locationOptions[10]] %}
       {% elif data['speciesSelection'] == 'hares' %}
@@ -105,6 +103,15 @@
       },
 
       items: radioOptions
+      }) }}
+
+      {{ govukTextarea({
+        name: "damage-details",
+        id: "damage-details",
+        value: data['damage-details'],
+        label: {
+          text: "Provide details"
+        }
       }) }}
 
       {{ govukButton({
