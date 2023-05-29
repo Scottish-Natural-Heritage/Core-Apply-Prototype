@@ -20,13 +20,18 @@ href: "javascript:window.history.back()"
 
       {% from "govuk/components/select/macro.njk" import govukSelect %}
 
-      {{ govukRadios({
+      {{ govukSelect({
         id: "isLicenceRequired",
         name: "isLicenceRequired",
         label: {
         text: "Select the licensed purpose you require"
         },
         items: [
+        {
+        value: "select",
+        text: "Click here to select",
+        selected: true
+        },
         {
         value: "Air safety",
         text: "Air safety"
