@@ -21,7 +21,7 @@
           { value: "damage-to-livestock", text: "Damage to livestock" },  
           { value: "damage-to-foodstuffs", text: "Damage to foodstuffs for livestock" },  
           { value: "damage-to-crops", text: "Damage to crops, vegtables or fruit" },  
-          { value: "damage-to-vegetables", text: "Damage to vegetables" },  
+          { value: "damage-to-vegetables", text: "Damage to crops" },  
           { value: "damage-to-fruit", text: "Damage to fruit" },  
           { value: "damage-to-growing-timber", text: "Damage to growing timber" },  
           { value: "damage-to-fisheries", text: "Damage to fisheries" },  
@@ -38,7 +38,7 @@
         {% elif data['speciesSelection'] == 'other birds' %}
           {% set checkOptions = [checkOptions[0], checkOptions[1], checkOptions[2], checkOptions[5], checkOptions[6], checkOptions[7]] %}
         {% elif data['speciesSelection'] == 'badgers' %}
-          {% set checkOptions = [checkOptions[2], checkOptions[8], checkOptions[9], checkOptions[10]] %}
+          {% set checkOptions = [checkOptions[3], checkOptions[8], checkOptions[9], checkOptions[10]] %}
         {% elif data['speciesSelection'] == 'hares' %}
           {% set checkOptions = [checkOptions[2], checkOptions[5]] %} 
         {% elif data['speciesSelection'] == 'beavers' %}
