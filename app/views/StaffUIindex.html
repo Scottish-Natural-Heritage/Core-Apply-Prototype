@@ -7,23 +7,37 @@
 
 {% block content %}
 
-  
+<style>
+  .govuk-grid-column-one-quarter {
+    background-color: #f2f2f2; /* Grey background color */
+    padding: 20px; /* Add padding for better visibility */
+  }
+</style>
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-quarter">
+
 {%- from "govuk/components/checkboxes/macro.njk" import govukCheckboxes -%}
 {%- from "govuk/components/input/macro.njk" import govukInput -%}
 {%- from "govuk/components/table/macro.njk" import govukTable -%}
 {%- from "moj/components/filter/macro.njk" import mojFilter -%}
 {%- from "moj/components/button-menu/macro.njk" import mojButtonMenu -%}
 
-{% set filterOptionsHtml %}
-
   {{ govukInput({
     id: 'keywords',
     name: 'keywords',
     label: {
-      text: 'Keywords',
-      classes: 'govuk-label--m'
+      text: 'Search',
+      classes: 'govuk-label--s'
     }
   }) }}
+
+  <style>
+    .govuk-checkboxes--small label.govuk-checkboxes__label {
+      font-size: 15px; /* Change the font size to smaller */
+    }
+  </style>
 
   {{ govukCheckboxes({
     idPrefix: 'status',
@@ -32,7 +46,7 @@
     fieldset: {
       legend: {
         text: 'Status',
-        classes: 'govuk-fieldset__legend--m'
+        classes: 'govuk-fieldset__legend--s'
       }
     },
     items: [
@@ -75,7 +89,7 @@
     fieldset: {
       legend: {
         text: 'Licence type',
-        classes: 'govuk-fieldset__legend--m'
+        classes: 'govuk-fieldset__legend--s'
       }
     },
     items: [
@@ -112,7 +126,6 @@
     ]
   }) }}
 
-{% endset %}
 
 
 <div class="moj-filter-layout">
@@ -174,6 +187,9 @@
 
   </div>
 </div>
+
+</div>
+<div class="govuk-grid-column-three-quarters">
 
   <div class="moj-filter-layout__content">
 
@@ -268,30 +284,6 @@
 </div>
 
 
-<style>
-  #filter-options {
-    position: fixed;
-    top: 50px; /* adjust the top value to be underneath the header */
-    left: 0;
-    width: calc(100% / 4); /* adjust the width as needed */
-    height: 100%; /* adjust the height to account for the header and footer */
-    background-color: #fff; /* change the background color as needed */
-    z-index: 9999;
-    overflow-y: auto; /* allow scrolling if the content overflows */
-  }
-</style>
 
-
-<script>
-  const filterToggleBtn = document.querySelector('#filter-toggle-button');
-  const filterOptionsDiv = document.querySelector('#filter-options');
-
-  filterToggleBtn.addEventListener('click', function() {
-    const expanded = filterToggleBtn.getAttribute('aria-expanded') === 'true';
-
-    filterToggleBtn.setAttribute('aria-expanded', !expanded);
-    filterOptionsDiv.style.display = expanded ? 'none' : 'block';
-  });
-</script>
 
 {% endblock %}
