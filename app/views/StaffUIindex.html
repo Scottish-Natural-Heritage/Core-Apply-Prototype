@@ -8,15 +8,41 @@
 {% block content %}
 
 <style>
-  .govuk-grid-column-one-quarter {
+  .govuk-grid-column-one-third {
     background-color: #f2f2f2; /* Grey background color */
     padding: 20px; /* Add padding for better visibility */
   }
 </style>
 
+ 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukInput({
+      id: 'keywords',
+      name: 'keywords',
+      label: {
+        text: 'NatureScot Licensing Staff UI',
+        classes: 'govuk-label--l'
+      },
+      classes: "govuk-input--width-30",
+      hint: {
+        text: 'Search by reference number, person, or postcode'
+      }
+    }) }}
+  </div>
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-quarter">
+  <div class="govuk-grid-column-one-third">
+    <a href="#">Gulls dashboard (SuperSet login required)</a><br>
+    <a href="#">Gulls H&S Licence Guidance</a><br>
+    <a href="#">SFO Licence Guidance</a><br>
+    <a href="#">Trap Registration Guidance</a><br>
+    <a href="#">Management Information</a><br>
+  </div>
+</div>
+
+      <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-one-third">
 
 {%- from "govuk/components/checkboxes/macro.njk" import govukCheckboxes -%}
 {%- from "govuk/components/input/macro.njk" import govukInput -%}
@@ -24,20 +50,20 @@
 {%- from "moj/components/filter/macro.njk" import mojFilter -%}
 {%- from "moj/components/button-menu/macro.njk" import mojButtonMenu -%}
 
-  {{ govukInput({
-    id: 'keywords',
-    name: 'keywords',
-    label: {
-      text: 'Search',
-      classes: 'govuk-label--s'
-    }
-  }) }}
 
   <style>
     .govuk-checkboxes--small label.govuk-checkboxes__label {
       font-size: 15px; /* Change the font size to smaller */
     }
   </style>
+
+{{ govukButton({
+  text: "My applications",
+  href: "#",
+  isStartButton: false
+}) }}
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
   {{ govukCheckboxes({
     idPrefix: 'status',
@@ -52,32 +78,32 @@
     items: [
       {
         value: '1',
-        text: 'Unassigned (1235)'
+        text: 'Unassigned (617)'
       },
       {
         value: '2',
-        text: 'Awaiting LH approval (12)',
+        text: 'Awaiting LH approval (6)',
         checked: true
       },
       {
         value: '3',
-        text: 'In progress (752)'
+        text: 'In progress (377)'
       },
       {
         value: '4',
-        text: 'Issued (2500)'
+        text: 'Issued (1250)'
       },
       {
         value: '5',
-        text: 'Revoked (21)'
+        text: 'Revoked (10)'
       },
       {
         value: '6',
-        text: 'Refused (7)'
+        text: 'Refused (3)'
       },
       {
         value: '7',
-        text: 'Expired (34)'
+        text: 'Expired (27)'
       }
     ]
   }) }}
@@ -93,35 +119,43 @@
       }
     },
     items: [
-      {
-        value: '1',
-        text: 'PSD/H&S/Air safety (471)',
-        checked: true
+    {
+      value: '1',
+      text: 'Prevent Serious Damage (64)',
+      checked: true
       },
       {
-        value: '2',
-        text: 'Surveys (527)',
-        checked: true
+      value: '2',
+      text: 'Health and Safety (146)'
       },
       {
-        value: '3',
-        text: 'Bats in houses (97)'
+      value: '3',
+      text: 'Air safety (84)'
       },
       {
-        value: '4',
-        text: 'Works affecting (552)'
+      value: '4',
+      text: 'Surveys (329)',
+      checked: true
       },
       {
-        value: '5',
-        text: 'Ecologist licences (85)'
+      value: '5',
+      text: 'Bats in houses (361)'
       },
       {
-        value: '6',
-        text: 'Organisational licences (23)'
+      value: '6',
+      text: 'Works affecting (369)'
       },
       {
-        value: '7',
-        text: 'Everything else (809)'
+      value: '7',
+      text: 'Ecologist licences (57)'
+      },
+      {
+      value: '8',
+      text: 'Organisational licences (15)'
+      },
+      {
+      value: '9',
+      text: 'Everything else (865)'
       }
     ]
   }) }}
@@ -132,7 +166,7 @@
 
   <div class="moj-filter-layout__filter-toggle">
     <button id="filter-toggle-button" class="govuk-button" type="button" aria-expanded="false" aria-controls="filter-options">
-      Filter
+      Apply filters
       <span class="moj-filter-layout__filter-toggle-icon" aria-hidden="true"></span>
     </button>
   </div>
@@ -189,7 +223,7 @@
 </div>
 
 </div>
-<div class="govuk-grid-column-three-quarters">
+<div class="govuk-grid-column-two-thirds">
 
   <div class="moj-filter-layout__content">
 
@@ -206,78 +240,78 @@
         {text: 'Assigned to'}
       ],
       rows: [
-        [
-          {html: '<a href="#" class="govuk-link">NS-RSD-17616</a>'},
-          {html: 'In progess'},
-          {text: 'John Smith'},
-          {html: '1 Street Road'},
-          {text: '25/04/2023'},
-          {text: 'LO Name'}
-        ],
-        [
-          {html: '<a href="#" class="govuk-link">NS-RSD-73946</a>'},
-          {html: 'In progess'},
-          {text: 'John Smith'},
-          {html: '1 Street Road'},
-          {text: '25/04/2023'},
-          {text: 'LO Name'}
-        ],
-        [
-          {html: '<a href="#" class="govuk-link">NS-RSD-12751</a>'},
-          {html: 'In progess'},
-          {text: 'John Smith'},
-          {html: '1 Street Road'},
-          {text: '25/04/2023'},
-          {text: 'LO Name'}
-        ],
-        [
-          {html: '<a href="#" class="govuk-link">NS-BSD-75846</a>'},
-          {html: 'In progess'},
-          {text: 'John Smith'},
-          {html: '1 Street Road'},
-          {text: '25/04/2023'},
-          {text: 'LO Name'}
-        ],
-        [
-          {html: '<a href="#" class="govuk-link">NS-RSD-19526</a>'},
-          {html: 'In progess'},
-          {text: 'John Smith'},
-          {html: '1 Street Road'},
-          {text: '25/04/2023'},
-          {text: 'LO Name'}
-        ],
-        [
-          {html: '<a href="#" class="govuk-link">NS-GSD-13446</a>'},
-          {html: 'In progess'},
-          {text: 'John Smith'},
-          {html: '1 Street Road'},
-          {text: '25/04/2023'},
-          {text: 'LO Name'}
-        ],
-        [
-          {html: '<a href="#" class="govuk-link">NS-RSD-14786</a>'},
-          {html: 'In progess'},
-          {text: 'John Smith'},
-          {html: '1 Street Road'},
-          {text: '25/04/2023'},
-          {text: 'LO Name'}
-        ],
-        [
-          {html: '<a href="#" class="govuk-link">NS-GSD-05446</a>'},
-          {html: 'In progess'},
-          {text: 'John Smith'},
-          {html: '1 Street Road'},
-          {text: '25/04/2023'},
-          {text: 'LO Name'}
-        ],
-        [
-          {html: '<a href="#" class="govuk-link">NS-BSD-75356</a>'},
-          {html: 'In progess'},
-          {text: 'John Smith'},
-          {html: '1 Street Road'},
-          {text: '25/04/2023'},
-          {text: 'LO Name'}
-        ]
+      [
+      {html: '<a href="#" class="govuk-link">NS-GSD-05446</a>'},
+      {html: 'Unassigned'},
+      {text: 'Noah Martinez'},
+      {html: '9 Cedar Lane'},
+      {text: '18/04/2023'},
+      {text: ''}
+  ],
+  [
+      {html: '<a href="#" class="govuk-link">NS-RSD-12751</a>'},
+      {html: 'Unassigned'},
+      {text: 'Sophia Davis'},
+      {html: '4 Elm Court'},
+      {text: '20/04/2023'},
+      {text: ''}
+  ],
+  [
+      {html: '<a href="#" class="govuk-link">NS-RSD-17616</a>'},
+      {html: 'Unassigned'},
+      {text: 'Emma Johnson'},
+      {html: '2 Park Avenue'},
+      {text: '15/05/2023'},
+      {text: ''}
+  ],
+  [
+      {html: '<a href="#" class="govuk-link">NS-BSD-75846</a>'},
+      {html: 'Awaiting LH approval'},
+      {text: 'Oliver Wilson'},
+      {html: '5 Maple Lane'},
+      {text: '05/05/2023'},
+      {text: ''}
+  ],
+  [
+      {html: '<a href="#" class="govuk-link">NS-RSD-14786</a>'},
+      {html: 'Unassigned'},
+      {text: 'Olivia Taylor'},
+      {html: '8 Willow Avenue'},
+      {text: '22/05/2023'},
+      {text: ''}
+  ],
+  [
+      {html: '<a href="#" class="govuk-link">NS-RSD-19526</a>'},
+      {html: 'Unassigned'},
+      {text: 'Isabella Thompson'},
+      {html: '6 Birch Road'},
+      {text: '30/05/2023'},
+      {text: ''}
+  ],
+  [
+      {html: '<a href="#" class="govuk-link">NS-RSD-73946</a>'},
+      {html: 'Unassigned'},
+      {text: 'Michael Brown'},
+      {html: '3 Oak Street'},
+      {text: '10/06/2023'},
+      {text: ''}
+  ],
+  [
+      {html: '<a href="#" class="govuk-link">NS-GSD-13446</a>'},
+      {html: 'Awaiting LH approval'},
+      {text: 'James Anderson'},
+      {html: '7 Pine Street'},
+      {text: '12/06/2023'},
+      {text: ''}
+  ],
+  [
+      {html: '<a href="#" class="govuk-link">NS-BSD-75356</a>'},
+      {html: 'Unassigned'},
+      {text: 'Ava Hernandez'},
+      {html: '10 Oak Court'},
+      {text: '08/06/2023'},
+      {text: ''}
+  ]
       ]
     }) }}
 </div>
