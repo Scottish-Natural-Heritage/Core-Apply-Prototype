@@ -462,11 +462,36 @@
 
         
 
-      {{ govukButton({
-      text: "Accept and send",
-      isStartButton: false,
-      preventDoubleClick: true
-      }) }}
+          <h2 class="govuk-heading-m">Declaration</h2>
+          <h3 class="govuk-heading-s">I confirm that:</h3>
+        
+          <ul class="govuk-list govuk-list--bullet">
+            <li>The information I've provided is up-to-date and correct</li>
+            <li>I agree with the <a class="govuk-link" href="https://licensing.nature.scot/cross-service-pages/privacy-policy" target="_blank">privacy policy</a> of this service</li>
+          </ul>
+        
+          <form method="post">
+        
+            {{ govukCheckboxes({
+              idPrefix: "confirm",
+              name: "confirm",
+              errorMessage: {
+                text: "You must confirm the information you've provided is up-to-date and correct and you agree with the privacy policy."
+              } if error.missingConfirmValue,
+              items: [
+                {
+                  value: "confirm",
+                  text: "Yes, I confirm",
+                  checked: confirmDeclaration === true
+                }
+              ]
+            }) }}
+        
+            {{ govukButton({
+              text: "Accept and send",
+              preventDoubleClick: true
+            }) }}
+        
 
     </form>
 
