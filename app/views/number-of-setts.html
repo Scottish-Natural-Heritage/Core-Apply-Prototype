@@ -11,7 +11,7 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+
 
     <h1 class="govuk-heading-l">
       What are the site details?
@@ -22,7 +22,7 @@
         <div class="govuk-grid-column-full" id="sett-details">
           <table class="govuk-table">
             <caption class="govuk-table__caption govuk-table__caption--naturescot-normal {% if model.settCountError %} govuk-form-group--error {% endif %}">
-              Setts
+    
               {% if model.settCountError %}
               <span id="sett-count-error" class="govuk-error-message">
                 <span class="govuk-visually-hidden">Error:</span> Add at least one sett
@@ -34,6 +34,8 @@
                 <th scope="col" class="govuk-table__header">Sett ID</th>
                 <th scope="col" class="govuk-table__header">Grid Reference</th>
                 <th scope="col" class="govuk-table__header">Entrances</th>
+                <th scope="col" class="govuk-table__header">Breeding Sett</th>
+                <th scope="col" class="govuk-table__header">Activities</th>
                 <th scope="col" class="govuk-table__header"></th>
               </tr>
     
@@ -43,6 +45,8 @@
                   <th scope="row" class="govuk-table__header">1</th>
                   <td class="govuk-table__cell">NH 6381 4403</td>
                   <td class="govuk-table__cell">1</td>
+                  <td class="govuk-table__cell">Yes</td>
+                  <td class="govuk-table__cell">Disturb</td>
                   <td class="govuk-table__cell">
     
                     <button name="edit-0" class="govuk-button govuk-button--secondary" data-module="govuk-button">
