@@ -54,10 +54,10 @@
         { value: "destroy-place-of-shelter-or-protection", text: "Destroy place of shelter or protection, breeding site or resting place", conditional: {html: takeNestEggExpand} }
         ] %}
 
-      {% if data['speciesSelection'] == 'other birds' %}
-        {% set radioOptions = [activityOptions[0], activityOptions[1], activityOptions[2], activityOptions[3], activityOptions[4], activityOptions[5], activityOptions[6], activityOptions[7]] %}
+        {% if data['speciesSelection'] == 'other birds' %}
+        {% set radioOptions = [activityOptions[0], activityOptions[1], activityOptions[2], activityOptions[3], activityOptions[4]] %}
       {% elif data['speciesSelection'] == 'badgers' %}
-        {% set radioOptions = [activityOptions[2], activityOptions[8], activityOptions[9], activityOptions[10]] %}
+        {% set radioOptions = [activityOptions[2], activityOptions[9], activityOptions[10], activityOptions[8]] %}
       {% elif data['speciesSelection'] == 'hares' %}
         {% set radioOptions = [activityOptions[2], activityOptions[3], activityOptions[4], activityOptions[5]] %} 
       {% elif data['speciesSelection'] == 'beavers' %}
