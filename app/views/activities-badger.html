@@ -13,7 +13,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form method="post" action="/number-of-setts-added">
+    <form method="post" action="/activities-badger-additional">
 
     <h1 class="govuk-heading-l">What are the sett details?</h1>
 
@@ -60,77 +60,29 @@
       value: "6"
     }) }}
 
-    {% set activityOptions = [
-      { value: "take-and-destroy-nests-and-eggs", text: "Take and destroy nests and eggs", conditional: {html: takeNestEggExpand} },
-      { value: "take-chicks", text: "Take chicks", conditional: {html: takeNestEggExpand} },
-      { value: "take-adults", text: "Take adults", conditional: {html: takeNestEggExpand} },
-      { value: "kill-chicks", text: "Kill chicks", conditional: {html: takeNestEggExpand} },
-      { value: "kill-adults", text: "Kill adults", conditional: {html: takeNestEggExpand} },
-      { value: "disturb", text: "Disturb", conditional: {html: takeNestEggExpand} },
-      { value: "obstruct-access-to-sett", text: "Obstruct access to sett", conditional: {html: takeNestEggExpand} },
-      { value: "damage-sett", text: "Damage sett", conditional: {html: takeNestEggExpand} },
-      { value: "destroy-sett", text: "Destroy sett", conditional: {html: takeNestEggExpand} },
-      { value: "dam-removal", text: "Dam removal" },
-      { value: "dam-notching", text: "Dam notching" },
-      { value: "damage-to-lodge-or-natal-burrow", text: "Damage to lodge or natal burrow" },
-      { value: "destroy-lodge-or-natal-burrow", text: "Destroy lodge or natal burrow" },
-      { value: "trapping", text: "Trapping" },
-      { value: "lethal-control", text: "Lethal control" },
-      { value: "obstruct-access-to-place-of-shelter-or-protection", text: "Obstruct access to place of shelter or protection, breeding site or resting place" },
-      { value: "damage-place-of-shelter-or-protection", text: "Damage place of shelter or protection, breeding site or resting place" },
-      { value: "destroy-place-of-shelter-or-protection", text: "Destroy place of shelter or protection, breeding site or resting place" }
-      ] %}
-
-    {% if data['speciesSelection'] == 'other birds' %}
-      {% set radioOptions = [activityOptions[0], activityOptions[1], activityOptions[2], activityOptions[3], activityOptions[4], activityOptions[5], activityOptions[6], activityOptions[7]] %}
-    {% elif data['speciesSelection'] == 'badgers' %}
-      {% set radioOptions = [activityOptions[5], activityOptions[6], activityOptions[7], activityOptions[8]] %}
-    {% elif data['speciesSelection'] == 'hares' %}
-      {% set radioOptions = [activityOptions[2], activityOptions[3], activityOptions[4], activityOptions[5]] %} 
-    {% elif data['speciesSelection'] == 'beavers' %}
-      {% set radioOptions = [activityOptions[9], activityOptions[10], activityOptions[11], activityOptions[12], activityOptions[13], activityOptions[14]] %}
-    {% elif data['speciesSelection'] == 'other animals' %}
-      {% set radioOptions = [activityOptions[0], activityOptions[1], activityOptions[2], activityOptions[3], activityOptions[4], activityOptions[5], activityOptions[6], activityOptions[8]] %}
-      {% endif %}
-      
-
-      {{ govukCheckboxes({
-        name: "activities-required",
-        fieldset: {
-          legend: {
-            text: "What activities do you require?",
-            classes: "govuk-fieldset__legend--s"
-          }
+    {{ govukRadios({
+      classes: "govuk-radios--inline",
+      idPrefix: "previousLicence",
+      name: "previousLicence",
+      fieldset: {
+        legend: {
+          text: "Is it a breeding sett?",
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes",
+          checked: previousLicence === true
         },
-        hint: {
-          text: "Select all that apply."
-        },
-        items: radioOptions
-      }) }}
-
-      {{ govukRadios({
-        classes: "govuk-radios--inline",
-        idPrefix: "previousLicence",
-        name: "previousLicence",
-        fieldset: {
-          legend: {
-            text: "Is it a breeding sett?",
-            classes: "govuk-fieldset__legend--s"
-          }
-        },
-        items: [
-          {
-            value: "yes",
-            text: "Yes",
-            checked: previousLicence === true
-          },
-          {
-            value: "no",
-            text: "No",
-            checked: previousLicence === false
-          }
-        ]
-      }) }}
+        {
+          value: "no",
+          text: "No",
+          checked: previousLicence === false
+        }
+      ]
+    }) }}
 
 
     {{ govukButton({
