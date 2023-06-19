@@ -95,7 +95,7 @@ router.post('/species-selection-answer', function (req, res) {
     res.redirect('/sub-species-selection')
   }else if (speciesSelection == "badgers") {
     // Send user to the other page
-    res.redirect('/activities')
+    res.redirect('/number-of-setts')
   }else if (speciesSelection == "hares") {
     // Send user to the other page
     res.redirect('/sub-species-selection')

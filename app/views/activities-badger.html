@@ -1,0 +1,141 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" action="/number-of-setts-added">
+
+    <h1 class="govuk-heading-l">What are the sett details?</h1>
+
+    {{ govukInput({
+      label: {
+        text: "Sett ID",
+        classes: "govuk-label--s"
+      },
+        hint: {
+          text: "The name of this sett on the site. e.g. 123, ABC or West Gate"
+        },
+      id: "settID",
+      name: "settID",
+      spellcheck: false,
+      value: "2"
+    }) }}
+
+
+    {{ govukInput({
+      label: {
+        text: "Grid Reference",
+        classes: "govuk-label--s"
+      },
+        hint: {
+          text: "An 8 or 10 digit grid reference. e.g. NH 6381 4403 or NO 08529 29128."
+        },
+      id: "gridRef",
+      name: "gridRef",
+      spellcheck: false,
+      value: "NH 6331 4427"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Number of Entrances",
+        classes: "govuk-label--s"
+      },
+        hint: {
+          text: "How many entrances this sett has."
+        },
+      id: "NumEntrance",
+      name: "NumEntrance",
+      spellcheck: false,
+      value: "6"
+    }) }}
+
+    {% set activityOptions = [
+      { value: "take-and-destroy-nests-and-eggs", text: "Take and destroy nests and eggs", conditional: {html: takeNestEggExpand} },
+      { value: "take-chicks", text: "Take chicks", conditional: {html: takeNestEggExpand} },
+      { value: "take-adults", text: "Take adults", conditional: {html: takeNestEggExpand} },
+      { value: "kill-chicks", text: "Kill chicks", conditional: {html: takeNestEggExpand} },
+      { value: "kill-adults", text: "Kill adults", conditional: {html: takeNestEggExpand} },
+      { value: "disturb", text: "Disturb", conditional: {html: takeNestEggExpand} },
+      { value: "obstruct-access-to-sett", text: "Obstruct access to sett", conditional: {html: takeNestEggExpand} },
+      { value: "damage-sett", text: "Damage sett", conditional: {html: takeNestEggExpand} },
+      { value: "destroy-sett", text: "Destroy sett", conditional: {html: takeNestEggExpand} },
+      { value: "dam-removal", text: "Dam removal" },
+      { value: "dam-notching", text: "Dam notching" },
+      { value: "damage-to-lodge-or-natal-burrow", text: "Damage to lodge or natal burrow" },
+      { value: "destroy-lodge-or-natal-burrow", text: "Destroy lodge or natal burrow" },
+      { value: "trapping", text: "Trapping" },
+      { value: "lethal-control", text: "Lethal control" },
+      { value: "obstruct-access-to-place-of-shelter-or-protection", text: "Obstruct access to place of shelter or protection, breeding site or resting place" },
+      { value: "damage-place-of-shelter-or-protection", text: "Damage place of shelter or protection, breeding site or resting place" },
+      { value: "destroy-place-of-shelter-or-protection", text: "Destroy place of shelter or protection, breeding site or resting place" }
+      ] %}
+
+    {% if data['speciesSelection'] == 'other birds' %}
+      {% set radioOptions = [activityOptions[0], activityOptions[1], activityOptions[2], activityOptions[3], activityOptions[4], activityOptions[5], activityOptions[6], activityOptions[7]] %}
+    {% elif data['speciesSelection'] == 'badgers' %}
+      {% set radioOptions = [activityOptions[5], activityOptions[6], activityOptions[7], activityOptions[8]] %}
+    {% elif data['speciesSelection'] == 'hares' %}
+      {% set radioOptions = [activityOptions[2], activityOptions[3], activityOptions[4], activityOptions[5]] %} 
+    {% elif data['speciesSelection'] == 'beavers' %}
+      {% set radioOptions = [activityOptions[9], activityOptions[10], activityOptions[11], activityOptions[12], activityOptions[13], activityOptions[14]] %}
+    {% elif data['speciesSelection'] == 'other animals' %}
+      {% set radioOptions = [activityOptions[0], activityOptions[1], activityOptions[2], activityOptions[3], activityOptions[4], activityOptions[5], activityOptions[6], activityOptions[8]] %}
+      {% endif %}
+      
+
+      {{ govukCheckboxes({
+        name: "activities-required",
+        fieldset: {
+          legend: {
+            text: "What activities do you require?",
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint: {
+          text: "Select all that apply."
+        },
+        items: radioOptions
+      }) }}
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "previousLicence",
+        name: "previousLicence",
+        fieldset: {
+          legend: {
+            text: "Is it a breeding sett?",
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            checked: previousLicence === true
+          },
+          {
+            value: "no",
+            text: "No",
+            checked: previousLicence === false
+          }
+        ]
+      }) }}
+
+
+    {{ govukButton({
+      text: "Continue",
+      preventDoubleClick: true
+      }) }}
+
+{% endblock %}
