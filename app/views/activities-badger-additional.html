@@ -13,7 +13,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form method="post" action="/number-of-setts-added">
+    <form method="post" action="/number-of-dens-added">
 
     {% set activityOptions = [
       { value: "take-and-destroy-nests-and-eggs", text: "Take and destroy nests and eggs", conditional: {html: takeNestEggExpand} },
@@ -40,8 +40,8 @@
       {% set radioOptions = [activityOptions[0], activityOptions[1], activityOptions[2], activityOptions[3], activityOptions[4], activityOptions[5], activityOptions[6], activityOptions[7]] %}
     {% elif data['speciesSelection'] == 'badgers' %}
       {% set radioOptions = [activityOptions[5], activityOptions[6], activityOptions[7], activityOptions[8]] %}
-    {% elif data['speciesSelection'] == 'hares' %}
-      {% set radioOptions = [activityOptions[2], activityOptions[3], activityOptions[4], activityOptions[5]] %} 
+    {% elif data['speciesSelection'] == 'pine martens' %}
+    {% set radioOptions = [activityOptions[5], activityOptions[6], activityOptions[7], activityOptions[8]] %}
     {% elif data['speciesSelection'] == 'beavers' %}
       {% set radioOptions = [activityOptions[9], activityOptions[10], activityOptions[11], activityOptions[12], activityOptions[13], activityOptions[14]] %}
     {% elif data['speciesSelection'] == 'other animals' %}

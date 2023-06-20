@@ -95,7 +95,7 @@ router.post('/species-selection-answer', function (req, res) {
     res.redirect('/sub-species-selection')
   }else if (speciesSelection == "badgers") {
     // Send user to the other page
-    res.redirect('/number-of-setts')
+    res.redirect('/number-of-dens')
   }else if (speciesSelection == "hares") {
     // Send user to the other page
     res.redirect('/sub-species-selection')
@@ -104,7 +104,7 @@ router.post('/species-selection-answer', function (req, res) {
     res.redirect('/activities')
   }else if (speciesSelection == "pine martens") {
     // Send user to the other page
-    res.redirect('/number-of-species')
+    res.redirect('/number-of-dens')
   }
 
 })
