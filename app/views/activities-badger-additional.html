@@ -17,17 +17,17 @@
 
     {% set activityOptions = [
       { value: "take-and-destroy-nests-and-eggs", text: "Take and destroy nests and eggs", conditional: {html: takeNestEggExpand} },
-      { value: "take-chicks", text: "Take chicks", conditional: {html: takeNestEggExpand} },
-      { value: "take-adults", text: "Take adults", conditional: {html: takeNestEggExpand} },
+      { value: "take chicks", text: "Take chicks", conditional: {html: takeNestEggExpand} },
+      { value: "take adults", text: "Take adults", conditional: {html: takeNestEggExpand} },
       { value: "kill-chicks", text: "Kill chicks", conditional: {html: takeNestEggExpand} },
       { value: "kill-adults", text: "Kill adults", conditional: {html: takeNestEggExpand} },
       { value: "disturb", text: "Disturb", conditional: {html: takeNestEggExpand} },
-      { value: "obstruct-access-to-sett", text: "Obstruct access to sett", conditional: {html: takeNestEggExpand} },
-      { value: "damage-sett", text: "Damage sett", conditional: {html: takeNestEggExpand} },
-      { value: "destroy-sett", text: "Destroy sett", conditional: {html: takeNestEggExpand} },
-      { value: "dam-removal", text: "Dam removal" },
-      { value: "dam-notching", text: "Dam notching" },
-      { value: "damage-to-lodge-or-natal-burrow", text: "Damage to lodge or natal burrow" },
+      { value: "Obstruct access to sett", text: "Obstruct access to sett", conditional: {html: takeNestEggExpand} },
+      { value: "Damage sett", text: "Damage sett", conditional: {html: takeNestEggExpand} },
+      { value: "Destroy sett", text: "Destroy sett", conditional: {html: takeNestEggExpand} },
+      { value: "dam removal", text: "Dam removal" },
+      { value: "dam notching", text: "Dam notching" },
+      { value: "damage to lodge or natal burrow", text: "Damage to lodge or natal burrow" },
       { value: "destroy-lodge-or-natal-burrow", text: "Destroy lodge or natal burrow" },
       { value: "trapping", text: "Trapping" },
       { value: "lethal-control", text: "Lethal control" },
@@ -47,7 +47,7 @@
         name: "activities-required",
         fieldset: {
           legend: {
-            text: "2: What activities do you require?",
+            html: data['settID'] + ": What activities do you require?",
             classes: "govuk-fieldset__legend--l"
           }
         },

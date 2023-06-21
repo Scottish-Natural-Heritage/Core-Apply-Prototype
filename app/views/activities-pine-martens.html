@@ -27,8 +27,7 @@
         },
       id: "settID",
       name: "settID",
-      spellcheck: false,
-      value: "2"
+      spellcheck: false
     }) }}
 
 
@@ -42,8 +41,7 @@
         },
       id: "gridRef",
       name: "gridRef",
-      spellcheck: false,
-      value: "NH 6331 4427"
+      spellcheck: false
     }) }}
 
     {{ govukInput({
@@ -56,14 +54,13 @@
         },
       id: "NumEntrance",
       name: "NumEntrance",
-      spellcheck: false,
-      value: "6"
+      spellcheck: false
     }) }}
 
     {{ govukRadios({
       classes: "govuk-radios--inline",
-      idPrefix: "previousLicence",
-      name: "previousLicence",
+      idPrefix: "breeding-set",
+      name: "breeding-set",
       fieldset: {
         legend: {
           text: "Is it a breeding sett?",
@@ -72,14 +69,12 @@
       },
       items: [
         {
-          value: "yes",
-          text: "Yes",
-          checked: previousLicence === true
+          value: "Yes",
+          text: "Yes"
         },
         {
-          value: "no",
-          text: "No",
-          checked: previousLicence === false
+          value: "No",
+          text: "No"
         }
       ]
     }) }}

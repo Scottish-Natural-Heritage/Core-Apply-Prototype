@@ -54,11 +54,16 @@
                 </tr>
 
                 <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">2</th>
-                  <td class="govuk-table__cell">NH 6331 4427</td>
-                  <td class="govuk-table__cell">6</td>
-                  <td class="govuk-table__cell">Yes</td>
-                  <td class="govuk-table__cell">Disturb<br>Damage sett</td>
+                  <th scope="row" class="govuk-table__header"> {{ data['settID'] }}</th>
+                  <td class="govuk-table__cell">{{ data['gridRef'] }}</td>
+                  <td class="govuk-table__cell">{{ data['NumEntrance'] }}</td>
+                  <td class="govuk-table__cell">{{ data['breeding-set'] }}</td>
+                  <td class="govuk-table__cell">
+                    {% for activity in data['activities-required'] %}
+                    {{ activity|capitalize }}<br>
+                    {% endfor %}
+                  </td>
+                  
                   <td class="govuk-table__cell">
     
                     <button name="edit-0" class="govuk-button govuk-button--secondary" data-module="govuk-button">
@@ -168,16 +173,26 @@
                     </tr>
     
                     <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header">2</th>
-                      <td class="govuk-table__cell">NH 6331 4427</td>
-                      <td class="govuk-table__cell">6</td>
-                      <td class="govuk-table__cell">Yes</td>
-                      <td class="govuk-table__cell">Disturb<br>Damage sett</td>
+                      <th scope="row" class="govuk-table__header"> {{ data['settID'] }}</th>
+                      <td class="govuk-table__cell">{{ data['gridRef'] }}</td>
+                      <td class="govuk-table__cell">{{ data['NumEntrance'] }}</td>
+                      <td class="govuk-table__cell">{{ data['breeding-set'] }}</td>
+                      <td class="govuk-table__cell">
+                        {% for activity in data['activities-required'] %}
+                        {{ activity|capitalize }}<br>
+                        {% endfor %}
+                      </td>
                       <td class="govuk-table__cell">
         
-                        <button name="edit-0" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                          Edit
-                        </button>
+                        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+                        <form method="post" action="/activities-pine-martens">
+{{ govukButton({
+  text: "Edit",
+  classes: "govuk-button--secondary"
+}) }}
+</form>
+
         
                         <button name="delete-0" class="govuk-button govuk-button--secondary" data-module="govuk-button">
                           Delete
