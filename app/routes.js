@@ -130,7 +130,7 @@ router.post('/species-selection-answer', function (req, res) {
       res.redirect('/number-of-species')
     }else if (subSpeciesSelect == "other birds") {
       // Send user to the other page
-      res.redirect('/activities-greylag-goose')
+      res.redirect('/activities-magpie')
     }else if (subSpeciesSelect == "badgers") {
       // Send user to the other page
       res.redirect('/activities')
