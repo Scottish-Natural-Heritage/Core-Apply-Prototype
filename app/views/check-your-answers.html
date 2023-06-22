@@ -320,7 +320,426 @@
         Licence details
       </h1>
 
-      {{ govukSummaryList({
+
+        {% if data['speciesSelection'] == 'badgers' %}
+
+        {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: "What do you require a licence for?"
+              },
+              value: {
+              text: data['speciesSelection'].charAt(0).toUpperCase() + data['speciesSelection'].slice(1)
+              },
+              actions: {
+              items: [
+              {
+              href: "/species-selection",
+              text: "Change",
+              visuallyHiddenText: "date of birth"
+              }
+              ]
+              }
+              }
+          ]
+          }) }}
+
+        <h1 class="govuk-heading-m">
+          Where are the setts?
+        </h1>
+
+        {{ govukSummaryList({
+          rows: [
+          {
+          key: {
+          text: "Sett ID"
+          },
+          value: {
+          text: "1"
+          },
+          actions: {
+          items: [
+          {
+          href: "/number-of-dens-added",
+          text: "Change",
+          visuallyHiddenText: "name"
+          }
+          ]
+          }
+          },
+          {
+          key: {
+          text: "Grid Reference"
+          },
+          value: {
+          text: "NH 6381 4403"
+          },
+          actions: {
+          items: [
+          {
+          href: "/number-of-dens-added",
+          text: "Change",
+          visuallyHiddenText: "date of birth"
+          }
+          ]
+          }
+          },
+          {
+          key: {
+          text: "Entrances"
+          },
+          value: {
+          text: "1"
+          },
+          actions: {
+          items: [
+          {
+          href: "/number-of-dens-added",
+          text: "Change",
+          visuallyHiddenText: "address"
+          }
+          ]
+          }
+          },
+          {
+          key: {
+          text: "Breeding Sett"
+          },
+          value: {
+          text: "Yes"
+          },
+          actions: {
+          items: [
+          {
+          href: "/number-of-dens-added",
+          text: "Change",
+          visuallyHiddenText: "contact details"
+          }
+          ]
+          }
+          },
+          {
+          key: {
+          text: "Activities"
+          },
+          value: {
+          text: "Disturb"
+          },
+          actions: {
+          items: [
+          {
+          href: "/number-of-dens-added",
+          text: "Change",
+          visuallyHiddenText: "contact details"
+          }
+          ]
+          }
+          }
+          ]
+          }) }}
+
+          {{ govukSummaryList({
+            rows: [
+            {
+            key: {
+            text: "Sett ID"
+            },
+            value: {
+            text: data['settID']
+            },
+            actions: {
+            items: [
+            {
+            href: "/number-of-dens-added",
+            text: "Change",
+            visuallyHiddenText: "name"
+            }
+            ]
+            }
+            },
+            {
+            key: {
+            text: "Grid Reference"
+            },
+            value: {
+            text: data['gridRef']
+            },
+            actions: {
+            items: [
+            {
+            href: "/number-of-dens-added",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+            }
+            ]
+            }
+            },
+            {
+            key: {
+            text: "Entrances"
+            },
+            value: {
+            html: data['NumEntrance']
+            },
+            actions: {
+            items: [
+            {
+            href: "/number-of-dens-added",
+            text: "Change",
+            visuallyHiddenText: "address"
+            }
+            ]
+            }
+            },
+            {
+            key: {
+            text: "Breeding Sett"
+            },
+            value: {
+            html: data['breeding-set']
+            },
+            actions: {
+            items: [
+            {
+            href: "/number-of-dens-added",
+            text: "Change",
+            visuallyHiddenText: "contact details"
+            }
+            ]
+            }
+            },
+            {
+            key: {
+            text: "Activities"
+            },
+            value: {
+              html: "Disturb <br> Damage sett <br> Destroy sett"
+            },
+            actions: {
+            items: [
+            {
+            href: "/number-of-dens-added",
+            text: "Change",
+            visuallyHiddenText: "contact details"
+            }
+            ]
+            }
+            }
+            ]
+            }) }}
+
+        {% elif data['speciesSelection'] == 'pine martens' %}
+
+        {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: "What do you require a licence for?"
+              },
+              value: {
+              text: data['speciesSelection'].charAt(0).toUpperCase() + data['speciesSelection'].slice(1)
+              },
+              actions: {
+              items: [
+              {
+              href: "/species-selection",
+              text: "Change",
+              visuallyHiddenText: "date of birth"
+              }
+              ]
+              }
+              }
+          ]
+          }) }}
+
+        <h1 class="govuk-heading-m">
+          Where are the shelters?
+        </h1>
+
+        {{ govukSummaryList({
+          rows: [
+          {
+          key: {
+          text: "Shelter ID"
+          },
+          value: {
+          text: "1"
+          },
+          actions: {
+          items: [
+          {
+          href: "/number-of-dens-added",
+          text: "Change",
+          visuallyHiddenText: "name"
+          }
+          ]
+          }
+          },
+          {
+          key: {
+          text: "Grid Reference"
+          },
+          value: {
+          text: "NH 6381 4403"
+          },
+          actions: {
+          items: [
+          {
+          href: "/number-of-dens-added",
+          text: "Change",
+          visuallyHiddenText: "date of birth"
+          }
+          ]
+          }
+          },
+          {
+          key: {
+          text: "Entrances"
+          },
+          value: {
+          text: "1"
+          },
+          actions: {
+          items: [
+          {
+          href: "/number-of-dens-added",
+          text: "Change",
+          visuallyHiddenText: "address"
+          }
+          ]
+          }
+          },
+          {
+          key: {
+          text: "Breeding Sett"
+          },
+          value: {
+          text: "Yes"
+          },
+          actions: {
+          items: [
+          {
+          href: "/number-of-dens-added",
+          text: "Change",
+          visuallyHiddenText: "contact details"
+          }
+          ]
+          }
+          },
+          {
+          key: {
+          text: "Activities"
+          },
+          value: {
+          text: "Disturb"
+          },
+          actions: {
+          items: [
+          {
+          href: "/number-of-dens-added",
+          text: "Change",
+          visuallyHiddenText: "contact details"
+          }
+          ]
+          }
+          }
+          ]
+          }) }}
+
+          {{ govukSummaryList({
+            rows: [
+            {
+            key: {
+            text: "Shelter ID"
+            },
+            value: {
+            text: data['settID']
+            },
+            actions: {
+            items: [
+            {
+            href: "/number-of-dens-added",
+            text: "Change",
+            visuallyHiddenText: "name"
+            }
+            ]
+            }
+            },
+            {
+            key: {
+            text: "Grid Reference"
+            },
+            value: {
+            text: data['gridRef']
+            },
+            actions: {
+            items: [
+            {
+            href: "/number-of-dens-added",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+            }
+            ]
+            }
+            },
+            {
+            key: {
+            text: "Entrances"
+            },
+            value: {
+            html: data['NumEntrance']
+            },
+            actions: {
+            items: [
+            {
+            href: "/number-of-dens-added",
+            text: "Change",
+            visuallyHiddenText: "address"
+            }
+            ]
+            }
+            },
+            {
+            key: {
+            text: "Breeding Sett"
+            },
+            value: {
+            html: data['breeding-set']
+            },
+            actions: {
+            items: [
+            {
+            href: "/number-of-dens-added",
+            text: "Change",
+            visuallyHiddenText: "contact details"
+            }
+            ]
+            }
+            },
+            {
+            key: {
+            text: "Activities"
+            },
+            value: {
+            html: "Disturb <br> Damage sett <br> Destroy sett"
+          },
+            actions: {
+            items: [
+            {
+            href: "/number-of-dens-added",
+            text: "Change",
+            visuallyHiddenText: "contact details"
+            }
+            ]
+            }
+            }
+            ]
+            }) }}
+
+        {% else  %}
+
+              {{ govukSummaryList({
         rows: [
         {
           key: {
@@ -358,6 +777,8 @@
             }
         ]
         }) }}
+
+        {% endif %}
 
 
         <h1 class="govuk-heading-m">
