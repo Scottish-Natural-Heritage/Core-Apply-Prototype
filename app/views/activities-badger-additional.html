@@ -17,7 +17,7 @@
 
     {% set activityOptions = [
       { value: "take-and-destroy-nests-and-eggs", text: "Take and destroy nests and eggs", conditional: {html: takeNestEggExpand} },
-      { value: "take chicks", text: "Take chicks", conditional: {html: takeNestEggExpand} },
+      { value: "take", text: "Take", conditional: {html: takeNestEggExpand} },
       { value: "take adults", text: "Take adults", conditional: {html: takeNestEggExpand} },
       { value: "kill-chicks", text: "Kill chicks", conditional: {html: takeNestEggExpand} },
       { value: "kill-adults", text: "Kill adults", conditional: {html: takeNestEggExpand} },
@@ -31,15 +31,15 @@
       { value: "destroy-lodge-or-natal-burrow", text: "Destroy lodge or natal burrow" },
       { value: "trapping", text: "Trapping" },
       { value: "lethal-control", text: "Lethal control" },
-      { value: "obstruct-access-to-place-of-shelter-or-protection", text: "Obstruct access to place of shelter or protection, breeding site or resting place" },
-      { value: "damage-place-of-shelter-or-protection", text: "Damage place of shelter or protection, breeding site or resting place" },
-      { value: "destroy-place-of-shelter-or-protection", text: "Destroy place of shelter or protection, breeding site or resting place" }
+      { value: "obstruct-access-to-place-of-shelter-or-protection", text: "Obstruct access to place of shelter" },
+      { value: "damage-place-of-shelter-or-protection", text: "Damage place of shelter" },
+      { value: "destroy-place-of-shelter-or-protection", text: "Destroy place of shelter" }
       ] %}
 
     {% if data['speciesSelection'] == 'badgers' %}
       {% set radioOptions = [activityOptions[5], activityOptions[6], activityOptions[7], activityOptions[8]] %}
       {% elif data['speciesSelection'] == 'pine martens' %}
-     {% set radioOptions = [activityOptions[1], activityOptions[2], activityOptions[5], activityOptions[6], activityOptions[7], activityOptions[8]] %}
+     {% set radioOptions = [activityOptions[1], activityOptions[5], activityOptions[15], activityOptions[16], activityOptions[17], activityOptions[18]] %}
     {% endif %}
       
 

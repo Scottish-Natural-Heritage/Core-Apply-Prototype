@@ -201,7 +201,7 @@ router.post('/previous-licence-answer', function (req, res) {
     res.redirect('/previous-licence-number')
   } else if (previousLicence == "no") {
     // Send user to the other page
-    res.redirect('/supporting-info')
+    res.redirect('/file-upload')
   }
 
 })

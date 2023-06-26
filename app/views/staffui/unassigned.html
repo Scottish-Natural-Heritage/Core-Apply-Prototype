@@ -1,0 +1,197 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .govuk-grid-column-one-third {
+    background-color: #f0f0f080; /* Grey background color */
+    padding: 20px; /* Add padding for better visibility */
+  }
+</style>
+
+
+<div class="govuk-grid-row">
+  
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third applicant-panel">
+    
+
+    <p class="govuk-body">
+      <strong>Assigned to:</strong>
+    </p>
+
+    <p class="govuk-body">
+      <strong>Status:</strong> Unassigned
+    </p>
+
+    <a href="#" class="govuk-button govuk-button" data-module="govuk-button">
+      Assign to me
+    </a>
+
+    <a href="#" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Withdraw application
+    </a>
+
+    <style>
+      .section-divider {
+        border-top: 1px solid #ccc;
+        margin-top: 0em;
+        margin-bottom: 1.5em;
+      }
+    </style>
+
+<div class="section-divider"></div>
+
+    <h2 class="govuk-heading-m">
+      Licence holder
+    </h2>
+
+    <p class="govuk-body">
+      {{ data['lhname'] | default("Noah Martinez") }}<br>
+      {{ data['lhorganisation'] | default("Martinez Ltd") }}<br>
+      {{ data['lhtelephone'] | default("0789911122") }}<br>
+    {{ data['lhemail'] | default("Noah@Martinez.com") }}</p>
+
+
+
+      <h2 class="govuk-heading-m">
+        Applicant
+      </h2>
+      <p class="govuk-body">
+        <p class="govuk-body">
+          {{ data['laname'] | default("Bill Martinez") }}<br>
+          {{ data['laorganisation'] | default("Martinez Ltd") }}<br>
+          {{ data['latelephone'] | default("07843 763518") }}<br>
+          {{ data['laemail'] | default("Bill@Martinez.com") }}</p>
+
+          <h2 class="govuk-heading-m">
+            Site address
+          </h2>
+          <p class="govuk-body">
+            <p class="govuk-body">
+              9 Cedar Lane<br>
+              Maplewood<br>
+              EH159GH<br>
+              {# {{ data['laemail'] | default("Bill@Martinez.com") }} #}</p>
+
+        <a href="#" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Edit details
+        </a>
+
+      </div>
+
+
+      <div class="govuk-grid-column-two-thirds">
+
+        <h2 class="govuk-heading-m">
+          Assess the application
+        </h2>
+
+        <ol class="app-task-list">
+          <li>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="#" aria-describedby="eligibility-status">
+                    Background information
+                  </a>
+                </span>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="#" aria-describedby="eligibility-status">
+                    Test 1: Public health and safety issue
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Incomplete</strong>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="#" aria-describedby="read-declaration-status">
+                    Test 2: Preventative measures
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Incomplete</strong>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="#" aria-describedby="read-declaration-status">
+                    Test 3: Species and activities
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Incomplete</strong>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="#" aria-describedby="read-declaration-status">
+                    Decision
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="#" aria-describedby="read-declaration-status">
+                    Create licence
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
+              </li>
+            </ul>
+          </ol>
+
+          {% from "govuk/components/table/macro.njk" import govukTable %}
+
+{{ govukTable({
+  caption: "Licensing officer notes",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Date"
+    },
+    {
+      text: "Officer"
+    },
+    {
+      text: "Note"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "22/06/2023"
+      },
+      {
+        text: "Kevin G"
+      },
+      {
+        text: "The licence holder called to update the email address to Noah@Martinez.com"
+      }
+    ]
+  ]
+}) }}
+
+          {{ govukButton({
+            href: "#",
+            text: "Add a note",
+            classes: "govuk-button--secondary"
+          }) }}
+
+
+
+        </div>
+      </div>
+
+      {% endblock %}
