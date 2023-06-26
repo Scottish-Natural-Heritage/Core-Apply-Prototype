@@ -72,7 +72,7 @@ href: "javascript:window.history.back()"
       }) }}
 
     
-      <h2 class="govuk-heading-s">Find out more about Prevent Serious Damage licences:</h2>      
+      <h2 class="govuk-heading-s">Find out more about prevent serious damage licences:</h2>      
 
     <p class="govuk-body">
       <a class="govuk-link"
@@ -188,6 +188,14 @@ href: "javascript:window.history.back()"
       .... not to mention anything else we need.
     </p>
     {% endif %}
+
+    <form method="post" action="/about">
+
+      {{ govukButton({
+      text: "Start now",
+      isStartButton: true,
+      preventDoubleClick: true
+      }) }}
 
   </div>
 
