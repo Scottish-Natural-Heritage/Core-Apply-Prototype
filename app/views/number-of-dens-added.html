@@ -48,13 +48,14 @@
                   
                   <td class="govuk-table__cell">
     
-                    <button name="edit-0" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                    <a href="/activities-badger" class="govuk-button govuk-button--secondary" data-module="govuk-button">
                       Edit
-                    </button>
+                    </a>
+                    
     
-                    <button name="delete-0" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                    <a href="/activities-badger-delete" class="govuk-button govuk-button--secondary" data-module="govuk-button">
                       Delete
-                    </button>
+                    </a>
     
                   </td>
                 </tr>
@@ -151,17 +152,14 @@
         
                         {% from "govuk/components/button/macro.njk" import govukButton %}
 
-                        <form method="post" action="/activities-pine-martens">
-{{ govukButton({
-  text: "Edit",
-  classes: "govuk-button--secondary"
-}) }}
-</form>
-
+                        <a href="/activities-pine-martens" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                          Edit
+                        </a>
+                        
         
-                        <button name="delete-0" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                        <a href="/activities-pine-martens-delete" class="govuk-button govuk-button--secondary" data-module="govuk-button">
                           Delete
-                        </button>
+                        </a>
         
                       </td>
                     </tr>
