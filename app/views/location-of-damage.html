@@ -15,7 +15,7 @@
 
     {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-    <form method="post" action="/damage-occurring">
+    <form method="post" action="/location-of-damage-answer">
 
             {# Set conditional reveal for other areas #}
             {% set otherAreasExpand %}
@@ -68,23 +68,23 @@
       { value: "feeding-areas", text: "Feeding areas (for example at creep feeders)" },
       { value: "river-system", text: "River system" },
       { value: "stocked-fishery", text: "Stocked fishery" },
-      { value: "prime-agricultural-land", text: "Prime Agricultural Land (PAL)", conditional: {html: palClassExpand} },
+      { value: "prime-agricultural-land", text: "Prime Agricultural Land (PAL)" },
       { value: "non-pal-land", text: "Non-PAL land"}
 
       ] %}
 
       {% if data['speciesSelection'] == 'ravens' %}
-      {% set radioOptions = [locationOptions[0], locationOptions[1]] %}
+      {% set locationOptions = [locationOptions[0], locationOptions[1]] %}
       {% elif data['speciesSelection'] == 'geese' %}
-      {% set radioOptions = [locationOptions[2]] %}
+      {% set locationOptions = [locationOptions[2]] %}
       {% elif data['speciesSelection'] == 'gulls' %}
-      {% set radioOptions = [locationOptions[0], locationOptions[3], locationOptions[1]] %}
+      {% set locationOptions = [locationOptions[0], locationOptions[3], locationOptions[1]] %}
       {% elif data['speciesSelection'] == 'fish-eating birds' %}
-      {% set radioOptions = [locationOptions[4], locationOptions[5]] %}
+      {% set locationOptions = [locationOptions[4], locationOptions[5]] %}
       {% elif data['speciesSelection'] == 'beavers' %}
-      {% set radioOptions = [locationOptions[6], locationOptions[7]] %}
+      {% set locationOptions = [locationOptions[6], locationOptions[7]] %}
       {% elif data['speciesSelection'] == 'other animals' %}
-      {% set radioOptions = [locationOptions[0], locationOptions[1], locationOptions[2], locationOptions[3],
+      {% set locationOptions = [locationOptions[0], locationOptions[1], locationOptions[2], locationOptions[3],
       locationOptions[4], locationOptions[5], locationOptions[6], locationOptions[8]] %}
       {% endif %}
 
@@ -98,7 +98,7 @@
       }
       },
 
-      items: radioOptions
+      items: locationOptions
       }) }}
 
       {{ govukTextarea({

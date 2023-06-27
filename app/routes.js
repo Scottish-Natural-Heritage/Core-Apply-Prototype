@@ -189,6 +189,25 @@ router.post('/species-selection-answer', function (req, res) {
 
   })
 
+
+   // Run this code when a form is submitted to 'type-of-damage'
+   router.post('/location-of-damage-answer', function (req, res) {
+
+    // Make a variable and give it the value from 'typeOfDamage'
+    var typeOfDamage = req.session.data['speciesSelection']
+    var locationOfDamage = req.session.data['location-of-damage']
+  
+    // Check whether the variable matches a condition
+    if (typeOfDamage == "beavers" && locationOfDamage == "prime-agricultural-land") {
+      // Send user to the other page
+      res.redirect('/location-of-damage-pal')
+    }else {
+      // Send user to the other page
+      res.redirect('/damage-occurring')
+    }
+
+  })
+
 // Run this code when a form is submitted to 'previous-licence'
 router.post('/previous-licence-answer', function (req, res) {
 
