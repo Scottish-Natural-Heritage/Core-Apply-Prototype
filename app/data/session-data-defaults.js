@@ -47,6 +47,8 @@ module.exports = {
 //   'num-of-wigeon': '26',
 //   'num-of-woodpigeon': '32',
 
+//   'withdraw-details': 'test',
+
 //   'damage-details' : 'A thorough and precise explanation providing details of the damage experienced',
 
 //   'tried-details' : 'I have attempted different measures such as physical prevention, removing attractants, and creating a disturbance, with the aim of preventing further damage from occurring.',

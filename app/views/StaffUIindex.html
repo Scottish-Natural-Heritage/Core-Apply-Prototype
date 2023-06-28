@@ -8,7 +8,7 @@
 {% block content %}
 
 <style>
-  .govuk-grid-column-one-third {
+  .govuk-grid-column-one-quarter {
     background-color: #f2f2f2; /* Grey background color */
     padding: 20px; /* Add padding for better visibility */
   }
@@ -42,7 +42,7 @@
 
       <div class="govuk-grid-row">
 
-      <div class="govuk-grid-column-one-third">
+      <div class="govuk-grid-column-one-quarter">
 
 {%- from "govuk/components/checkboxes/macro.njk" import govukCheckboxes -%}
 {%- from "govuk/components/input/macro.njk" import govukInput -%}
@@ -223,7 +223,7 @@
 </div>
 
 </div>
-<div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-column-three-quarters">
 
   <div class="moj-filter-layout__content">
 
@@ -243,8 +243,8 @@
       [
       {html: '<a href="/staffui/unassigned" class="govuk-link">NS-GSD-05446</a>'},
       {html: 'Unassigned'},
-      {text: 'Noah Martinez'},
-      {html: '9 Cedar Lane'},
+      {html: data['lhname1'] | default("Noah Martinez")},
+      {html: '9 Cedar Lane, Maplewood, Edinburgh, EH15 9GH'},
       {text: '18/04/2023'},
       {text: ''}
   ],
@@ -275,8 +275,8 @@
   [
       {html: '<a href="/staffui/withdrawn" class="govuk-link">NS-RSD-14786</a>'},
       {html: 'Withdrawn'},
-      {text: 'Olivia Taylor'},
-      {html: '8 Willow Avenue'},
+      {text: ''},
+      {text: ''},
       {text: '22/05/2023'},
       {text: ''}
   ],

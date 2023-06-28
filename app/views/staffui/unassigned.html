@@ -39,9 +39,42 @@ href: "javascript:window.history.back()"
       Assign to me
     </a>
 
-    <a href="#" class="govuk-button govuk-button--secondary" data-module="govuk-button-withdraw">
+    <a href="/staffui/withdraw" class="govuk-button govuk-button--secondary" data-module="govuk-button-withdraw">
       Withdraw application
     </a>
+
+<script>
+
+// Find the Assign to me button element
+var assignButton = document.querySelector('[data-module="govuk-button-assign"]');
+
+// Find the Assigned to paragraph element
+var assignedToParagraph = document.querySelector('p');
+
+// Find the Status paragraph element
+var statusParagraph = assignedToParagraph.nextElementSibling;
+
+// Assign a click event listener to the Assign to me button
+assignButton.addEventListener('click', function() {
+  // Check the current assigned status
+  var isAssigned = assignedToParagraph.innerHTML.includes("Kevin G");
+
+  // Toggle the assigned status
+  if (isAssigned) {
+    assignedToParagraph.innerHTML = "<strong>Assigned to:</strong>";
+    statusParagraph.innerHTML = "<strong>Status:</strong> Unassigned";
+    assignButton.textContent = "Assign to me";
+    assignButton.classList.remove('govuk-button--secondary');
+  } else {
+    assignedToParagraph.innerHTML = "<strong>Assigned to:</strong> Kevin G";
+    statusParagraph.innerHTML = "<strong>Status:</strong> Assigned";
+    assignButton.textContent = "Unassign";
+    assignButton.classList.add('govuk-button--secondary');
+  }
+});
+
+</script>
+
 
 
     <style>
@@ -54,15 +87,21 @@ href: "javascript:window.history.back()"
 
 <div class="section-divider"></div>
 
+<h2 class="govuk-heading-m">
+  Reference number
+</h2>
+
+<p class="govuk-body">NS-GSD-05446</p>
+
     <h2 class="govuk-heading-m">
       Licence holder
     </h2>
 
     <p class="govuk-body">
-      {{ data['lhname'] | default("Noah Martinez") }}<br>
-      {{ data['lhorganisation'] | default("Martinez Ltd") }}<br>
-      {{ data['lhtelephone'] | default("0789911122") }}<br>
-    {{ data['lhemail'] | default("Noah@Martinez.com") }}</p>
+      {{ data['lhname1'] | default("Noah Martinez") }}<br>
+      {{ data['lhorganisation1'] | default("Martinez Ltd") }}<br>
+      {{ data['lhtelephone1'] | default("0789911122") }}<br>
+    {{ data['lhemail1'] | default("Noah@Martinez.com") }}</p>
 
 
 
@@ -71,20 +110,21 @@ href: "javascript:window.history.back()"
       </h2>
       <p class="govuk-body">
         <p class="govuk-body">
-          {{ data['laname'] | default("Bill Martinez") }}<br>
-          {{ data['laorganisation'] | default("Martinez Ltd") }}<br>
-          {{ data['latelephone'] | default("07843 763518") }}<br>
-          {{ data['laemail'] | default("Bill@Martinez.com") }}</p>
+          {{ data['laname1'] | default("Bill Martinez") }}<br>
+          {{ data['laorganisation1'] | default("Martinez Ltd") }}<br>
+          {{ data['latelephone1'] | default("07843 763518") }}<br>
+          {{ data['laemail1'] | default("Bill@Martinez.com") }}</p>
 
           <h2 class="govuk-heading-m">
             Site address
           </h2>
           <p class="govuk-body">
             <p class="govuk-body">
-              9 Cedar Lane<br>
-              Maplewood<br>
-              EH159GH<br>
-              {# {{ data['laemail'] | default("Bill@Martinez.com") }} #}</p>
+              {{ data['siteaddressline1-1'] | default("9 Cedar Lane") }}<br>
+              {{ data['siteaddressline2-1'] | default("Maplewood") }}<br>
+              {{ data['siteaddressline3-1'] | default("Edinburgh") }}<br>
+              {{ data['siteaddressline4-1'] | default("EH159GH") }}<br>
+              </p>
 
         <a href="#" class="govuk-button govuk-button--secondary" data-module="govuk-button">
           Edit details
@@ -178,7 +218,7 @@ href: "javascript:window.history.back()"
         text: "Kevin G"
       },
       {
-        text: "The licence holder called to update the email address to Noah@Martinez.com"
+        html: "The licence holder called to update the email address to " + data['lhemail1'] | default("Noah@Martinez.com")
       }
     ]
   ]
