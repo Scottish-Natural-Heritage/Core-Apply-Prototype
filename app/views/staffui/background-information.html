@@ -20,6 +20,8 @@ href: "javascript:window.history.back()"
   }
 </style>
 
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
@@ -38,8 +40,6 @@ href: "javascript:window.history.back()"
 
 <br>
 <div class="section-divider"></div>
-
-
   
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-third applicant-panel">
@@ -110,51 +110,33 @@ href: "javascript:window.history.back()"
       <div class="govuk-grid-column-two-thirds">
 
         <h2 class="govuk-heading-l">
-          Withdraw licence
+          Background information
         </h2>
 
-        <h2 class="govuk-heading-m">
-          You are about to withdraw reference number NS-GSD-05446 for {{ data['lhname1'] | default("Noah Martinez") }}
-        </h2>
+  {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
-        {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+  {{ govukInsetText({
+    text: "We asked the applicant the following questions in the application."
+  }) }}
 
-{{ govukWarningText({
-  text: "Avoid mentioning the applicant's name or contact details. The system will delete all the data and any notes. You cannot undo this action.",
-  iconFallbackText: "Warning"
-}) }}
+  <h2 class="govuk-heading-m">Did this site have a licence before 2022?</h2>
+  <p class="govuk-body">Yes</p>
 
-<form method="post" action="/staffui/withdrawn">
+  <h2 class="govuk-heading-m">What was the licence number?</h2>
+  <p class="govuk-body">Nothing entered by applicant</p>
 
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
-
-{{ govukTextarea({
-  name: "withdraw-details",
-  id: "withdraw-details",
-  value: data['withdraw-details'] | default("The application was withdrawn by the applicant as it is no longer needed."),
-  label: {
-    text: "Briefly explain why the applicant or licence holder wants to withdraw this application. This reason will appear on the email confirmation sent to the Licence Holder."
-  }
-}) }}
+  <h2 class="govuk-heading-m">Supporting information</h2>
+  <p class="govuk-body">Nothing entered by applicant</p>
 
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {{ govukButton({
-  text: "Withdraw application",
-  classes: "govuk-button--warning"
+  text: "Continue",
+  classes: "govuk-button",
+  href: "/staffui/test-1"
 }) }}
 
-
-{% from "govuk/components/button/macro.njk" import govukButton %}
-
-{{ govukButton({
-  text: "Cancel",
-  classes: "govuk-button--secondary",
-  href: "/staffui/unassigned"
-}) }}
-
-</form>
 
 
         </div>

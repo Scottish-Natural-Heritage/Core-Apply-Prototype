@@ -113,6 +113,8 @@ href: "javascript:window.history.back()"
           Add a note to NS-GSD-05446
         </h2>
 
+<form method="post" action="/staffui/unassigned-note">
+
 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
 {{ govukTextarea({
@@ -129,8 +131,7 @@ href: "javascript:window.history.back()"
 
 {{ govukButton({
   text: "Add note",
-  classes: "govuk-button",
-  href: "/staffui/unassigned-note"
+  classes: "govuk-button"
 }) }}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
@@ -139,6 +140,8 @@ href: "javascript:window.history.back()"
   classes: "govuk-button--secondary",
   href: "/staffui/unassigned"
 }) }}
+
+</form>
 
 
         </div>

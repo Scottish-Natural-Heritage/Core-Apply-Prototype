@@ -81,6 +81,8 @@
       {% set locationOptions = [locationOptions[2], locationOptions[3], locationOptions[1]] %}
       {% elif data['speciesSelection'] == 'fish-eating birds' %}
       {% set locationOptions = [locationOptions[4], locationOptions[5]] %}
+      {% elif data['speciesSelection'] == 'other birds' %}
+      {% set locationOptions = [locationOptions[8]] %}
       {% elif data['speciesSelection'] == 'beavers' %}
       {% set locationOptions = [locationOptions[6], locationOptions[7]] %}
       {% elif data['speciesSelection'] == 'other animals' %}

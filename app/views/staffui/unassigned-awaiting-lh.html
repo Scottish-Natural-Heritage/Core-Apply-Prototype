@@ -37,7 +37,23 @@ href: "javascript:window.history.back()"
 </div>
 
 <br>
+
+
 <div class="section-divider"></div>
+
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% set html %}
+  <p class="govuk-notification-banner__heading">
+    Do not work on this application
+  </p>
+  <p>The licence holder hasn't approved this application yet. If the proposed Licence Holder approves the application this message will be removed.</p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html
+}) }}
+
   
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-third applicant-panel">
@@ -48,7 +64,7 @@ href: "javascript:window.history.back()"
     </p>
 
     <p>
-      <strong>Status:</strong> Unassigned
+      <strong>Status:</strong> Awaiting LH approval
     </p>
 
     <a href="#" class="govuk-button govuk-button" data-module="govuk-button-assign">
@@ -57,41 +73,11 @@ href: "javascript:window.history.back()"
 
     <br>
 
-    <a href="/staffui/withdraw" class="govuk-button govuk-button--secondary" data-module="govuk-button-withdraw">
+    <a href="#" class="govuk-button govuk-button--secondary" data-module="govuk-button-withdraw">
       Withdraw application
     </a>
 
-<script>
 
-// Find the Assign to me button element
-var assignButton = document.querySelector('[data-module="govuk-button-assign"]');
-
-// Find the Assigned to paragraph element
-var assignedToParagraph = document.querySelector('p');
-
-// Find the Status paragraph element
-var statusParagraph = assignedToParagraph.nextElementSibling;
-
-// Assign a click event listener to the Assign to me button
-assignButton.addEventListener('click', function() {
-  // Check the current assigned status
-  var isAssigned = assignedToParagraph.innerHTML.includes("Kevin G");
-
-  // Toggle the assigned status
-  if (isAssigned) {
-    assignedToParagraph.innerHTML = "<strong>Assigned to:</strong>";
-    statusParagraph.innerHTML = "<strong>Status:</strong> Unassigned";
-    assignButton.textContent = "Assign to me";
-    assignButton.classList.remove('govuk-button--secondary');
-  } else {
-    assignedToParagraph.innerHTML = "<strong>Assigned to:</strong> Kevin G";
-    statusParagraph.innerHTML = "<strong>Status:</strong> Assigned";
-    assignButton.textContent = "Unassign";
-    assignButton.classList.add('govuk-button--secondary');
-  }
-});
-
-</script>
 
 
 
@@ -145,7 +131,7 @@ assignButton.addEventListener('click', function() {
               {{ data['siteaddressline5-1'] | default("EH159GH") }}<br>
               </p>
 
-        <a href="/staffui/edit-details" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        <a href="#" class="govuk-button govuk-button--secondary" data-module="govuk-button">
           Edit details
         </a>
 
@@ -163,34 +149,34 @@ assignButton.addEventListener('click', function() {
             <ul class="app-task-list__items">
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="/staffui/background-information" aria-describedby="eligibility-status">
+                  <a href="#" aria-describedby="eligibility-status">
                     Background information
                   </a>
                 </span>
               </li>
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="/staffui/test-1" aria-describedby="eligibility-status">
-                    Test 1: Prevent serious damage issue
+                  <a href="#" aria-describedby="eligibility-status">
+                    Test 1: Public health and safety issue
                   </a>
                 </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Incomplete</strong>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Cannot start yet</strong>
               </li>
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="/staffui/test-2" aria-describedby="read-declaration-status">
+                  <a href="#" aria-describedby="read-declaration-status">
                     Test 2: Preventative measures
                   </a>
                 </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Incomplete</strong>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Cannot start yet</strong>
               </li>
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="/staffui/test-3" aria-describedby="read-declaration-status">
+                  <a href="#" aria-describedby="read-declaration-status">
                     Test 3: Species and activities
                   </a>
                 </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Incomplete</strong>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
               </li>
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
@@ -244,7 +230,7 @@ assignButton.addEventListener('click', function() {
 }) }}
 
           {{ govukButton({
-            href: "/staffui/add-note",
+            href: "#",
             text: "Add a note",
             classes: "govuk-button--secondary"
           }) }}
