@@ -6,8 +6,8 @@
 
 {% block beforeContent %}
 {{ govukBackLink({
-text: "Back to licence applications",
-href: "/StaffUIindex"
+text: "Back",
+href: "javascript:window.history.back()"
 }) }}
 {% endblock %}
 
@@ -19,6 +19,8 @@ href: "/StaffUIindex"
     padding: 20px; /* Add padding for better visibility */
   }
 </style>
+
+
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -38,8 +40,6 @@ href: "/StaffUIindex"
 
 <br>
 <div class="section-divider"></div>
-
-
   
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-third applicant-panel">
@@ -50,7 +50,7 @@ href: "/StaffUIindex"
     </p>
 
     <p>
-      <strong>Status:</strong> Withdrawn
+      <strong>Status:</strong> Assigned
     </p>
 
   
@@ -76,10 +76,10 @@ href: "/StaffUIindex"
     </h2>
 
     <p class="govuk-body">
-      <br>
-      <br>
-      <br>
-    </p>
+      {{ data['lhname1'] | default("Noah Martinez") }}<br>
+      {{ data['lhorganisation1'] | default("Martinez Ltd") }}<br>
+      {{ data['lhtelephone1'] | default("0789911122") }}<br>
+    {{ data['lhemail1'] | default("Noah@Martinez.com") }}</p>
 
 
 
@@ -88,47 +88,58 @@ href: "/StaffUIindex"
       </h2>
       <p class="govuk-body">
         <p class="govuk-body">
-          <br>
-          <br>
-          <br>
-          </p>
+          {{ data['laname1'] | default("Bill Martinez") }}<br>
+          {{ data['laorganisation1'] | default("Martinez Ltd") }}<br>
+          {{ data['latelephone1'] | default("07843 763518") }}<br>
+          {{ data['laemail1'] | default("Bill@Martinez.com") }}</p>
 
           <h2 class="govuk-heading-m">
             Site address
           </h2>
           <p class="govuk-body">
             <p class="govuk-body">
-              <br>
-              <br>
-              <br>
-              <br>
+              {{ data['siteaddressline1-1'] | default("9 Cedar Lane") }}<br>
+              {{ data['siteaddressline2-1'] | default("Maplewood") }}<br>
+              {{ data['siteaddressline3-1'] | default("Edinburgh") }}<br>
+              {{ data['siteaddressline4-1'] | default("") }}<br>
+              {{ data['siteaddressline5-1'] | default("EH159GH") }}<br>
 
       </div>
 
 
       <div class="govuk-grid-column-two-thirds">
 
-
         <h2 class="govuk-heading-l">
-          Withdrawn licence
+          Add a note to NS-GSD-05446
         </h2>
 
-        <div class="govuk-inset-text">
-          <h2 class="govuk-heading-s">
-            Application withdrawn by Kevin G on 26 June 2023
-          </h2>
-          <p>
-          {{ data['withdraw-details'] | default("The application was withdrawn by the applicant as it is no longer needed.") }}
-          </p>
-      </div>
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
-      {{ govukButton({
-        text: "Exit",
-        classes: "govuk-button--secondary",
-        href: "/staffUIindex"
-      }) }}
+{{ govukTextarea({
+  name: "add-note",
+  id: "add-note",
+  value: data['add-note'] | default("The applicants phone number was updated incase we need to contact them."),
+  label: {
+    text: "When you add this note you won't be able to amend or remove it."
+  }
+}) }}
 
-      
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Add note",
+  classes: "govuk-button",
+  href: "/staffui/unassigned-note"
+}) }}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Cancel",
+  classes: "govuk-button--secondary",
+  href: "/staffui/unassigned"
+}) }}
+
 
         </div>
       </div>
