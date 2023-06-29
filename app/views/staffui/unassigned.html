@@ -102,7 +102,7 @@ assignButton.addEventListener('click', function() {
     <p class="govuk-body">
       {{ data['lhname1'] | default("Noah Martinez") }}<br>
       {{ data['lhorganisation1'] | default("Martinez Ltd") }}<br>
-      {{ data['lhtelephone1'] | default("0789911122") }}<br>
+      {{ data['lhtelephone1'] | default("07899 111422") }}<br>
     {{ data['lhemail1'] | default("Noah@Martinez.com") }}</p>
 
 
@@ -125,10 +125,11 @@ assignButton.addEventListener('click', function() {
               {{ data['siteaddressline1-1'] | default("9 Cedar Lane") }}<br>
               {{ data['siteaddressline2-1'] | default("Maplewood") }}<br>
               {{ data['siteaddressline3-1'] | default("Edinburgh") }}<br>
-              {{ data['siteaddressline4-1'] | default("EH159GH") }}<br>
+              {{ data['siteaddressline4-1'] | default("") }}<br>
+              {{ data['siteaddressline5-1'] | default("EH159GH") }}<br>
               </p>
 
-        <a href="#" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        <a href="/staffui/edit-details" class="govuk-button govuk-button--secondary" data-module="govuk-button">
           Edit details
         </a>
 
