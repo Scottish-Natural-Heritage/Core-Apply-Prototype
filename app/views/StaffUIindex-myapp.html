@@ -58,66 +58,82 @@
   </style>
 
 {{ govukButton({
-  text: "My applications",
-  href: "/StaffUIindex-myapp",
+  text: "All applications",
+  href: "/StaffUIindex",
   isStartButton: false
 }) }}
 
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-  {{ govukCheckboxes({
-    idPrefix: 'status',
-    name: 'status',
-    classes: "govuk-checkboxes--small",
-    fieldset: {
-      legend: {
-        text: 'Status',
-        classes: 'govuk-fieldset__legend--s'
+{{ govukCheckboxes({
+  idPrefix: 'status',
+  name: 'status',
+  classes: "govuk-checkboxes--small",
+  fieldset: {
+    legend: {
+      text: 'Status',
+      classes: 'govuk-fieldset__legend--s'
+    }
+  },
+  items: [
+    {
+      value: '1',
+      text: 'Unassigned (617)',
+      attributes: {
+        disabled: 'disabled' 
       }
     },
-    items: [
-      {
-        value: '1',
-        text: 'Unassigned (617)',
-        checked: true
-      },
-      {
-        value: '2',
-        text: 'Awaiting LH approval (6)',
-        checked: true
-      },
-      {
-        value: '3',
-        text: 'In progress (377)',
-        checked: true
-      },
-      {
-        value: '4',
-        text: 'Issued (1200)',
-        checked: true
-      },
-      {
-        value: '4',
-        text: 'Withdrawn (50)',
-        checked: true
-      },
-      {
-        value: '5',
-        text: 'Revoked (10)',
-        checked: true
-      },
-      {
-        value: '6',
-        text: 'Refused (3)',
-        checked: true
-      },
-      {
-        value: '7',
-        text: 'Expired (27)',
-        checked: true
+    {
+      value: '2',
+      text: 'Awaiting LH approval (6)',
+      attributes: {
+        disabled: 'disabled' 
       }
-    ]
-  }) }}
+    },
+    {
+      value: '3',
+      text: 'In progress (377)',
+      attributes: {
+        disabled: 'disabled' 
+      }
+    },
+    {
+      value: '4',
+      text: 'Issued (1200)',
+      attributes: {
+        disabled: 'disabled'
+      }
+    },
+    {
+      value: '4',
+      text: 'Withdrawn (50)',
+      attributes: {
+        disabled: 'disabled' 
+      }
+    },
+    {
+      value: '5',
+      text: 'Revoked (10)',
+      attributes: {
+        disabled: 'disabled' 
+      }
+    },
+    {
+      value: '6',
+      text: 'Refused (3)',
+      attributes: {
+        disabled: 'disabled' 
+      }
+    },
+    {
+      value: '7',
+      text: 'Expired (27)',
+      attributes: {
+        disabled: 'disabled' 
+      }
+    }
+  ]
+}) }}
 
   {{ govukCheckboxes({
     idPrefix: 'licence-type',
@@ -133,39 +149,65 @@
     {
       value: '1',
       text: 'Prevent Serious Damage (64)',
-      checked: true
+      attributes: {
+        disabled: 'disabled' 
+      }
       },
       {
       value: '2',
-      text: 'Health and Safety (146)'
+      text: 'Health and Safety (146)',
+      attributes: {
+        disabled: 'disabled' 
+      }
       },
       {
       value: '3',
-      text: 'Air safety (84)'
+      text: 'Air safety (84)',
+      attributes: {
+        disabled: 'disabled' 
+      }
       },
       {
       value: '4',
-      text: 'Surveys (329)'
+      text: 'Surveys (329)',
+      attributes: {
+        disabled: 'disabled' 
+      }
       },
       {
       value: '5',
-      text: 'Bats in houses (361)'
+      text: 'Bats in houses (361)',
+      attributes: {
+        disabled: 'disabled' 
+      }
       },
       {
       value: '6',
-      text: 'Works affecting (369)'
+      text: 'Works affecting (369)',
+      attributes: {
+        disabled: 'disabled' 
+      }
       },
       {
       value: '7',
-      text: 'Ecologist licences (57)'
+      text: 'Ecologist licences (57)',
+      attributes: {
+        disabled: 'disabled' 
+      }
       },
       {
       value: '8',
-      text: 'Organisational licences (15)'
+      text: 'Organisational licences (15)',
+      attributes: {
+        disabled: 'disabled' 
+      }
       },
       {
       value: '9',
-      text: 'Everything else (865)'
+      text: 'Everything else (865)',
+      attributes: {
+        disabled: 'disabled' 
+      }
       }
     ]
   }) }}
@@ -175,11 +217,12 @@
 <div class="moj-filter-layout">
 
   <div class="moj-filter-layout__filter-toggle">
-    <button id="filter-toggle-button" class="govuk-button" type="button" aria-expanded="false" aria-controls="filter-options">
+    <button id="filter-toggle-button" class="govuk-button" type="button" aria-expanded="false" aria-controls="filter-options" disabled>
       Apply filters
       <span class="moj-filter-layout__filter-toggle-icon" aria-hidden="true"></span>
     </button>
   </div>
+  
 
   
   <div id="filter-options" class="moj-filter-layout__filter-options" style="display: none;">
@@ -250,22 +293,6 @@
         {text: 'Assigned to'}
       ],
       rows: [
-      [
-      {html: '<a href="/staffui/unassigned" class="govuk-link">NS-GSD-05446</a>'},
-      {html: 'Unassigned'},
-      {html: data['lhname1'] | default("Noah Martinez")},
-      {html: '9 Cedar Lane, Maplewood, Edinburgh, EH15 9GH'},
-      {text: '18/04/2023'},
-      {text: ''}
-  ],
-  [
-      {html: '<a href="#" class="govuk-link">NS-RSD-12751</a>'},
-      {html: 'Awaiting LH approval'},
-      {text: 'Sophia Davis'},
-      {html: '4 Elm Court'},
-      {text: '20/04/2023'},
-      {text: ''}
-  ],
   [
       {html: '<a href="#" class="govuk-link">NS-OBD-17616</a>'},
       {html: 'In progress'},
@@ -273,46 +300,6 @@
       {html: '2 Park Avenue'},
       {text: '15/05/2023'},
       {text: 'Kevin G'}
-  ],
-  [
-      {html: '<a href="#" class="govuk-link">NS-BSD-75846</a>'},
-      {html: 'Issued'},
-      {text: 'Oliver Wilson'},
-      {html: '5 Maple Lane'},
-      {text: '05/05/2023'},
-      {text: ''}
-  ],
-  [
-      {html: '<a href="/staffui/withdrawn" class="govuk-link">NS-GSD-05446</a>'},
-      {html: 'Withdrawn'},
-      {text: ''},
-      {text: ''},
-      {text: '22/05/2023'},
-      {text: ''}
-  ],
-  [
-      {html: '<a href="#" class="govuk-link">NS-HSD-05236</a>'},
-      {html: 'Revoked'},
-      {text: ''},
-      {text: ''},
-      {text: '25/05/2023'},
-      {text: ''}
-  ],
-  [
-      {html: '<a href="#" class="govuk-link">NS-RSD-19526</a>'},
-      {html: 'Refused'},
-      {text: 'Isabella Thompson'},
-      {html: '6 Birch Road'},
-      {text: '30/05/2023'},
-      {text: ''}
-  ],
-  [
-      {html: '<a href="#" class="govuk-link">NS-BVD-73946</a>'},
-      {html: 'Expired'},
-      {text: 'Michael Brown'},
-      {html: '3 Oak Street'},
-      {text: '10/06/2023'},
-      {text: ''}
   ]
       ]
     }) }}
