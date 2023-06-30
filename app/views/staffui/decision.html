@@ -113,12 +113,42 @@ href: "javascript:window.history.back()"
           Decision
         </h2>
 
+        {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Tests</caption>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Test 1: Prevent serious damage issue</th>
+              <td class="govuk-table__cell">Pass</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Test 2: Preventative measures</th>
+              <td class="govuk-table__cell">Pass</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Test 3: Species and activities</th>
+              <td class="govuk-table__cell">Pass</td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+
+
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {{ govukButton({
-  text: "Continue",
+  text: "Save and continue",
   classes: "govuk-button",
-  href: "/staffui/decision"
+  href: "/staffui/assigned-complete-decision"
+}) }}
+
+{{ govukButton({
+  text: "Exit",
+  classes: "govuk-button--secondary",
+  href: "/staffui/assigned-test3-passed"
 }) }}
 
 

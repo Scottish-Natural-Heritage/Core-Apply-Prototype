@@ -116,9 +116,15 @@ href: "javascript:window.history.back()"
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {{ govukButton({
-  text: "Continue",
+  text: "Save and continue",
   classes: "govuk-button",
   href: "/staffui/decision"
+}) }}
+
+{{ govukButton({
+  text: "Exit",
+  classes: "govuk-button--secondary",
+  href: "/staffui/assigned-test2-passed"
 }) }}
 
 
