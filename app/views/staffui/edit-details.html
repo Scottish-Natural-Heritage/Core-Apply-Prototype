@@ -99,7 +99,7 @@ href: "javascript:window.history.back()"
               {{ data['siteaddressline1-1'] | default("9 Cedar Lane") }}<br>
               {{ data['siteaddressline2-1'] | default("Maplewood") }}<br>
               {{ data['siteaddressline3-1'] | default("Edinburgh") }}<br>
-              {{ data['siteaddressline4-1'] | default("") }}<br>
+              {{ data['siteaddressline4-1'] | default("Lothian") }}<br>
               {{ data['siteaddressline5-1'] | default("EH159GH") }}<br>
 
       </div>
@@ -194,7 +194,7 @@ href: "javascript:window.history.back()"
           classes: "govuk-!-width-two-thirds",
           id: "lhaddress-county",
           name: "lhaddress-county",
-          value: data['lhaddress-county'] | default("")
+          value: data['lhaddress-county'] | default("Lothian")
         }) }}
       
         {{ govukInput({
@@ -299,7 +299,7 @@ href: "javascript:window.history.back()"
           classes: "govuk-!-width-two-thirds",
           id: "siteaddressline4-1",
           name: "siteaddressline4-1",
-          value: data['siteaddressline4-1'] | default("")
+          value: data['siteaddressline4-1'] | default("Lothian")
         }) }}
       
         {{ govukInput({
@@ -326,11 +326,19 @@ href: "javascript:window.history.back()"
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 
-{{ govukButton({
-  text: "Cancel",
-  classes: "govuk-button--secondary",
-  href: "/staffui/unassigned"
-}) }}
+<style>
+  .govuk-button.govuk-button--secondary {
+    text-decoration: none;
+  }
+  </style>
+  
+  <a class="govuk-button govuk-button--secondary" onclick="goBack()">Cancel</a>
+  
+  <script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
 
 </form>
 
