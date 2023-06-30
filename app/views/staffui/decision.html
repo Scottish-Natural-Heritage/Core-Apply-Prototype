@@ -134,13 +134,19 @@ href: "javascript:window.history.back()"
           </tbody>
         </table>
 
+        {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{{ govukWarningText({
+  text: "Once you confirm all tests have passed you will not be able to change the decision",
+  iconFallbackText: "Warning"
+}) }}
         
 
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {{ govukButton({
-  text: "Save and continue",
+  text: "Confirm",
   classes: "govuk-button",
   href: "/staffui/assigned-complete-decision"
 }) }}

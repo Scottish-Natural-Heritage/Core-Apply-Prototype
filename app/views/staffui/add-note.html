@@ -135,11 +135,19 @@ href: "javascript:window.history.back()"
 }) }}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
-{{ govukButton({
-  text: "Cancel",
-  classes: "govuk-button--secondary",
-  href: "/staffui/unassigned"
-}) }}
+<style>
+  .govuk-button.govuk-button--secondary {
+    text-decoration: none;
+  }
+  </style>
+  
+  <a class="govuk-button govuk-button--secondary" onclick="goBack()">Cancel</a>
+  
+  <script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
 
 </form>
 
