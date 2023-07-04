@@ -237,7 +237,7 @@ assignButton.addEventListener('click', function() {
         text: "Kevin G"
       },
       {
-        html: "The licence holder called to update the site address address to"
+        html: "The licence holder called to update the site address address to, " + data['siteaddressline1-1'] | default("9 Cedar Lane") + ", " + data['siteaddressline2-1'] | default("Maplewood")  + ", " + data['siteaddressline3-1'] | default("Edinburgh") + ", " + data['siteaddressline4-1'] | default("Lothian") + ", " + data['siteaddressline5-1'] | default("EH159GH")
       }
     ],
     [
@@ -248,7 +248,7 @@ assignButton.addEventListener('click', function() {
         text: "Kevin G"
       },
       {
-        html: data['add-note'] | default("The applicants phone number was updated incase we need to contact them.")
+        html: data['add-note'] | default("The applicant's phone number was updated in case we need to contact them.")
       }
     ]
   ]

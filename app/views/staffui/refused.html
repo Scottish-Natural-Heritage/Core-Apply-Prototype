@@ -115,7 +115,7 @@ href: "javascript:window.history.back()"
 
 {{ govukInsetText({
   html: "<h3>Application refused by Kevin G on 29 June 2023</h3>
-  <br><p>The licence holder had not completed the preventative measures requested as part of the licence last year.</p>"
+  <p>The licence holder had not completed the preventative measures requested as part of the licence last year.</p>"
 }) }}
 
         <h2 class="govuk-heading-m">
@@ -201,7 +201,7 @@ href: "javascript:window.history.back()"
         text: "Kevin G"
       },
       {
-        html: "The licence holder called to update the site address address to"
+        html: data['add-note'] | default("The applicants phone number was updated incase we need to contact them.")
       }
     ]
   ]
