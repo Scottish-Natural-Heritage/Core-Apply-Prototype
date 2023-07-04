@@ -109,23 +109,113 @@ href: "javascript:window.history.back()"
 
       <div class="govuk-grid-column-two-thirds">
 
+        <form method="post" action="/staffui/decision">
+
         <h2 class="govuk-heading-l">
           Test 3: Species and activities
         </h2>
 
-{% from "govuk/components/button/macro.njk" import govukButton %}
+        {{ govukTable({
+          caption: "Review the licence activities",
+          captionClasses: "govuk-table__caption--m",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Species"
+            },
+            {
+              text: "Activity"
+            },
+            {
+              text: "Applied for"
+            },
+            {
+              text: "Approved"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Pink-footed goose"
+              },
+              {
+                text: "Kill"
+              },
+              {
+                text: "4"
+              },
+              {
+                text: "4"
+              }
+            ]
+          ]
+        }) }}
 
-{{ govukButton({
-  text: "Save and continue",
-  classes: "govuk-button",
-  href: "/staffui/decision"
-}) }}
+        {{ govukButton({
+          text: "Change activities",
+          classes: "govuk-button",
+          href: "#"
+        }) }}
+        {{ govukButton({
+          text: "Add species",
+          classes: "govuk-button--secondary",
+          href: "#"
+        }) }}
 
-{{ govukButton({
-  text: "Exit",
-  classes: "govuk-button--secondary",
-  href: "/staffui/assigned-test2-passed"
-}) }}
+        {{ govukTextarea({
+          name: "test2-detail",
+          id: "test2-detail",
+          label: {
+            text: "Your assessment",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          hint: {
+            html: "This will appear in the Statement of Reason section of the licence:"
+          }
+        }) }}
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "test3-pass",
+          name: "test3-pass",
+          fieldset: {
+            legend: {
+              text: "Does the application pass test 3?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: test3Pass === true
+            },
+            {
+              value: "no",
+              text: "No",
+              checked: test3Pass === false
+            }
+          ]
+        }) }}
+      
+        
+        
+                  {% from "govuk/components/button/macro.njk" import govukButton %}
+                  
+                  {{ govukButton({
+                    text: "Save and continue",
+                    classes: "govuk-button"
+                  }) }}
+        
+                  {{ govukButton({
+                    text: "Exit",
+                    classes: "govuk-button--secondary",
+                    href: "/staffui/assigned-test2-passed"
+                  }) }}
+        
+        </form>
 
 
         </div>

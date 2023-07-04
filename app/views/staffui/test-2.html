@@ -113,19 +113,162 @@ href: "javascript:window.history.back()"
           Test 2: Preventative measures
         </h2>
 
-{% from "govuk/components/button/macro.njk" import govukButton %}
 
-{{ govukButton({
-  text: "Save and continue",
-  classes: "govuk-button",
-  href: "/staffui/test-3"
+        <h2 class="govuk-heading-m">
+          What have you tried?
+        </h2>
+        
+        <p>
+          Human disturbance <br>
+          Scaring devices - static or automatic
+        </p>
+        
+        <h2 class="govuk-heading-m">
+          More detail
+        </h2>
+        
+        <p>
+          Shouted
+        </p>
+        
+        <h2 class="govuk-heading-m">
+          What do you intend to try?
+        </h2>
+        
+        <p>
+          Hawking by birds of prey
+        </p>
+        
+        <h2 class="govuk-heading-m">
+          Methods you don't intend to try
+        </h2>
+        
+        <p>
+          Physically preventing nesting <br>
+          Removing old nests and potential nesting material<br>
+          Removing or preventing access to attractants such as litter and food waste<br>
+          Disturbance by dogs
+        </p>
+        
+        <h2 class="govuk-heading-m">
+          Explain why below
+        </h2>
+        
+        <p>
+          Can't afford these
+        </p>
+        
+        <div class="section-divider"></div>
+        
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+        <form method="post" action="/staffui/test-3">
+
+          {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "continue-to-try",
+  classes: "govuk-checkboxes--small",
+  fieldset: {
+    legend: {
+      text: "Methods you want the applicant to continue to try?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "Hawking by birds of prey",
+      text: "Hawking by birds of prey"
+    }
+  ]
 }) }}
 
-{{ govukButton({
-  text: "Exit",
-  classes: "govuk-button--secondary",
-  href: "/staffui/assigned-test1-passed"
+{{ govukCheckboxes({
+  name: "to-try",
+  classes: "govuk-checkboxes--small",
+  fieldset: {
+    legend: {
+      text: "Methods you want the applicant to try?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "Physically preventing nesting",
+      text: "Physically preventing nesting"
+    },
+    {
+      value: "Removing old nests and potential nesting material",
+      text: "Removing old nests and potential nesting material"
+    },
+    {
+      value: "Removing or preventing access to attractants such as litter and food waste",
+      text: "Removing or preventing access to attractants such as litter and food waste"
+    },
+    {
+      value: "Disturbance by dogs",
+      text: "Disturbance by dogs"
+    }
+  ]
 }) }}
+        
+        {{ govukTextarea({
+          name: "test2-detail",
+          id: "test2-detail",
+          label: {
+            text: "Your assessment",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          hint: {
+            html: "This will appear in the Statement of Reason section of the licence:"
+          }
+        }) }}
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "test2-pass",
+          name: "test2-pass",
+          fieldset: {
+            legend: {
+              text: "Does the application pass test 2?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: test2Pass === true
+            },
+            {
+              value: "no",
+              text: "No",
+              checked: test2Pass === false
+            }
+          ]
+        }) }}
+      
+        
+        
+                  {% from "govuk/components/button/macro.njk" import govukButton %}
+                  
+                  {{ govukButton({
+                    text: "Save and continue",
+                    classes: "govuk-button"
+                  }) }}
+        
+                  {{ govukButton({
+                    text: "Exit",
+                    classes: "govuk-button--secondary",
+                    href: "/staffui/assigned-test1-passed"
+                  }) }}
+        
+        </form>
+
 
 
 
