@@ -7,7 +7,7 @@
 {% block beforeContent %}
 {{ govukBackLink({
 text: "Back",
-href: "/staffui/assigned"
+href: "/staffui/assigned-test2-passed"
 }) }}
 {% endblock %}
 
@@ -109,149 +109,45 @@ href: "/staffui/assigned"
 
       <div class="govuk-grid-column-two-thirds">
 
+        <form method="post" action="/staffui/test-3-changed">
+
         <h1 class="govuk-heading-l">
-          Test 1: Prevent serious damage issue
+          Test 3: Species and activities
         </h1>
 
-        {% from "govuk/components/table/macro.njk" import govukTable %}
+        <h2 class="govuk-heading-m">
+          Licenced activities for Pink-footed goose
+        </h2>
 
-{{ govukTable({
-  caption: "Licenced activities",
-  captionClasses: "govuk-table__caption--m",
-  firstCellIsHeader: false,
-  head: [
-    {
-      text: "Species"
-    },
-    {
-      text: "Activity"
-    },
-    {
-      text: "Applied for"
-    }
-  ],
-  rows: [
-    [
-      {
-        text: "Pink-footed goose"
-      },
-      {
-        text: "Kill"
-      },
-      {
-        text: "4"
-      }
-    ]
-  ]
-}) }}
 
-<h2 class="govuk-heading-m">
-  What type of site are you applying for?
-</h2>
+        {{ govukInput({
+          label: {
+            text: "How many adults will you permit the applicant to kill?"
+          },
+          classes: "govuk-input--width-4",
+          id: "pink-goose-activities",
+          name: "pink-goose-activities",
+          value: data['pink-goose-activities'] | default("5")
+        }) }}
 
-<p>
-  Commercial <br>
-  Retail
-</p>
+      
+        
+        
+                  {% from "govuk/components/button/macro.njk" import govukButton %}
+                  
+                  {{ govukButton({
+                    text: "Save and continue",
+                    classes: "govuk-button"
+                  }) }}
+        
+                  {{ govukButton({
+                    text: "Exit",
+                    classes: "govuk-button--secondary",
+                    href: "/staffui/test-3"
+                  }) }}
+        
+        </form>
 
-<h2 class="govuk-heading-m">
-  What is the prevent serious damage issue?
-</h2>
-
-<p>
-  Build-up of nesting material in gas flues, air-conditioning units, active chimney pots or drainage systems
-</p>
-
-<h2 class="govuk-heading-m">
-  When the issues occur
-</h2>
-
-<p>
-  Early morning
-</p>
-
-<h2 class="govuk-heading-m">
-  Who is being affected?
-</h2>
-
-<p>
-  Staff
-</p>
-
-<h2 class="govuk-heading-m">
-  How are they being affected?
-</h2>
-
-<p>
-  Frightened
-</p>
-
-<h2 class="govuk-heading-m">
-  Other information
-</h2>
-
-<p>
-  Outside front door
-</p>
-
-<div class="section-divider"></div>
-
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
-
-{{ govukTextarea({
-  name: "test1-detail",
-  id: "test1-detail",
-  label: {
-    text: "Your assessment",
-    classes: "govuk-label--l",
-    isPageHeading: true
-  },
-  hint: {
-    text: "Sum up the issues and who is being affected. This will appear in the Statement of Reason section of the licence."
-  }
-}) }}
-
-<form method="post" action="/staffui/test-2">
-
-  {{ govukRadios({
-    classes: "govuk-radios--inline",
-    idPrefix: "test1-pass",
-    name: "test1-pass",
-    fieldset: {
-      legend: {
-        text: "Does the application pass test 1?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    items: [
-      {
-        value: "yes",
-        text: "Yes",
-        checked: test1Pass === true
-      },
-      {
-        value: "no",
-        text: "No",
-        checked: test1Pass === false
-      }
-    ]
-  }) }}
-
-          {% from "govuk/components/button/macro.njk" import govukButton %}
-          
-          {{ govukButton({
-            text: "Save and continue",
-            classes: "govuk-button"
-          }) }}
-
-          {{ govukButton({
-            text: "Exit",
-            classes: "govuk-button--secondary",
-            href: "/staffui/assigned"
-          }) }}
-
-</form>
 
         </div>
       </div>

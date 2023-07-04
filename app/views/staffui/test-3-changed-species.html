@@ -7,7 +7,7 @@
 {% block beforeContent %}
 {{ govukBackLink({
 text: "Back",
-href: "/staffui/assigned-test1-passed"
+href: "/staffui/assigned-test2-passed"
 }) }}
 {% endblock %}
 
@@ -109,111 +109,59 @@ href: "/staffui/assigned-test1-passed"
 
       <div class="govuk-grid-column-two-thirds">
 
+        <form method="post" action="/staffui/decision">
+
         <h2 class="govuk-heading-l">
-          Test 2: Preventative measures
+          Test 3: Species and activities
         </h2>
 
+        {{ govukTable({
+          caption: "Review the licence activities",
+          captionClasses: "govuk-table__caption--m",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Species"
+            },
+            {
+              text: "Activity"
+            },
+            {
+              text: "Applied for"
+            },
+            {
+              text: "Approved"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Pink-footed goose"
+              },
+              {
+                text: "Kill"
+              },
+              {
+                text: "4"
+              },
+              {
+                html: data['pink-goose-activities'] | default("5")
+              }
+            ]
+          ]
+        }) }}
 
-        <h2 class="govuk-heading-m">
-          What have you tried?
-        </h2>
-        
-        <p>
-          Human disturbance <br>
-          Scaring devices - static or automatic
-        </p>
-        
-        <h2 class="govuk-heading-m">
-          More detail
-        </h2>
-        
-        <p>
-          Shouted
-        </p>
-        
-        <h2 class="govuk-heading-m">
-          What do you intend to try?
-        </h2>
-        
-        <p>
-          Hawking by birds of prey
-        </p>
-        
-        <h2 class="govuk-heading-m">
-          Methods you don't intend to try
-        </h2>
-        
-        <p>
-          Physically preventing nesting <br>
-          Removing old nests and potential nesting material<br>
-          Removing or preventing access to attractants such as litter and food waste<br>
-          Disturbance by dogs
-        </p>
-        
-        <h2 class="govuk-heading-m">
-          Explain why below
-        </h2>
-        
-        <p>
-          Can't afford these
-        </p>
-        
-        <div class="section-divider"></div>
-        
-        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+        {{ govukButton({
+          text: "Change licenced activities",
+          classes: "govuk-button",
+          href: "/staffui/test-3-change"
+        }) }}
+        {{ govukButton({
+          text: "Add species",
+          classes: "govuk-button--secondary",
+          href: "test-3-change-species"
+        }) }}
 
-        <form method="post" action="/staffui/test-3">
-
-          {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-
-{{ govukCheckboxes({
-  name: "continue-to-try",
-  classes: "govuk-checkboxes--small",
-  fieldset: {
-    legend: {
-      text: "Methods you want the applicant to continue to try?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  items: [
-    {
-      value: "Hawking by birds of prey",
-      text: "Hawking by birds of prey"
-    }
-  ]
-}) }}
-
-{{ govukCheckboxes({
-  name: "to-try",
-  classes: "govuk-checkboxes--small",
-  fieldset: {
-    legend: {
-      text: "Methods you want the applicant to try?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  items: [
-    {
-      value: "Physically preventing nesting",
-      text: "Physically preventing nesting"
-    },
-    {
-      value: "Removing old nests and potential nesting material",
-      text: "Removing old nests and potential nesting material"
-    },
-    {
-      value: "Removing or preventing access to attractants such as litter and food waste",
-      text: "Removing or preventing access to attractants such as litter and food waste"
-    },
-    {
-      value: "Disturbance by dogs",
-      text: "Disturbance by dogs"
-    }
-  ]
-}) }}
-        
         {{ govukTextarea({
           name: "test2-detail",
           id: "test2-detail",
@@ -229,11 +177,11 @@ href: "/staffui/assigned-test1-passed"
 
         {{ govukRadios({
           classes: "govuk-radios--inline",
-          idPrefix: "test2-pass",
-          name: "test2-pass",
+          idPrefix: "test3-pass",
+          name: "test3-pass",
           fieldset: {
             legend: {
-              text: "Does the application pass test 2?",
+              text: "Does the application pass test 3?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--m"
             }
@@ -242,12 +190,12 @@ href: "/staffui/assigned-test1-passed"
             {
               value: "yes",
               text: "Yes",
-              checked: test2Pass === true
+              checked: test3Pass === true
             },
             {
               value: "no",
               text: "No",
-              checked: test2Pass === false
+              checked: test3Pass === false
             }
           ]
         }) }}
@@ -264,12 +212,10 @@ href: "/staffui/assigned-test1-passed"
                   {{ govukButton({
                     text: "Exit",
                     classes: "govuk-button--secondary",
-                    href: "/staffui/assigned-test1-passed"
+                    href: "/staffui/assigned-test2-passed"
                   }) }}
         
         </form>
-
-
 
 
         </div>
