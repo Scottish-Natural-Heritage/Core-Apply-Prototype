@@ -1,0 +1,349 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .govuk-grid-column-one-third {
+    background-color: #f0f0f080; /* Grey background color */
+    padding: 20px; /* Add padding for better visibility */
+  }
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Prevent serious damage licence for Geese
+    </h1>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <a href="#">Geese dashboard (SuperSet login required)</a><br>
+    <a href="#">Geese H&S Licence Guidance</a><br>
+    <a href="#">Management Information</a><br>
+  </div>
+</div>
+
+<br>
+<div class="section-divider"></div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third applicant-panel">
+    
+
+    <p>
+      <strong>Assigned to:</strong> Kevin G
+    </p>
+
+    <p>
+      <strong>Status:</strong> Assigned
+    </p>
+
+  
+
+    <style>
+      .section-divider {
+        border-top: 1px solid #ccc;
+        margin-top: 0em;
+        margin-bottom: 1.5em;
+      }
+    </style>
+
+<div class="section-divider"></div>
+
+<h2 class="govuk-heading-m">
+  Reference number
+</h2>
+
+<p class="govuk-body">NS-GSD-05446</p>
+
+    <h2 class="govuk-heading-m">
+      Licence holder
+    </h2>
+
+    <p class="govuk-body">
+      {{ data['lhname1'] | default("Noah Martinez") }}<br>
+      {{ data['lhorganisation1'] | default("Martinez Ltd") }}<br>
+      {{ data['lhtelephone1'] | default("07899 111422") }}<br>
+    {{ data['lhemail1'] | default("Noah@Martinez.com") }}</p>
+
+
+
+      <h2 class="govuk-heading-m">
+        Applicant
+      </h2>
+      <p class="govuk-body">
+        <p class="govuk-body">
+          {{ data['laname1'] | default("Bill Martinez") }}<br>
+          {{ data['laorganisation1'] | default("Martinez Ltd") }}<br>
+          {{ data['latelephone1'] | default("07843 763518") }}<br>
+          {{ data['laemail1'] | default("Bill@Martinez.com") }}</p>
+
+          <h2 class="govuk-heading-m">
+            Site address
+          </h2>
+          <p class="govuk-body">
+            <p class="govuk-body">
+              {{ data['siteaddressline1-1'] | default("9 Cedar Lane") }}<br>
+              {{ data['siteaddressline2-1'] | default("Maplewood") }}<br>
+              {{ data['siteaddressline3-1'] | default("Edinburgh") }}<br>
+              {{ data['siteaddressline4-1'] | default("Lothian") }}<br>
+              {{ data['siteaddressline5-1'] | default("EH159GH") }}<br>
+
+      </div>
+
+
+      <div class="govuk-grid-column-two-thirds">
+
+<form method="post" action="/staffui/issued">
+
+        <h2 class="govuk-heading-l">
+          Edit application details
+        </h2>
+
+        <h2 class="govuk-heading-m">
+          Licence holder details
+        </h2>
+
+        {{ govukInput({
+          label: {
+            text: 'Full name'
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "lhname1",
+          name: "lhname1",
+          value: data['lhname1'] | default("Noah Martinez")
+        }) }}
+      
+        {{ govukInput({
+          label: {
+            text: 'Organisation'
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "lhorganisation1",
+          name: "lhorganisation1",
+          value: data['lhorganisation1'] | default("Martinez Ltd")
+        }) }}
+      
+        {{ govukInput({
+          label: {
+            text: "Telephone number"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "lhtelephone1",
+          name: "lhtelephone1",
+          value: data['lhtelephone1'] | default("07899 111422")
+        }) }}
+      
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "lhemail1",
+          name: "lhemail1",
+          value: data['lhemail1'] | default("Noah@Martinez.com")
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: 'Building and street'
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "lhaddress-line-1",
+          name: "lhaddress-line-1",
+          value: data['lhaddress-line-1'] | default("9 Cedar Lane")
+        }) }}
+      
+        {{ govukInput({
+          label: {
+            text: ''
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "lhaddress-line-2",
+          name: "lhaddress-line-2",
+          value: data['lhaddress-line-2'] | default("Maplewood")
+        }) }}
+      
+        {{ govukInput({
+          label: {
+            text: "Town or city"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "lhaddress-town",
+          name: "lhaddress-town",
+          value: data['lhaddress-town'] | default("Edinburgh")
+        }) }}
+      
+        {{ govukInput({
+          label: {
+            text: "County"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "lhaddress-county",
+          name: "lhaddress-county",
+          value: data['lhaddress-county'] | default("Lothian")
+        }) }}
+      
+        {{ govukInput({
+          label: {
+            text: "Postcode"
+          },
+          classes: "govuk-input--width-10",
+          id: "lhaddress-postcode",
+          name: "lhaddress-postcode",
+          value: data['lhaddress-postcode'] | default("EH159GH")
+        }) }}
+
+        <div class="section-divider"></div>
+
+
+        <h2 class="govuk-heading-m">
+          Applicant details
+        </h2>
+
+        {{ govukInput({
+          label: {
+            text: 'Full name'
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "laname1",
+          name: "laname1",
+          value: data['laname1'] | default("Bill Martinez")
+        }) }}
+      
+        {{ govukInput({
+          label: {
+            text: 'Organisation'
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "laorganisation1",
+          name: "laorganisation1",
+          value: data['laorganisation1'] | default("Martinez Ltd")
+        }) }}
+      
+        {{ govukInput({
+          label: {
+            text: "Telephone number"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "latelephone1",
+          name: "latelephone1",
+          value: data['latelephone1'] | default("07843 763518")
+        }) }}
+      
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "laemail1",
+          name: "laemail1",
+          value: data['laemail1'] | default("Bill@Martinez.com")
+        }) }}
+           
+
+        <div class="section-divider"></div>
+
+
+        <h2 class="govuk-heading-m">
+          Site details
+        </h2>
+
+        {{ govukInput({
+          label: {
+            text: 'Building and street'
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "siteaddressline1-1",
+          name: "siteaddressline1-1",
+          value: data['siteaddressline1-1'] | default("9 Cedar Lane")
+        }) }}
+      
+        {{ govukInput({
+          label: {
+            text: ''
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "siteaddressline2-1",
+          name: "siteaddressline2-1",
+          value: data['siteaddressline2-1'] | default("Maplewood")
+        }) }}
+      
+        {{ govukInput({
+          label: {
+            text: "Town or city"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "siteaddressline3-1",
+          name: "siteaddressline3-1",
+          value: data['siteaddressline3-1'] | default("Edinburgh")
+        }) }}
+      
+        {{ govukInput({
+          label: {
+            text: "County"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "siteaddressline4-1",
+          name: "siteaddressline4-1",
+          value: data['siteaddressline4-1'] | default("Lothian")
+        }) }}
+      
+        {{ govukInput({
+          label: {
+            text: "Postcode"
+          },
+          classes: "govuk-input--width-10",
+          id: "siteaddressline5-1",
+          name: "siteaddressline5-1",
+          value: data['siteaddressline5-1'] | default("EH159GH")
+        }) }}
+
+
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Save",
+  classes: "govuk-button"
+
+}) }}
+
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+
+<style>
+  .govuk-button.govuk-button--secondary {
+    text-decoration: none;
+  }
+  </style>
+  
+  <a class="govuk-button govuk-button--secondary" onclick="goBack()">Cancel</a>
+  
+  <script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
+
+</form>
+
+
+        </div>
+      </div>
+
+      {% endblock %}

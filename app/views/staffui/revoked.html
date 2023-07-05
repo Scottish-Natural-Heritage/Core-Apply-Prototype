@@ -1,0 +1,212 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+text: "Back",
+href: "/StaffUIindex"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .govuk-grid-column-one-third {
+    background-color: #f0f0f080; /* Grey background color */
+    padding: 20px; /* Add padding for better visibility */
+  }
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Prevent serious damage licence for Geese
+    </h1>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <a href="#">Geese dashboard (SuperSet login required)</a><br>
+    <a href="#">Geese H&S Licence Guidance</a><br>
+    <a href="#">Management Information</a><br>
+  </div>
+</div>
+
+<br>
+<div class="section-divider"></div>
+  
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third applicant-panel">
+
+    <p>
+      <strong>Status:</strong> Revoked
+    </p>
+
+
+
+    <style>
+      .section-divider {
+        border-top: 1px solid #ccc;
+        margin-top: 0em;
+        margin-bottom: 1.5em;
+      }
+    </style>
+
+<div class="section-divider"></div>
+
+<h2 class="govuk-heading-m">
+  Licence number
+</h2>
+
+<p class="govuk-body">NS-GSD-05446</p>
+
+    <h2 class="govuk-heading-m">
+      Licence holder
+    </h2>
+
+    <p class="govuk-body">
+      {{ data['lhname1'] | default("Noah Martinez") }}<br>
+      {{ data['lhorganisation1'] | default("Martinez Ltd") }}<br>
+      {{ data['lhtelephone1'] | default("07899 111422") }}<br>
+    {{ data['lhemail1'] | default("Noah@Martinez.com") }}</p>
+
+
+
+      <h2 class="govuk-heading-m">
+        Applicant
+      </h2>
+      <p class="govuk-body">
+        <p class="govuk-body">
+          {{ data['laname1'] | default("Bill Martinez") }}<br>
+          {{ data['laorganisation1'] | default("Martinez Ltd") }}<br>
+          {{ data['latelephone1'] | default("07843 763518") }}<br>
+          {{ data['laemail1'] | default("Bill@Martinez.com") }}</p>
+
+          <h2 class="govuk-heading-m">
+            Site address
+          </h2>
+          <p class="govuk-body">
+            <p class="govuk-body">
+              {{ data['siteaddressline1-1'] | default("9 Cedar Lane") }}<br>
+              {{ data['siteaddressline2-1'] | default("Maplewood") }}<br>
+              {{ data['siteaddressline3-1'] | default("Edinburgh") }}<br>
+              {{ data['siteaddressline4-1'] | default("Lothian") }}<br>
+              {{ data['siteaddressline5-1'] | default("EH159GH") }}<br>
+              </p>
+
+        <a href="#" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Edit details
+        </a>
+
+      </div>
+
+
+      <div class="govuk-grid-column-two-thirds">
+
+        <div class="govuk-inset-text">
+          <h2 class="govuk-heading-s">
+            Application revoked by Kevin G on 24 June 2023
+          </h2>
+          <p>
+          {{ data['revoke-details'] | default("The application was revoked as it was issued twice.") }}
+          </p>
+      </div>
+
+          {% from "govuk/components/table/macro.njk" import govukTable %}
+          {{ govukTable({
+            caption: "",
+            captionClasses: "govuk-table__caption--m",
+            firstCellIsHeader: false,
+            head: [
+              {
+                text: "Date"
+              },
+              {
+                text: "Update"
+              },
+              {
+                text: "Officer"
+              }
+            ],
+            rows: [
+            [
+            {
+              text: "24/06/2023"
+            },
+            {
+              html: 'Licence revoked'
+            },
+            {
+              html: "Kevin G"
+            }
+          ],[
+                {
+                  text: "23/06/2023"
+                },
+                {
+                  html: '<a href="#">Licence issued</a>'
+                },
+                {
+                  html: "Kevin G"
+                }
+              ],
+              [
+                {
+                  text: "18/06/2023"
+                },
+                {
+                  html: '<a href="#">Application received</a>'
+                },
+                {
+                  html: ""
+                }
+              ]
+            ]
+          }) }}
+
+{{ govukTable({
+  caption: "Licensing officer notes",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Date"
+    },
+    {
+      text: "Officer"
+    },
+    {
+      text: "Note"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "22/06/2023"
+      },
+      {
+        text: "Kevin G"
+      },
+      {
+        html: "The licence holder called to update the site address address to, " + data['siteaddressline1-1'] | default("9 Cedar Lane") + ", " + data['siteaddressline2-1'] | default("Maplewood")  + ", " + data['siteaddressline3-1'] | default("Edinburgh") + ", " + data['siteaddressline4-1'] | default("Lothian") + ", " + data['siteaddressline5-1'] | default("EH159GH")
+      }
+    ]
+  ]
+}) }}
+
+          {{ govukButton({
+            href: "/staffui/add-note",
+            text: "Add a note",
+            classes: "govuk-button--secondary"
+          }) }}
+
+
+
+        </div>
+      </div>
+
+      {% endblock %}
