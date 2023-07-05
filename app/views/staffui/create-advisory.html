@@ -7,7 +7,7 @@
 {% block beforeContent %}
 {{ govukBackLink({
 text: "Back",
-href: "/staffui/assigned-test2-passed"
+href: "javascript:window.history.back()"
 }) }}
 {% endblock %}
 
@@ -109,97 +109,43 @@ href: "/staffui/assigned-test2-passed"
 
       <div class="govuk-grid-column-two-thirds">
 
-        <form method="post" action="/staffui/decision">
+        <form method="post" action="/staffui/create-preview">
 
         <h2 class="govuk-heading-l">
-          Test 3: Species and activities
+          Create a licence
         </h2>
 
-        {{ govukTable({
-          caption: "Review the licence activities",
-          captionClasses: "govuk-table__caption--m",
-          firstCellIsHeader: false,
-          head: [
-            {
-              text: "Species"
-            },
-            {
-              text: "Activity"
-            },
-            {
-              text: "Applied for"
-            },
-            {
-              text: "Approved"
-            }
-          ],
-          rows: [
-            [
-              {
-                text: "Pink-footed goose"
-              },
-              {
-                text: "Kill"
-              },
-              {
-                text: "4"
-              },
-              {
-                text: "4"
-              }
-            ]
-          ]
-        }) }}
+        <h2 class="govuk-heading-m">
+          Include extra advisory notes
+        </h2>
 
-        {{ govukButton({
-          text: "Change licenced activities",
-          classes: "govuk-button",
-          href: "/staffui/test-3-change"
-        }) }}
-        {{ govukButton({
-          text: "Add species",
-          classes: "govuk-button--secondary",
-          href: "test-3-change-species"
-        }) }}
-
-        {{ govukTextarea({
-          name: "test2-detail",
-          id: "test2-detail",
-          label: {
-            text: "Your assessment",
-            classes: "govuk-label--l",
-            isPageHeading: true
-          },
-          hint: {
-            html: "This will appear in the Statement of Reason section of the licence"
-          }
-        }) }}
-
-        {{ govukRadios({
-          classes: "govuk-radios--inline",
-          idPrefix: "test3-pass",
-          name: "test3-pass",
+        {{ govukCheckboxes({
+          name: "to-try",
+          classes: "govuk-checkboxes--small",
           fieldset: {
             legend: {
-              text: "Does the application pass test 3?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
+              text: "Methods you want the applicant to try?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
             }
           },
           items: [
             {
-              value: "yes",
-              text: "Yes",
-              checked: test3Pass === true
+              value: "Each rebuild of a nest site is counted as a separate nest.",
+              text: "Each rebuild of a nest site is counted as a separate nest."
             },
             {
-              value: "no",
-              text: "No",
-              checked: test3Pass === false
+              value: "Gull nests that are not in use are not protected. You don't need a licence to clear them and we do not count them in the permitted numbers of this licence.",
+              text: "Gull nests that are not in use are not protected. You don't need a licence to clear them and we do not count them in the permitted numbers of this licence."
+            },
+            {
+              value: "Methods of killing prohibited under section 5 of the Wildlife and Countryside Act 1981 include: automatic weapons and shotguns with a barrel that has an internal diameter at the mule of more than one and three-quarter inches.",
+              text: "Methods of killing prohibited under section 5 of the Wildlife and Countryside Act 1981 include: automatic weapons and shotguns with a barrel that has an internal diameter at the mule of more than one and three-quarter inches."
             }
           ]
         }) }}
-      
+
+       
         
         
                   {% from "govuk/components/button/macro.njk" import govukButton %}

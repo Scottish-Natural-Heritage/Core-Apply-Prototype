@@ -1,0 +1,217 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .govuk-grid-column-one-third {
+    background-color: #f0f0f080; /* Grey background color */
+    padding: 20px; /* Add padding for better visibility */
+  }
+</style>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Prevent serious damage licence for Geese
+    </h1>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <a href="#">Geese dashboard (SuperSet login required)</a><br>
+    <a href="#">Geese H&S Licence Guidance</a><br>
+    <a href="#">Management Information</a><br>
+  </div>
+</div>
+
+<br>
+<div class="section-divider"></div>
+  
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third applicant-panel">
+    
+
+    <p>
+      <strong>Assigned to:</strong> Kevin G
+    </p>
+
+    <p>
+      <strong>Status:</strong> Assigned
+    </p>
+
+  
+
+    <style>
+      .section-divider {
+        border-top: 1px solid #ccc;
+        margin-top: 0em;
+        margin-bottom: 1.5em;
+      }
+    </style>
+
+<div class="section-divider"></div>
+
+<h2 class="govuk-heading-m">
+  Reference number
+</h2>
+
+<p class="govuk-body">NS-GSD-05446</p>
+
+    <h2 class="govuk-heading-m">
+      Licence holder
+    </h2>
+
+    <p class="govuk-body">
+      {{ data['lhname1'] | default("Noah Martinez") }}<br>
+      {{ data['lhorganisation1'] | default("Martinez Ltd") }}<br>
+      {{ data['lhtelephone1'] | default("0789911122") }}<br>
+    {{ data['lhemail1'] | default("Noah@Martinez.com") }}</p>
+
+
+
+      <h2 class="govuk-heading-m">
+        Applicant
+      </h2>
+      <p class="govuk-body">
+        <p class="govuk-body">
+          {{ data['laname1'] | default("Bill Martinez") }}<br>
+          {{ data['laorganisation1'] | default("Martinez Ltd") }}<br>
+          {{ data['latelephone1'] | default("07843 763518") }}<br>
+          {{ data['laemail1'] | default("Bill@Martinez.com") }}</p>
+
+          <h2 class="govuk-heading-m">
+            Site address
+          </h2>
+          <p class="govuk-body">
+            <p class="govuk-body">
+              {{ data['siteaddressline1-1'] | default("9 Cedar Lane") }}<br>
+              {{ data['siteaddressline2-1'] | default("Maplewood") }}<br>
+              {{ data['siteaddressline3-1'] | default("Edinburgh") }}<br>
+              {{ data['siteaddressline4-1'] | default("") }}<br>
+              {{ data['siteaddressline5-1'] | default("EH159GH") }}<br>
+
+      </div>
+
+
+      <div class="govuk-grid-column-two-thirds">
+
+        <form method="post" action="/staffui/create-advisory">
+
+        <h2 class="govuk-heading-l">
+          Create a licence
+        </h2>
+
+        <h2 class="govuk-heading-m">
+          Include extra licence conditions
+        </h2>
+
+        {{ govukCheckboxes({
+          name: "to-try",
+          classes: "govuk-checkboxes--small",
+          fieldset: {
+            legend: {
+              text: "Methods you want the applicant to try?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "You must carry out nest and egg clearance, egg pricking, egg oiling and use of dummy eggs once a fortnight at a minimum, but preferably once a week. You should make particular effort in the early breeding season.",
+              text: "You must carry out nest and egg clearance, egg pricking, egg oiling and use of dummy eggs once a fortnight at a minimum, but preferably once a week. You should make particular effort in the early breeding season."
+            },
+            {
+              value: "You must destroy any eggs before disposing of them. If any eggs are found to be in the process of hatching, these can only be humanely dispatched or taken to a wildlife rehabilitation centre if you have a licence to kill or relocate chicks. If you do not have a licence to kill or relocate chicks, please request an amendment before carrying out any further work by emailing licensing@nature.scot.",
+              text: "You must destroy any eggs before disposing of them. If any eggs are found to be in the process of hatching, these can only be humanely dispatched or taken to a wildlife rehabilitation centre if you have a licence to kill or relocate chicks. If you do not have a licence to kill or relocate chicks, please request an amendment before carrying out any further work by emailing licensing@nature.scot."
+            },
+            {
+              value: "You must use the most humane methods to kill or take any gull chick or adult that will have the least impact.",
+              text: "You must use the most humane methods to kill or take any gull chick or adult that will have the least impact."
+            }
+          ]
+        }) }}
+
+        {{ govukCheckboxes({
+          name: "to-try",
+          classes: "govuk-checkboxes--small",
+          fieldset: {
+            legend: {
+              text: "Recording and reporting requirements",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "You must record the number of nests destroyed as well as the dates on which they were destroyed.",
+              text: "You must record the number of nests destroyed as well as the dates on which they were destroyed."
+            },
+            {
+              value: "You must record the number of nests destroyed as well as the dates on which they were destroyed.",
+              text: "You must record the number of nests destroyed as well as the dates on which they were destroyed."
+            },
+            {
+              value: "You must record the number of nests destroyed as well as the dates on which they were destroyed.",
+              text: "You must record the number of nests destroyed as well as the dates on which they were destroyed."
+            }
+          ]
+        }) }}
+
+        {{ govukCheckboxes({
+          name: "to-try",
+          classes: "govuk-checkboxes--small",
+          fieldset: {
+            legend: {
+              text: "General",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "This licence permits the use of semi-automatic weapons but does not permit the use of any other firearm prohibited by section 5 of the Wildlife and Countryside Act 1981 (see Advisory notes below).",
+              text: "This licence permits the use of semi-automatic weapons but does not permit the use of any other firearm prohibited by section 5 of the Wildlife and Countryside Act 1981 (see Advisory notes below)."
+            },
+            {
+              value: "Some birds may be found to bear leg-rings or other unique marks. You must report details of any such markings and the date and place of shooting/taking to the British Trust for Ornithology. You will find instructions for doing this at http://blx1.bto.org/euring/lang/pages/rings.jsp?country=EN",
+              text: "Some birds may be found to bear leg-rings or other unique marks. You must report details of any such markings and the date and place of shooting/taking to the British Trust for Ornithology. You will find instructions for doing this at http://blx1.bto.org/euring/lang/pages/rings.jsp?country=EN"
+            }
+          ]
+        }) }}
+      
+        
+        
+                  {% from "govuk/components/button/macro.njk" import govukButton %}
+                  
+                  {{ govukButton({
+                    text: "Save and continue",
+                    classes: "govuk-button"
+                  }) }}
+        
+                  {{ govukButton({
+                    text: "Exit",
+                    classes: "govuk-button--secondary",
+                    href: "/staffui/assigned-test2-passed"
+                  }) }}
+        
+        </form>
+
+
+        </div>
+      </div>
+
+      {% endblock %}

@@ -196,6 +196,8 @@ href: "/staffui/assigned"
 
 <div class="section-divider"></div>
 
+<form method="post" action="/staffui/test-2">
+
 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
 {{ govukTextarea({
@@ -210,8 +212,6 @@ href: "/staffui/assigned"
     text: "Sum up the issues and who is being affected. This will appear in the Statement of Reason section of the licence."
   }
 }) }}
-
-<form method="post" action="/staffui/test-2">
 
   {{ govukRadios({
     classes: "govuk-radios--inline",

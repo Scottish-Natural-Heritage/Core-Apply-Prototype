@@ -7,7 +7,7 @@
 {% block beforeContent %}
 {{ govukBackLink({
 text: "Back",
-href: "/staffui/assigned-test2-passed"
+href: "javascript:window.history.back()"
 }) }}
 {% endblock %}
 
@@ -109,103 +109,23 @@ href: "/staffui/assigned-test2-passed"
 
       <div class="govuk-grid-column-two-thirds">
 
-        <form method="post" action="/staffui/decision">
+        <form method="post" action="/staffui/create-preview">
 
-        <h2 class="govuk-heading-l">
-          Test 3: Species and activities
-        </h2>
+        <h1 class="govuk-heading-l">
+          Create a licence
+        </h1>
 
-        {{ govukTable({
-          caption: "Review the licence activities",
-          captionClasses: "govuk-table__caption--m",
-          firstCellIsHeader: false,
-          head: [
-            {
-              text: "Species"
-            },
-            {
-              text: "Activity"
-            },
-            {
-              text: "Applied for"
-            },
-            {
-              text: "Approved"
-            }
-          ],
-          rows: [
-            [
-              {
-                text: "Pink-footed goose"
-              },
-              {
-                text: "Kill"
-              },
-              {
-                text: "4"
-              },
-              {
-                text: "4"
-              }
-            ]
-          ]
-        }) }}
+        <h1 class="govuk-heading-m">
+          Licence preview
+        </h1>
 
-        {{ govukButton({
-          text: "Change licenced activities",
-          classes: "govuk-button",
-          href: "/staffui/test-3-change"
-        }) }}
-        {{ govukButton({
-          text: "Add species",
-          classes: "govuk-button--secondary",
-          href: "test-3-change-species"
-        }) }}
-
-        {{ govukTextarea({
-          name: "test2-detail",
-          id: "test2-detail",
-          label: {
-            text: "Your assessment",
-            classes: "govuk-label--l",
-            isPageHeading: true
-          },
-          hint: {
-            html: "This will appear in the Statement of Reason section of the licence"
-          }
-        }) }}
-
-        {{ govukRadios({
-          classes: "govuk-radios--inline",
-          idPrefix: "test3-pass",
-          name: "test3-pass",
-          fieldset: {
-            legend: {
-              text: "Does the application pass test 3?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "yes",
-              text: "Yes",
-              checked: test3Pass === true
-            },
-            {
-              value: "no",
-              text: "No",
-              checked: test3Pass === false
-            }
-          ]
-        }) }}
-      
+       
         
         
                   {% from "govuk/components/button/macro.njk" import govukButton %}
                   
                   {{ govukButton({
-                    text: "Save and continue",
+                    text: "Send licence",
                     classes: "govuk-button"
                   }) }}
         
