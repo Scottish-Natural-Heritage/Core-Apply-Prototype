@@ -127,7 +127,7 @@ href: "/staffui/assigned-test2-passed"
               text: "Activity"
             },
             {
-              text: "Applied for"
+              text: "How many geese are causing the problem"
             },
             {
               text: "Approved"
@@ -142,13 +142,22 @@ href: "/staffui/assigned-test2-passed"
                 text: "Kill"
               },
               {
-                text: "4"
+                text: "30"
               },
               {
-                text: "4"
+                text: "3"
               }
             ]
           ]
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Number of geese licenced"
+          },
+          id: "num-of-ravens",
+          name: "num-of-ravens",
+          value: data['num-of-ravens']
         }) }}
 
         {{ govukButton({
