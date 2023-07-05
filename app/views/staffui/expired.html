@@ -43,8 +43,18 @@ href: "/StaffUIindex"
   <div class="govuk-grid-column-one-third applicant-panel">
 
     <p>
-      <strong>Status:</strong> Revoked
+      <strong>Status:</strong> Expired
     </p>
+
+    <a href="#" class="govuk-button govuk-button" data-module="govuk-button-assign">
+      Amend
+    </a>
+
+    <br>
+
+    <a href="/staffui/revoke" class="govuk-button govuk-button--secondary" data-module="govuk-button-withdraw">
+      Revoke
+    </a>
 
 
 
@@ -98,7 +108,7 @@ href: "/StaffUIindex"
               {{ data['siteaddressline5-1'] | default("EH159GH") }}<br>
               </p>
 
-        <a href="#" class="govuk-button govuk-button--secondary govuk-button--disabled" data-module="govuk-button">
+        <a href="#" class="govuk-button govuk-button--secondary" data-module="govuk-button">
           Edit details
         </a>
 
@@ -106,15 +116,6 @@ href: "/StaffUIindex"
 
 
       <div class="govuk-grid-column-two-thirds">
-
-        <div class="govuk-inset-text">
-          <h2 class="govuk-heading-s">
-            Application revoked by Kevin G on 24 June 2023
-          </h2>
-          <p>
-          {{ data['revoke-details'] | default("The application was revoked as it was issued twice.") }}
-          </p>
-      </div>
 
           {% from "govuk/components/table/macro.njk" import govukTable %}
           {{ govukTable({
@@ -135,13 +136,13 @@ href: "/StaffUIindex"
             rows: [
             [
             {
-              text: "24/06/2023"
+              text: "24/09/2023"
             },
             {
-              html: 'Licence revoked'
+              html: 'Licence expired'
             },
             {
-              html: "Kevin G"
+              html: ""
             }
           ],
           [

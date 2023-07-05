@@ -34,7 +34,7 @@
   <div class="govuk-grid-column-one-third">
 
     <h1 class="govuk-heading-m">
-      What do we show in this space? Links to GullsHS/SFO/Traps? Deer?<br>something else?
+      
     </h1>
 
   </div>
@@ -293,8 +293,8 @@
   [
       {html: '<a href="/staffui/revoked" class="govuk-link">NS-GSD-05446</a>'},
       {html: 'Revoked'},
-      {text: ''},
-      {text: ''},
+      {html: data['lhname1'] | default("Noah Martinez")},
+      {html: '9 Cedar Lane, Maplewood, Edinburgh, EH15 9GH'},
       {text: '25/05/2023'},
       {text: ''}
   ],
@@ -307,7 +307,7 @@
       {text: ''}
   ],
   [
-      {html: '<a href="#" class="govuk-link">NS-GSD-05446</a>'},
+      {html: '<a href="/staffui/expired" class="govuk-link">NS-GSD-05446</a>'},
       {html: 'Expired'},
       {html: data['lhname1'] | default("Noah Martinez")},
       {html: '9 Cedar Lane, Maplewood, Edinburgh, EH15 9GH'},
