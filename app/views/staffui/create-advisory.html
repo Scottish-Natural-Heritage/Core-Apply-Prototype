@@ -115,18 +115,14 @@ href: "javascript:window.history.back()"
           Create a licence
         </h2>
 
-        <h2 class="govuk-heading-m">
-          Include extra advisory notes
-        </h2>
-
         {{ govukCheckboxes({
           name: "to-try",
           classes: "govuk-checkboxes--small",
           fieldset: {
             legend: {
-              text: "Methods you want the applicant to try?",
+              text: "Include extra advisory notes",
               isPageHeading: false,
-              classes: "govuk-fieldset__legend--s"
+              classes: "govuk-fieldset__legend--m"
             }
           },
           items: [
