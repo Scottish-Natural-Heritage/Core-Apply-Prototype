@@ -127,10 +127,7 @@ href: "/staffui/assigned-test2-passed"
               text: "Activity"
             },
             {
-              text: "How many geese are causing the problem"
-            },
-            {
-              text: "Approved"
+              html: "How many geese are <br> causing the problem"
             }
           ],
           rows: [
@@ -143,9 +140,6 @@ href: "/staffui/assigned-test2-passed"
               },
               {
                 text: "30"
-              },
-              {
-                text: "3"
               }
             ]
           ]
@@ -153,12 +147,16 @@ href: "/staffui/assigned-test2-passed"
 
         {{ govukInput({
           label: {
-            text: "Number of geese licenced"
+            text: "How many pink-footed geese will be licenced",
+            classes: "govuk-label--s",
+            isPageHeading: false
           },
-          id: "num-of-ravens",
-          name: "num-of-ravens",
-          value: data['num-of-ravens']
+          classes: "govuk-input--width-5",
+          id: "pink-footed-geese-licenced",
+          value: data['pink-footed-geese-licenced'],
+          name: "pink-footed-geese-licenced"
         }) }}
+
 
         {{ govukButton({
           text: "Change licenced activities",

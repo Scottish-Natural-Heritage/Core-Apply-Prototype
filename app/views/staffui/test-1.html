@@ -109,16 +109,12 @@ href: "/staffui/assigned"
 
       <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-l">
-          Test 1: Prevent serious damage issue
-        </h1>
-
         {% from "govuk/components/table/macro.njk" import govukTable %}
 
 {{ govukTable({
-  caption: "Licenced activities",
-  captionClasses: "govuk-table__caption--m",
-  firstCellIsHeader: false,
+  caption: "Test 1: Prevent serious damage issue",
+  captionClasses: "govuk-table__caption--l",
+  firstCellIsHeader: true,
   head: [
     {
       text: "Species"
@@ -127,7 +123,7 @@ href: "/staffui/assigned"
       text: "Activity"
     },
     {
-      text: "How many geese are causing the problem"
+      html: "How many geese are <br> causing the problem"
     }
   ],
   rows: [
@@ -146,53 +142,22 @@ href: "/staffui/assigned"
 }) }}
 
 <h2 class="govuk-heading-m">
-  What type of site are you applying for?
+  Provide details of the damage
 </h2>
 
 <p>
-  Commercial <br>
-  Retail
+  The geese have developed a fondness for my prize winning flower beds, nibbling away at the vibrant blooms which I had carefully nurtured.
 </p>
 
 <h2 class="govuk-heading-m">
-  What is the prevent serious damage issue?
+  When is damage occurring or is likely to occur
 </h2>
 
 <p>
-  Build-up of nesting material in gas flues, air-conditioning units, active chimney pots or drainage systems
+  <b>Start month:</b> February <br>
+  <b>End month:</b> July
 </p>
 
-<h2 class="govuk-heading-m">
-  When the issues occur
-</h2>
-
-<p>
-  Early morning
-</p>
-
-<h2 class="govuk-heading-m">
-  Who is being affected?
-</h2>
-
-<p>
-  Staff
-</p>
-
-<h2 class="govuk-heading-m">
-  How are they being affected?
-</h2>
-
-<p>
-  Frightened
-</p>
-
-<h2 class="govuk-heading-m">
-  Other information
-</h2>
-
-<p>
-  Outside front door
-</p>
 
 <div class="section-divider"></div>
 
