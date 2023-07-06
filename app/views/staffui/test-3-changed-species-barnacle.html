@@ -127,7 +127,7 @@ href: "/staffui/assigned-test2-passed"
               text: "Activity"
             },
             {
-              text: "Applied for"
+              html: "How many geese are <br> causing the problem"
             },
             {
               text: "Approved"
@@ -142,7 +142,7 @@ href: "/staffui/assigned-test2-passed"
                 text: "Kill"
               },
               {
-                text: "4"
+                text: "30"
               },
               {
                 html: data['pink-goose-activities'] | default("5")
@@ -165,11 +165,6 @@ href: "/staffui/assigned-test2-passed"
           ]
         }) }}
 
-        {{ govukButton({
-          text: "Change licenced activities",
-          classes: "govuk-button",
-          href: "test-3-change-barnacle"
-        }) }}
         {{ govukButton({
           text: "Add species",
           classes: "govuk-button--secondary",

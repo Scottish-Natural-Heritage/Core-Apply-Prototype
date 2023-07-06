@@ -128,41 +128,36 @@ href: "/staffui/assigned-test2-passed"
             },
             {
               html: "How many geese are <br> causing the problem"
+            },
+            {
+              html: "Approved"
+            },
+            {
+              html: ""
             }
           ],
           rows: [
             [
               {
-                text: "Pink-footed goose"
+                text: "Pink-footed geese"
               },
               {
                 text: "Kill"
               },
               {
                 text: "30"
+              },
+              {
+                text: "0"
+              },
+              {
+                html: '<a href="/staffui/test-3-change">Change</a>'
               }
             ]
           ]
         }) }}
-
-        {{ govukInput({
-          label: {
-            text: "How many pink-footed geese will be licenced",
-            classes: "govuk-label--s",
-            isPageHeading: false
-          },
-          classes: "govuk-input--width-5",
-          id: "pink-footed-geese-licenced",
-          value: data['pink-footed-geese-licenced'],
-          name: "pink-footed-geese-licenced"
-        }) }}
-
-
-        {{ govukButton({
-          text: "Change licenced activities",
-          classes: "govuk-button",
-          href: "/staffui/test-3-change"
-        }) }}
+        
+        
         {{ govukButton({
           text: "Add species",
           classes: "govuk-button--secondary",
