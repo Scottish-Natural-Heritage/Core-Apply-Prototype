@@ -131,6 +131,9 @@ href: "/staffui/assigned-test2-passed"
             },
             {
               text: "Approved"
+            },
+            {
+              text: ""
             }
           ],
           rows: [
@@ -146,6 +149,9 @@ href: "/staffui/assigned-test2-passed"
               },
               {
                 html: data['pink-goose-activities'] | default("5")
+              },
+              {
+                html: '<a href="/staffui/test-3-change-barnacle">Change</a>'
               }
             ],
             [
@@ -160,15 +166,12 @@ href: "/staffui/assigned-test2-passed"
             },
             {
               html: data['barnacle-activities'] | default("5")
+            },
+            {
+              html: ""
             }
           ]
           ]
-        }) }}
-
-        {{ govukButton({
-          text: "Add species",
-          classes: "govuk-button--secondary",
-          href: "test-3-change-species"
         }) }}
 
         {{ govukTextarea({
